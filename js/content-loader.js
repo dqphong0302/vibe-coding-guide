@@ -2,11 +2,8 @@
   'use strict';
 
   const FEATURE_SCRIPTS = [
-    'js/app.js?v=47'
+    'js/app.js?v=48'
   ];
-
-  const loadedModules = new Set();
-  const loadingPromises = new Map();
 
   async function fetchModuleMarkup(moduleId) {
     if (location.protocol === 'file:') {
@@ -19,47 +16,17 @@
     return await response.text();
   }
 
-  async function loadPageModule(moduleId) {
-    if (loadedModules.has(moduleId)) return true;
-    if (loadingPromises.has(moduleId)) return loadingPromises.get(moduleId);
-
-    const promise = (async () => {
-      const placeholder = document.querySelector(`[data-page-module="${moduleId}"]`);
-      if (!placeholder) return true; // Already loaded or removed
-
-      try {
-        const markup = await fetchModuleMarkup(moduleId);
-        const template = document.createElement('template');
-        template.innerHTML = markup.trim();
-        const page = template.content.firstElementChild;
-        if (!page?.classList.contains('ebook-page')) {
-          throw new Error(`${moduleId}: invalid page module`);
-        }
-        placeholder.replaceWith(page);
-        loadedModules.add(moduleId);
-
-        // Re-dispatch content-ready event for dynamically loaded pages
-        window.dispatchEvent(new CustomEvent('page-module-loaded', { detail: { moduleId, element: page } }));
-        return true;
-      } catch (err) {
-        console.error(`Error loading page module ${moduleId}:`, err);
-        if (placeholder?.isConnected) {
-          placeholder.outerHTML = `
-            <article class="ebook-page module-load-error" id="${moduleId}">
-              <p>Không thể tải nội dung ${moduleId}. Vui lòng thử lại.</p>
-            </article>`;
-        }
-        return false;
-      } finally {
-        loadingPromises.delete(moduleId);
-      }
-    })();
-
-    loadingPromises.set(moduleId, promise);
-    return promise;
+  async function loadPageModule(placeholder) {
+    const moduleId = placeholder.dataset.pageModule;
+    const markup = await fetchModuleMarkup(moduleId);
+    const template = document.createElement('template');
+    template.innerHTML = markup.trim();
+    const page = template.content.firstElementChild;
+    if (!page?.classList.contains('ebook-page')) {
+      throw new Error(`${moduleId}: invalid page module`);
+    }
+    placeholder.replaceWith(page);
   }
-
-  window.ensurePageLoaded = loadPageModule;
 
   function loadScript(src) {
     return new Promise((resolve, reject) => {
@@ -76,37 +43,24 @@
       await loadScript('js/page-content.js?v=2');
     }
 
-    // Determine initial target page from hash or default to 'home'
-    const initialHash = (location.hash || '#home').replace(/^#/, '');
-    const initialPlaceholder = document.querySelector(`[data-page-module="${initialHash}"]`);
-    const initialId = initialPlaceholder ? initialHash : 'home';
+    // 1. Load all 17 page module structures
+    const placeholders = [...document.querySelectorAll('[data-page-module]')];
+    const results = await Promise.allSettled(placeholders.map(loadPageModule));
 
-    // 1. Prioritize loading active page immediately
-    await loadPageModule(initialId);
+    results.forEach((result, index) => {
+      if (result.status === 'fulfilled') return;
+      const placeholder = placeholders[index];
+      if (!placeholder.isConnected) return;
+      placeholder.outerHTML = `
+        <article class="ebook-page module-load-error" id="${placeholder.dataset.pageModule}">
+          <p>Không thể tải nội dung này. Vui lòng tải lại trang.</p>
+        </article>`;
+      console.error(result.reason);
+    });
 
-    // 2. Load core feature scripts (app.js)
+    // 2. Initialize application logic (app.js isolates each chapter as individual slide)
     for (const src of FEATURE_SCRIPTS) {
       await loadScript(src);
-    }
-
-    // 3. Progressive idle preloading for remaining pages in background
-    const idlePreload = () => {
-      const remainingPlaceholders = [...document.querySelectorAll('[data-page-module]')];
-      remainingPlaceholders.forEach((el, index) => {
-        const id = el.dataset.pageModule;
-        // Stagger prefetch during browser idle periods
-        setTimeout(() => {
-          if (!loadedModules.has(id)) {
-            loadPageModule(id);
-          }
-        }, 150 * (index + 1));
-      });
-    };
-
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(idlePreload, { timeout: 1200 });
-    } else {
-      setTimeout(idlePreload, 600);
     }
   }
 
