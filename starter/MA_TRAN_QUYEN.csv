@@ -1,0 +1,15 @@
+vai_tro,tai_nguyen,hanh_dong,trang_thai,ket_qua_mong_doi,ghi_log,ghi_chu
+nguoi_nop,ho_so_cua_minh,tao_moi,nhap,CHO_PHEP,CO,Khoi tao ho so ban dau
+nguoi_nop,ho_so_cua_minh,xem_chi_tiet,moi_trang_thai,CHO_PHEP,CO,Xem tien do va ket qua
+nguoi_nop,ho_so_nguoi_khac,xem_chi_tiet,moi_trang_thai,TU_CHOI,CO,Test bao mat truy cap cheo (IDOR)
+nguoi_nop,ho_so_cua_minh,sua_noi_dung,nhap|cho_bo_sung,CHO_PHEP,CO,Chi sua khi chua nop hoac duoc yeu cau
+nguoi_nop,ho_so_cua_minh,sua_noi_dung,dang_tham_dinh|cho_phe_duyet|hoan_tat,TU_CHOI,CO,Khoa sua khi dang trong luong xu ly
+tiep_nhan,ho_so_toan_co_quan,xem_danh_sach,da_nop,CHO_PHEP,CO,Tiep nhan dau vao
+tiep_nhan,ho_so_toan_co_quan,phan_cong_chuyen_vien,da_tiep_nhan,CHO_PHEP,CO,Chuyen ho so cho chuyen vien
+tiep_nhan,ho_so_toan_co_quan,phe_duyet,cho_phe_duyet,TU_CHOI,CO,Van thu khong co tham quyen ky duyet
+chuyen_vien,ho_so_duoc_phan_cong,tham_dinh_ghi_chu,dang_tham_dinh,CHO_PHEP,CO,Ghi y kien tham dinh
+chuyen_vien,ho_so_khong_duoc_giao,sua_noi_dung,dang_tham_dinh,TU_CHOI,CO,Khong can thiep ho so cua nguoi khac
+chuyen_vien,ho_so_duoc_phan_cong,tu_phe_duyet,cho_phe_duyet,TU_CHOI,CO,Ngan chan tu xu ly va tu phe duyet
+lanh_dao,ho_so_cho_duyet,phe_duyet_hoan_tat,cho_phe_duyet,CHO_PHEP,CO,Ky duyet ket qua cuoi cung
+lanh_dao,ho_so_cho_duyet,tu_choi_co_ly_do,cho_phe_duyet,CHO_PHEP,CO,Bat buoc ghi ly do tu choi
+moi_vai_tro,audit_log_he_thong,sua_hoac_xoa,moi_trang_thai,TU_CHOI,CO,Nhat ky kiem toan bat bien tuyet doi

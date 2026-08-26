@@ -1,0 +1,169 @@
+    <article class="ebook-page" id="chapter-8" data-chapter="8">
+      <div class="part-lead-header">
+        <span class="part-tag">PHẦN III · QUY TRÌNH THỰC THI</span>
+        <h2>Quy Trình Xây Dựng Ứng Dụng Từ A Đến Z</h2>
+        <p>Thực hành trọn vẹn quy trình công nghiệp: từ thiết kế giao diện trực quan bằng Google Stitch, thiết kế dữ liệu, phân quyền bảo mật đến đặc tả kỹ thuật và xuất bản ứng dụng lên Production.</p>
+      </div>
+
+      <header class="chapter-head">
+        <div class="chapter-badge-num">08</div>
+        <div class="chapter-head-info">
+          <p class="chapter-eyebrow">CHƯƠNG 08 · PHẦN III <span>· 25 PHÚT ĐỌC</span></p>
+          <h2>Thiết Kế Giao Diện UI/UX Hiện Đại Với Google Stitch</h2>
+          <p class="chapter-subtitle">Giao diện đẹp không phải là ngẫu nhiên — biến ý tưởng thành giao diện sống động với Prompt-to-UI, tối ưu di động và Design System tinh gọn.</p>
+        </div>
+      </header>
+
+      <div class="chapter-goal-box">
+        <b>Mục tiêu chương:</b>
+        <span>Sử dụng Google Stitch để sinh nhanh giao diện từ Prompt; làm chủ bộ biến CSS Design Tokens (màu sắc HSL, khoảng cách); thiết kế co giãn đa thiết bị (Mobile &amp; Desktop); đảm bảo tương phản rõ nét và xử lý đủ 5 trạng thái màn hình.</span>
+      </div>
+
+      <div class="body">
+        <!-- YOUTUBE GUIDELINE: GOOGLE STITCH & THIẾT KẾ UI/UX (ĐẦU NHÓM) -->
+        <div class="video-guideline-box">
+          <div class="video-guideline-header">
+            <span class="video-guideline-title">
+              <span class="video-guideline-badge">Google Stitch UI</span>
+              📺 Video Hướng Dẫn: Thiết Kế UI/UX Cực Nhanh Bằng Prompt-to-UI &amp; Google Stitch
+            </span>
+            <a class="video-guideline-link" href="https://www.youtube.com/watch?v=bJosdenauog" target="_blank" rel="noopener">Mở trên YouTube ↗</a>
+          </div>
+          <div class="video-card-banner">
+            <div class="video-topic">🎬 "Thiết Kế Giao Diện Trực Quan: Biến Prompt Thành Giao Diện Web Chuẩn UI/UX Trong 3 Phút Với Google Stitch"</div>
+            <div class="video-channel-tag"><span>Chuyên đề: Google Stitch &amp; Prompt-to-UI</span> • Video Thực Hành</div>
+            <a class="video-play-btn" href="https://www.youtube.com/watch?v=bJosdenauog" target="_blank" rel="noopener">
+              ▶ Xem Video Trên YouTube
+            </a>
+          </div>
+          <div class="video-guideline-body">
+            <strong>Thực chiến Prompt-to-UI:</strong> Hướng dẫn cách dùng Google Stitch để chuyển đổi văn bản mô tả thành bản vẽ giao diện hoàn chỉnh, xuất mã nguồn HTML/CSS chuẩn Responsive và tinh chỉnh trải nghiệm người dùng không cần code tay.
+            <div class="video-guideline-timestamps">
+              <span class="video-stamp-pill">⏱️ 01:20 — Giới thiệu Google Stitch &amp; Prompt-to-UI</span>
+              <span class="video-stamp-pill">⏱️ 06:10 — Cấu trúc Prompt đặc tả giao diện</span>
+              <span class="video-stamp-pill">⏱️ 12:45 — Xuất mã nguồn HTML/CSS &amp; Ghép vào dự án</span>
+            </div>
+          </div>
+        </div>
+
+        <section>
+          <h3>1. Quy trình "Prompt-to-UI" với Google Stitch: Ra kết quả trong 3 phút</h3>
+          <p>Thay vì phải ngồi viết từng dòng CSS thủ công từ con số không, bạn sử dụng <strong>Google Stitch</strong> (hoặc AI UI Generator của Google Antigravity) để sinh ra giao diện sống động và xuất mã nguồn HTML5/CSS sạch sẽ. Quy trình 3 bước thực chiến:</p>
+          <div class="code">
+            <div><span>QUY TRÌNH 3 BƯỚC TẠO GIAO DIỆN VỚI GOOGLE STITCH</span></div>
+            <pre>1. Viết Prompt Đặc Tả Giao Diện (Design Prompt) theo chuẩn 4 khối: Vai trò + Bố cục khung + Bảng màu HSL + 5 Trạng thái.
+2. Nạp Prompt vào Google Stitch / Antigravity UI Generator để render bản vẽ tương tác trực quan (Live Preview).
+3. Xuất mã nguồn HTML5 ngữ nghĩa &amp; Vanilla CSS co giãn (Responsive), gắn vào workspace dự án.</pre>
+          </div>
+        </section>
+
+        <!-- BỘ PROMPT THỰC CHIẾN 1-CHẠM -->
+        <section class="wide">
+          <div style="background: linear-gradient(135deg, #0f172a, #1e293b); border: 1px solid #334155; border-radius: 14px; padding: 24px; color: #f8fafc; margin-top: 14px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 18px;">
+              <h4 style="margin: 0; font-size: 16px; color: #38bdf8; display: flex; align-items: center; gap: 8px;">
+                <span>✨</span> Thư Viện Prompt UI/UX "Ăn Ngay" Cho Google Stitch &amp; AI Agent
+              </h4>
+              <span style="background: #0284c7; color: #ffffff; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700;">Sao Chép Dùng Liền</span>
+            </div>
+
+            <!-- PROMPT 1 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #334155; border-radius: 10px; padding: 16px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <b style="color: #67e8f9; font-size: 13px;">📋 Mẫu 1: Dashboard Quản Trị Hành Chính (Sạch Sẽ, Chuẩn Y Khoa)</b>
+                <span style="font-size: 10.5px; color: #94a3b8;">Dùng cho Google Stitch / Antigravity</span>
+              </div>
+              <pre style="background: #020617; padding: 12px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 0; border: 1px solid #1e293b;">Hãy thiết kế giao diện Dashboard Quản trị cấp phát giấy xác nhận sinh viên bằng HTML5 và Vanilla CSS chuẩn Google Stitch.
+- Bố cục: 1 thanh Header cố định, 1 Sidebar điều hướng bên trái (có thể thu gọn trên Mobile), khu vực nội dung chính gồm 4 thẻ thống kê KPI (Tổng hồ sơ, Chờ duyệt, Đã cấp, Bị từ chối) và 1 bảng dữ liệu có thanh tìm kiếm/lọc trạng thái.
+- Phong cách: Tối giản, hiện đại, màu chủ đạo Xanh Y Khoa (#0284c7), nền thẻ xám nhạt (#f8fafc), bo góc 10px, đổ bóng nhẹ nhàng.
+- Responsive: Tự động co giãn 1 cột trên điện thoại di động, thanh toán tab mượt mà, không bị cuộn ngang tràn màn hình.</pre>
+            </div>
+
+            <!-- PROMPT 2 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #334155; border-radius: 10px; padding: 16px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <b style="color: #67e8f9; font-size: 13px;">📱 Mẫu 2: Biểu Mẫu Nộp Hồ Sơ Tối Ưu Màn Hình Di Động</b>
+                <span style="font-size: 10.5px; color: #94a3b8;">Dễ chạm, không tràn viền</span>
+              </div>
+              <pre style="background: #020617; padding: 12px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 0; border: 1px solid #1e293b;">Tạo biểu mẫu nộp đề nghị cấp giấy xác nhận dành cho sinh viên chạy mượt mà trên điện thoại di động (Mobile-First).
+- Yêu cầu cấu trúc: Các trường Họ tên, Mã sinh viên, Lớp, Lý do xin cấp, Nơi nhận. Có nút đính kèm ảnh chụp thẻ sinh viên.
+- UX di động: Chiều cao mọi ô nhập và nút bấm rộng rãi, dễ thao tác chạm ngón tay. Nhãn (Label) đặt phía trên ô nhập liệu.
+- Tương tác: Báo lỗi viền đỏ tức thì khi bỏ trống trường bắt buộc; khi nhấn Gửi thì đổi nút thành trạng thái xoay loading và hiện Toast thông báo thành công.</pre>
+            </div>
+
+            <!-- PROMPT 3 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #334155; border-radius: 10px; padding: 16px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <b style="color: #67e8f9; font-size: 13px;">🎭 Mẫu 3: Thiết Kế Đủ 5 Trạng Thái Màn Hình (Tránh Màn Hình Đơ)</b>
+                <span style="font-size: 10.5px; color: #94a3b8;">Empty State &amp; Skeleton Loader</span>
+              </div>
+              <pre style="background: #020617; padding: 12px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 0; border: 1px solid #1e293b;">Hãy bổ sung đầy đủ 5 trạng thái giao diện cho trang danh sách hồ sơ:
+1. Ideal State: Hiển thị bảng danh sách 5 hồ sơ mẫu đầy đủ thông tin.
+2. Empty State: Khi chưa có dữ liệu, hiện hình minh họa tài liệu trống kèm thông báo "Chưa có hồ sơ nào" và nút "+ Tạo hồ sơ đầu tiên".
+3. Loading State: Khung xương Skeleton mờ lướt nhẹ (shimmer animation) trong lúc chờ nạp dữ liệu.
+4. Error State: Banner đỏ nhạt báo lỗi "Không thể kết nối máy chủ" kèm nút "Thử tải lại".
+5. Partial State: Cắt gọn tên quá dài bằng dấu ba chấm (...) và tooltip hiển thị đầy đủ khi hover.</pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>2. Bộ biến CSS Design Tokens đồng nhất giao diện</h3>
+          <p>Yêu cầu AI khai báo toàn bộ hệ thống biến tại <code>:root</code> để giao diện sinh ra từ Google Stitch gắn kết hài hòa với toàn bộ trang:</p>
+          <div class="code">
+            <div><span>CSS DESIGN TOKENS CHUẨN</span></div>
+            <pre>:root {
+  /* Bảng màu phân cấp */
+  --primary: #0284c7;
+  --primary-hover: #0369a1;
+  --accent: #6366f1;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  
+  /* Màu nền &amp; Văn bản */
+  --bg-page: #ffffff;
+  --bg-card: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+
+  /* Typography &amp; Spacing */
+  --font-body: 'Be Vietnam Pro', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 14px rgba(0,0,0,0.08);
+}</pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>3. Tiêu chí kiểm tra trải nghiệm trên điện thoại di động</h3>
+          <ul>
+            <li><strong>Không cuộn ngang (No horizontal scroll):</strong> Kiểm tra trên mọi kích thước màn hình điện thoại không bị tràn mép hay vỡ khung.</li>
+            <li><strong>Khu vực chạm thoải mái:</strong> Mọi nút bấm và liên kết trên màn hình cảm ứng phải đủ rộng rãi để bấm ngón tay không bị trượt.</li>
+            <li><strong>Độ tương phản màu sắc rõ nét:</strong> Chữ màu đậm trên nền sáng giúp người dùng đọc rõ ràng trong mọi điều kiện ánh sáng.</li>
+            <li><strong>Cấu trúc chuẩn HTML5:</strong> Dùng đúng các thẻ ngữ nghĩa <code>&lt;button&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code> để ứng dụng hoạt động ổn định trên mọi trình duyệt.</li>
+          </ul>
+        </section>
+      </div>
+
+      <footer class="chapter-footer-seamless">
+        <div class="chapter-status-line">
+          <span>Chương 08 / 12</span>
+          <button class="chapter-btn-read" data-complete-chapter="8">✓ Đánh dấu đã đọc chương 8</button>
+        </div>
+        <nav class="seamless-bottom-nav">
+          <a href="#chapter-7" class="nav-link-prev">
+            <small>← QUAY LẠI</small>
+            <span>Chương 07: So sánh &amp; Phối hợp</span>
+          </a>
+          <a href="#chapter-9" class="nav-link-next">
+            <small>CHƯƠNG TIẾP THEO →</small>
+            <span>Chương 09: Dữ liệu &amp; Bảo mật</span>
+          </a>
+        </nav>
+      </footer>
+    </article>

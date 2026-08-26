@@ -1,0 +1,149 @@
+    <article class="ebook-page" id="chapter-11" data-chapter="11">
+      <header class="chapter-head">
+        <div class="chapter-badge-num">11</div>
+        <div class="chapter-head-info">
+          <p class="chapter-eyebrow">CHƯƠNG 11 · PHẦN III <span>· 25 PHÚT ĐỌC</span></p>
+          <h2>Kiểm Thử Chất Lượng (QA/UAT) &amp; Khắc Phục Sự Cố</h2>
+          <p class="chapter-subtitle">"Mã nguồn chạy không báo lỗi" chỉ là bước đầu — nghiệm thu bằng 6 nhóm kịch bản kiểm thử và thu thập bằng chứng.</p>
+        </div>
+      </header>
+
+      <div class="chapter-goal-box">
+        <b>Mục tiêu chương:</b>
+        <span>Xây dựng bảng kiểm thử UAT 6 nhóm kịch bản; thực hiện kiểm tra quyền âm (Negative Testing); thành thạo quy trình 3 bước khắc phục sự cố khi AI làm sai và giải mã 5 lỗi phổ biến trong mã nguồn AI sinh.</span>
+      </div>
+
+      <div class="body">
+        <section>
+          <h3>1. Sáu nhóm kịch bản kiểm thử UAT bắt buộc</h3>
+          <p>Trước khi nghiệm thu bất kỳ tính năng nào do AI viết, hãy lần lượt kiểm tra qua 6 kịch bản:</p>
+          <ol>
+            <li><strong>Nhóm 1 - Happy Path (Luồng chuẩn):</strong> Nhập dữ liệu hợp lệ và hoàn tất quy trình từ đầu đến cuối.</li>
+            <li><strong>Nhóm 2 - Validation &amp; Boundary (Dữ liệu sai/biên):</strong> Bỏ trống ô bắt buộc, nhập chữ vào ô số, nhập số âm, nhập văn bản cực dài (1.000 từ).</li>
+            <li><strong>Nhóm 3 - State Transition (Chuyển trạng thái):</strong> Kiểm tra xem đơn hàng đã hủy có thể bấm duyệt lại được không (phải bị chặn).</li>
+            <li><strong>Nhóm 4 - Negative Permission (Quyền âm):</strong> Dùng tài khoản nhân viên truy cập thẳng vào URL trang admin xem hệ thống có đẩy ra không.</li>
+            <li><strong>Nhóm 5 - Refresh &amp; Persistence (Tải lại trang):</strong> Nhấn F5 xem dữ liệu có còn nguyên không hay bị reset về trắng.</li>
+            <li><strong>Nhóm 6 - Multi-device Responsive:</strong> Kiểm tra hiển thị trên máy tính, máy tính bảng và điện thoại di động.</li>
+          </ol>
+        </section>
+
+        <!-- THƯ VIỆN PROMPT KIỂM THỬ TỰ ĐỘNG & BẮT MỌI LỖI -->
+        <section class="wide" style="margin: 20px 0;">
+          <div style="background: linear-gradient(135deg, #0f172a, #1e293b); border: 1px solid #334155; border-radius: 14px; padding: 24px; color: #f8fafc;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 18px;">
+              <h4 style="margin: 0; font-size: 16px; color: #38bdf8; display: flex; align-items: center; gap: 8px;">
+                <span>🧪</span> Thư Viện Prompt Kiểm Thử Tự Động &amp; Rà Soát Sạch Mọi Lỗi (Bug Audit Prompts)
+              </h4>
+              <span style="background: #ef4444; color: #ffffff; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700;">Sao Chép Dùng Liền</span>
+            </div>
+
+            <!-- PROMPT 1 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #334155; border-radius: 10px; padding: 16px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <b style="color: #67e8f9; font-size: 13px;">🔍 Mẫu 1: Rà Soát Toàn Diện Lỗi Console, Runtime &amp; Bất Đồng Bộ</b>
+                <span style="font-size: 10.5px; color: #94a3b8;">Quét sạch lỗi ngầm</span>
+              </div>
+              <pre style="background: #020617; padding: 12px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 0; border: 1px solid #1e293b;">Hãy đóng vai Kỹ sư Kiểm thử Phần mềm (Senior QA Engineer). Hãy đọc toàn bộ mã nguồn hiện tại trong dự án và thực hiện kiểm tra toàn diện:
+1. Rà soát tất cả các hàm xử lý dữ liệu và sự kiện (Event Listeners), tìm kiếm các vị trí có nguy cơ gây lỗi Null/Undefined hoặc bất đồng bộ (Missing async/await).
+2. Kiểm tra xem có trường hợp nào gắn trùng sự kiện (Duplicate Event Listener) khiến ứng dụng bị chạy lặp lại nhiều lần không.
+3. Liệt kê bảng báo cáo lỗi gồm 3 cột: [Tên File/Dòng mã] - [Mô tả nguy cơ lỗi] - [Cách khắc phục]. Chưa sửa mã nguồn khi tôi chưa xác nhận.</pre>
+            </div>
+
+            <!-- PROMPT 2 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #334155; border-radius: 10px; padding: 16px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <b style="color: #67e8f9; font-size: 13px;">💥 Mẫu 2: Kiểm Thử Dữ Liệu Biên &amp; Trường Hợp Cực Đoan (Stress Test)</b>
+                <span style="font-size: 10.5px; color: #94a3b8;">Thử thách độ bền của ứng dụng</span>
+              </div>
+              <pre style="background: #020617; padding: 12px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 0; border: 1px solid #1e293b;">Hãy thiết lập các kịch bản kiểm thử dữ liệu biên (Boundary &amp; Edge Cases) cho tất cả các biểu mẫu (Form) nhập liệu trong hệ thống:
+- Thử nghiệm 1: Bỏ trống tất cả các trường và bấm Gửi.
+- Thử nghiệm 2: Nhập số âm, ký tự chữ vào ô chỉ nhận số (Số điện thoại, Năm sinh).
+- Thử nghiệm 3: Nhập chuỗi văn bản cực dài (500 ký tự) hoặc ký tự đặc biệt &lt;script&gt;alert(1)&lt;/script&gt;.
+- Thử nghiệm 4: Chọn ngày tương lai cho ngày sinh, hoặc ngày bắt đầu lớn hơn ngày kết thúc.
+Hãy kiểm tra xem mã nguồn đã có đủ điều kiện chặn (Validation) chưa và đề xuất bổ sung các câu thông báo lỗi tiếng Việt thân thiện.</pre>
+            </div>
+
+            <!-- PROMPT 3 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #334155; border-radius: 10px; padding: 16px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <b style="color: #67e8f9; font-size: 13px;">🔄 Mẫu 3: Kiểm Thử F5 Tải Lại Trang &amp; Lưu Trữ Bền Vững (Persistence)</b>
+                <span style="font-size: 10.5px; color: #94a3b8;">Chống mất dữ liệu</span>
+              </div>
+              <pre style="background: #020617; padding: 12px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 0; border: 1px solid #1e293b;">Hãy rà soát toàn bộ cơ chế lưu trữ trạng thái (State Persistence) của ứng dụng:
+1. Đảm bảo mọi thao tác: Thêm mới, Sửa, Xóa hoặc Đánh dấu trạng thái đều được đồng bộ ngay lập tức vào localStorage/Database.
+2. Kiểm tra hàm khởi tạo (Init) khi người dùng mở lại trang hoặc nhấn F5: dữ liệu phải được nạp lại đầy đủ và hiển thị chính xác lên giao diện.
+3. Xử lý trường hợp dữ liệu lưu trữ bị lỗi hoặc trống (Corrupted/Empty JSON): ứng dụng phải tự động khôi phục về trạng thái mặc định an toàn, không bị treo trắng màn hình.</pre>
+            </div>
+
+            <!-- PROMPT 4 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #334155; border-radius: 10px; padding: 16px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <b style="color: #67e8f9; font-size: 13px;">🎯 Mẫu 4: Sửa Lỗi Tối Thiểu (Minimal Fix — Không Phá Hỏng Code Đang Chạy)</b>
+                <span style="font-size: 10.5px; color: #94a3b8;">Sửa đúng trọng tâm</span>
+              </div>
+              <pre style="background: #020617; padding: 12px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 0; border: 1px solid #1e293b;">Tôi phát hiện lỗi sau khi chạy ứng dụng:
+- Hiện tượng: [Mô tả chi tiết, ví dụ: Nhấn nút Lưu hồ sơ nhưng bảng không hiện bản ghi mới]
+- Lỗi Console F12: [Dán nguyên văn dòng lỗi đỏ kèm số dòng file]
+
+Yêu cầu thực hiện:
+1. Giải thích nguyên nhân gốc rễ (Root cause) ngắn gọn trong 2 câu.
+2. Áp dụng quy tắc Sửa lỗi tối thiểu (Minimal Fix): Chỉ chỉnh sửa đúng hàm gây lỗi. Tuyệt đối không thay đổi cấu trúc HTML, không xóa class CSS hay viết lại toàn bộ file.
+3. Cung cấp đoạn mã thay thế và hướng dẫn tôi cách kiểm tra lại để chắc chắn lỗi đã hết.</pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>2. Quy trình 3 bước khắc phục sự cố khi AI đi chệch hướng</h3>
+          <p>Khi gặp lỗi (trang bị đơ, lỗi Console đỏ, chức năng không hoạt động), tuyệt đối không hoảng loạn xóa code viết lại. Hãy làm đúng 3 bước:</p>
+          <div class="hint">
+            <strong>QUY TRÌNH 3 BƯỚC SỬA LỖI TINH GỌN:</strong><br>
+            <strong>Bước 1 - Thu thập bằng chứng chính xác:</strong> Mở Console trình duyệt (nhấn F12), chụp ảnh màn hình hoặc sao chép chính xác dòng thông báo lỗi màu đỏ đầu tiên kèm mã dòng (Line Number).<br>
+            <strong>Bước 2 - Đặt câu hỏi phân tích nguyên nhân gốc (Root Cause):</strong> Gửi cho AI: <em>"Khi tôi bấm nút [Tên nút] thì Console báo lỗi [Dòng lỗi]. Hãy phân tích nguyên nhân gốc trước, liệt kê các file liên quan, CHƯA vội viết lại toàn bộ code."</em><br>
+            <strong>Bước 3 - Yêu cầu bản sửa lỗi tối thiểu (Minimal Fix):</strong> Yêu cầu AI chỉ sửa đúng hàm bị lỗi, không đụng vào các hàm khác đang chạy ổn định.
+          </div>
+        </section>
+
+        <section>
+          <h3>3. Giải mã 5 lỗi kinh điển trong mã nguồn do AI sinh</h3>
+          <ul>
+            <li><strong>Lỗi 1 - State Desynchronization (Lệch trạng thái):</strong> Dữ liệu đã lưu vào CSDL nhưng giao diện không tự cập nhật lại danh sách mới (cần gọi lại hàm render sau khi API trả về 200).</li>
+            <li><strong>Lỗi 2 - Asynchronous Race Condition (Bất đồng bộ):</strong> Gọi hàm trước khi dữ liệu từ máy chủ kịp tải về (cần thêm <code>await</code> hoặc kiểm tra <code>if (!data) return;</code>).</li>
+            <li><strong>Lỗi 3 - CORS Policy Blocked:</strong> Trình duyệt chặn kết nối API do máy chủ backend chưa cấu hình <code>Access-Control-Allow-Origin</code>.</li>
+            <li><strong>Lỗi 4 - Null Pointer Exception:</strong> Cố gắng truy cập thuộc tính của một biến chưa tồn tại (ví dụ: <code>user.profile.avatar</code> khi <code>profile</code> đang là <code>undefined</code>).</li>
+            <li><strong>Lỗi 5 - Memory Leak / Event Listener Duplicate:</strong> Gắn sự kiện <code>addEventListener</code> lặp lại nhiều lần trong vòng lặp khiến ứng dụng chạy càng lúc càng chậm.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>4. Definition of Done: chỉ nhận “xong” khi có bằng chứng</h3>
+          <p>Một Agent nói “đã hoàn thành” chưa phải là nghiệm thu. Trước khi gộp mã hoặc phát hành, hãy đối chiếu 6 bằng chứng sau với SPEC.md:</p>
+          <ol>
+            <li>Đúng luồng chính và các tiêu chí Given–When–Then đã cam kết.</li>
+            <li>Kiểm tra dữ liệu sai, giá trị biên và trạng thái rỗng.</li>
+            <li>Kiểm tra quyền âm: người không có quyền không thể xem hoặc sửa bằng URL/API trực tiếp.</li>
+            <li>Kiểm tra tải lại trang, lưu bền dữ liệu và đường khôi phục khi dữ liệu lỗi.</li>
+            <li>Chạy các lệnh test/build được dự án khai báo; Console không còn lỗi mới.</li>
+            <li>Xem Git diff, cập nhật README/HANDOFF và ghi rõ phần chưa làm vào backlog.</li>
+          </ol>
+          <div class="hint"><strong>Quy tắc bàn giao:</strong> báo cáo cần ghi “đã chạy gì, kết quả gì, còn rủi ro gì” thay vì chỉ ghi “đã test xong”.</div>
+        </section>
+      </div>
+
+      <footer class="chapter-footer-seamless">
+        <div class="chapter-status-line">
+          <span>Chương 11 / 12</span>
+          <button class="chapter-btn-read" data-complete-chapter="11">✓ Đánh dấu đã đọc chương 11</button>
+        </div>
+        <nav class="seamless-bottom-nav">
+          <a href="#chapter-10" class="nav-link-prev">
+            <small>← QUAY LẠI</small>
+            <span>Chương 10: Đặc tả Spec-Driven</span>
+          </a>
+          <a href="#chapter-12" class="nav-link-next">
+            <small>CHƯƠNG TIẾP THEO →</small>
+            <span>Chương 12: Go-Live &amp; Xuất bản</span>
+          </a>
+        </nav>
+      </footer>
+    </article>

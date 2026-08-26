@@ -1,0 +1,608 @@
+    <article class="ebook-page admin-guide-page" id="admin-guide">
+      <div class="part-lead-header">
+        <span class="part-tag">PHẦN V · CHUYÊN ĐỀ THỰC HÀNH ỨNG DỤNG</span>
+        <h2>Số Hóa Quy Trình: Từ Hồ Sơ Giấy Đến Quy Trình Số Có Thể Kiểm Tra</h2>
+        <p>Guideline dùng AI coding agent để thiết kế prototype hành chính an toàn: hiểu quy trình trước, khóa quyền và dữ liệu, kiểm thử bằng tình huống thật, rồi thí điểm có người chịu trách nhiệm.</p>
+      </div>
+
+      <!-- HERO SECTION -->
+      <section class="hero" id="admin-hero" style="border-radius: 20px; margin-bottom: 24px;">
+        <div>
+          <p class="eyebrow">CHUYÊN ĐỀ THỰC HÀNH · CẬP NHẬT 2026</p>
+          <h1>Từ hồ sơ giấy đến quy trình số <em>có thể kiểm tra.</em></h1>
+          <p class="lead">Guideline dùng AI coding agent để thiết kế prototype hành chính an toàn: hiểu quy trình trước, khóa quyền và dữ liệu, kiểm thử bằng tình huống thật, rồi thí điểm có người chịu trách nhiệm.</p>
+          <div class="actions">
+            <a class="btn primary" href="#gate-1">Xem lộ trình 8 cổng →</a>
+            <a class="btn ghost" href="#templates">Tải bộ mẫu</a>
+          </div>
+          <div class="stats">
+            <span><b>8</b><small>cổng kiểm soát</small></span>
+            <span><b>5</b><small>mẫu tải về</small></span>
+            <span><b>1</b><small>ca xuyên suốt</small></span>
+          </div>
+        </div>
+        <div class="case-window">
+          <div class="window-head">
+            <i></i><i></i><i></i><span>hoso-noibo.local</span>
+          </div>
+          <div class="window-body">
+            <p>HỒ SƠ #XN-2026-0142</p>
+            <h2>Đề nghị cấp giấy xác nhận</h2>
+            <div class="status-line"><b>Đang thẩm định</b><span>Còn 14 giờ SLA</span></div>
+            <ol>
+              <li class="done"><b>1</b><span>Tiếp nhận<small>08:31 · Minh Anh</small></span></li>
+              <li class="done"><b>2</b><span>Kiểm tra hồ sơ<small>09:04 · Có log</small></span></li>
+              <li class="active"><b>3</b><span>Thẩm định<small>Đang xử lý</small></span></li>
+              <li><b>4</b><span>Phê duyệt<small>Chưa bắt đầu</small></span></li>
+            </ol>
+            <div class="audit-note"><b>Nhật ký bất biến</b><span>Ai · làm gì · khi nào · lý do</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GUARDRAILS -->
+      <section class="guardrail" style="border-radius: 14px; overflow: hidden; margin-bottom: 30px; border: 1px solid var(--line);">
+        <div><b>Prototype ≠ hệ thống chính thức</b><span>Không đưa hồ sơ thật vào app thử nghiệm.</span></div>
+        <div><b>AI đề xuất ≠ quyết định</b><span>Phê duyệt thuộc người có thẩm quyền.</span></div>
+        <div><b>Chạy được ≠ sẵn sàng</b><span>Phải có UAT, log, sao lưu và chủ sở hữu.</span></div>
+      </section>
+
+      <!-- ROADMAP -->
+      <section class="section intro" id="roadmap" style="padding: 20px 0;">
+        <header class="section-head">
+          <p class="eyebrow dark">BẢN ĐỒ TRIỂN KHAI</p>
+          <h2>8 cổng kiểm soát — qua cổng bằng bằng chứng</h2>
+          <p>Mỗi giai đoạn tạo một artifact có thể đọc, duyệt và kiểm tra. “AI đã làm xong” không phải bằng chứng hoàn thành.</p>
+        </header>
+        <div class="roadmap">
+          <a href="#gate-1"><b>01</b><span>Chọn quy trình<small>Phiếu khởi động</small></span></a>
+          <a href="#gate-2"><b>02</b><span>Vẽ AS-IS<small>Bản đồ hiện trạng</small></span></a>
+          <a href="#gate-3"><b>03</b><span>Thiết kế TO-BE<small>Trạng thái &amp; SLA</small></span></a>
+          <a href="#gate-4"><b>04</b><span>Khóa dữ liệu<small>Quyền &amp; rủi ro</small></span></a>
+          <a href="#gate-5"><b>05</b><span>Đặc tả<small>Spec &amp; acceptance</small></span></a>
+          <a href="#gate-6"><b>06</b><span>Làm prototype<small>Plan → code</small></span></a>
+          <a href="#gate-7"><b>07</b><span>UAT &amp; an toàn<small>Bằng chứng test</small></span></a>
+          <a href="#gate-8"><b>08</b><span>Thí điểm<small>Go-live &amp; handoff</small></span></a>
+        </div>
+        <div class="progress">
+          <div><span>Tiến độ guideline</span><strong id="progress-label">0/8 cổng</strong></div>
+          <i><b id="progress-bar"></b></i>
+          <p id="progress-message">Bắt đầu bằng một quy trình nhỏ, ổn định và có chủ sở hữu.</p>
+        </div>
+      </section>
+
+      <!-- CASE STUDY -->
+      <section class="section case-study" id="case" style="padding: 20px 0;">
+        <header class="section-head">
+          <p class="eyebrow dark">CA XUYÊN SUỐT</p>
+          <h2>“Đề nghị cấp giấy xác nhận nội bộ”</h2>
+          <p>Đủ phức tạp để học phân quyền và phê duyệt, nhưng đủ nhỏ để hoàn thành prototype trong workshop.</p>
+        </header>
+        <div class="case-grid">
+          <article>
+            <span>TRƯỚC</span>
+            <h3>Email + file rời</h3>
+            <ul>
+              <li>Không biết hồ sơ đang ở ai.</li>
+              <li>Thiếu thành phần phát hiện muộn.</li>
+              <li>Khó đo thời gian xử lý.</li>
+              <li>Không lưu lý do trả lại.</li>
+            </ul>
+          </article>
+          <article class="target">
+            <span>SAU</span>
+            <h3>Một luồng có kiểm soát</h3>
+            <ul>
+              <li>Mỗi hồ sơ có mã và trạng thái.</li>
+              <li>Validation ngay khi tiếp nhận.</li>
+              <li>SLA theo từng bước.</li>
+              <li>Mọi thay đổi có người và thời điểm.</li>
+            </ul>
+          </article>
+          <article>
+            <span>KHÔNG LÀM V1</span>
+            <h3>Khóa phạm vi</h3>
+            <ul>
+              <li>Không ký số thật.</li>
+              <li>Không kết nối CSDL thật.</li>
+              <li>Không gửi SMS/email thật.</li>
+              <li>Không để AI tự phê duyệt.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="flow">
+          <span>Nộp nháp</span><i>→</i><span>Đã tiếp nhận</span><i>→</i><span>Đang thẩm định</span><i>→</i><span>Chờ phê duyệt</span><i>→</i><span>Hoàn tất</span><b>↘ Yêu cầu bổ sung ↗</b>
+        </div>
+      </section>
+
+      <!-- 8 GATES CHI TIẾT -->
+      <section class="section gates" aria-label="Tám cổng kiểm soát" style="padding: 20px 0;">
+        <!-- GATE 1 -->
+        <article class="gate" id="gate-1">
+          <header>
+            <b>01</b>
+            <div>
+              <p>DISCOVER · 60–90 PHÚT</p>
+              <h2>Chọn đúng quy trình để thí điểm</h2>
+              <span>Ưu tiên việc lặp lại, quy tắc ổn định, dữ liệu giả lập được và có chủ sở hữu nghiệp vụ.</span>
+            </div>
+          </header>
+          <div class="gate-body">
+            <section>
+              <h3>Thu thập tối thiểu</h3>
+              <ul>
+                <li>Mục đích và căn cứ nội bộ/pháp lý.</li>
+                <li>Điểm bắt đầu, kết thúc, tần suất.</li>
+                <li>Người nộp, tiếp nhận, xử lý, phê duyệt.</li>
+                <li>Đầu vào, đầu ra và thời hạn.</li>
+                <li>5 ca: thường, thiếu, trễ, từ chối, hủy.</li>
+              </ul>
+            </section>
+            <section>
+              <h3>Chấm điểm 0–2</h3>
+              <div class="chips">
+                <span>Lặp lại nhiều</span><span>Quy tắc rõ</span><span>Chủ quy trình rõ</span><span>Dữ liệu giả được</span><span>Ít tích hợp</span><span>Rủi ro thấp–vừa</span>
+              </div>
+              <p class="note" style="margin-top: 10px;">Chọn khi tổng ≥ 8/12 và “chủ quy trình” không bằng 0.</p>
+            </section>
+            <section class="wide">
+              <h3>Điều kiện qua cổng</h3>
+              <div class="checks">
+                <label><input type="checkbox"> Có chủ quy trình</label>
+                <label><input type="checkbox"> Có 5 hồ sơ giả/ẩn danh</label>
+                <label><input type="checkbox"> Có mục tiêu đo được</label>
+                <label><input type="checkbox"> Có “không làm v1”</label>
+              </div>
+            </section>
+          </div>
+          <footer>
+            <span><b>Artifact</b> PHIEU_KHOI_DONG.md</span>
+            <button class="figure-btn" data-complete="1">Đánh dấu qua cổng</button>
+          </footer>
+        </article>
+
+        <!-- GATE 2 -->
+        <article class="gate" id="gate-2">
+          <header>
+            <b>02</b>
+            <div>
+              <p>MAP AS-IS · 90 PHÚT</p>
+              <h2>Vẽ đúng hiện trạng, kể cả đường vòng</h2>
+              <span>Ghi cả bước chờ, trả lại, bổ sung, ngoại lệ và thao tác ngoài hệ thống.</span>
+            </div>
+          </header>
+          <div class="gate-body">
+            <section>
+              <h3>6 câu hỏi</h3>
+              <ol>
+                <li>Ai kích hoạt quy trình?</li>
+                <li>Thông tin nào bắt buộc?</li>
+                <li>Ai được sửa ở từng bước?</li>
+                <li>Khi thiếu/sai thì quay về đâu?</li>
+                <li>Quá hạn cảnh báo ai?</li>
+                <li>Bằng chứng nào chứng minh đã xử lý?</li>
+              </ol>
+            </section>
+            <section>
+              <h3>Mẫu một bước</h3>
+              <div class="mini-table">
+                <b>Trường</b><b>Ví dụ</b>
+                <span>Tác nhân</span><span>Văn thư</span>
+                <span>Đầu vào</span><span>Phiếu + tệp</span>
+                <span>Quy tắc</span><span>Đủ 4 thành phần</span>
+                <span>Đầu ra</span><span>Mã tiếp nhận</span>
+                <span>Ngoại lệ</span><span>Yêu cầu bổ sung</span>
+              </div>
+            </section>
+            <section class="wide">
+              <p class="callout">Đo riêng <b>thời gian xử lý</b> và <b>thời gian chờ</b>. Nút thắt thường nằm ở hồ sơ chờ giữa hai vai trò.</p>
+            </section>
+          </div>
+          <footer>
+            <span><b>Artifact</b> AS_IS.md + 5 tình huống</span>
+            <button class="figure-btn" data-complete="2">Đánh dấu qua cổng</button>
+          </footer>
+        </article>
+
+        <!-- GATE 3 -->
+        <article class="gate" id="gate-3">
+          <header>
+            <b>03</b>
+            <div>
+              <p>DESIGN TO-BE · 120 PHÚT</p>
+              <h2>Thiết kế trạng thái và SLA trước màn hình</h2>
+              <span>Mô hình trạng thái quyết định hồ sơ đi đâu, ai chịu trách nhiệm và điều gì được phép.</span>
+            </div>
+          </header>
+          <div class="gate-body">
+            <section>
+              <h3>Mỗi trạng thái trả lời</h3>
+              <ul>
+                <li>Ai đang chịu trách nhiệm?</li>
+                <li>Hành động tiếp theo hợp lệ?</li>
+                <li>Điều kiện chuyển trạng thái?</li>
+                <li>SLA bắt đầu/dừng khi nào?</li>
+                <li>Được quay lui, hủy, mở lại không?</li>
+              </ul>
+            </section>
+            <section>
+              <h3>Đúng và sai</h3>
+              <div class="do-dont">
+                <div><b>NÊN</b><span>Đang thẩm định → Chờ phê duyệt khi checklist đủ và có kết luận.</span></div>
+                <div><b>TRÁNH</b><span>Nút “Cập nhật” cho phép chọn bất kỳ trạng thái nào.</span></div>
+              </div>
+            </section>
+            <section class="wide">
+              <div class="checks">
+                <label><input type="checkbox"> Tên trạng thái rõ</label>
+                <label><input type="checkbox"> Có bổ sung/từ chối/hủy</label>
+                <label><input type="checkbox"> SLA có điểm bắt đầu/dừng</label>
+                <label><input type="checkbox"> Mỗi bước có một chủ trách nhiệm</label>
+              </div>
+            </section>
+          </div>
+          <footer>
+            <span><b>Artifact</b> TO_BE.md + STATE_MACHINE.md</span>
+            <button class="figure-btn" data-complete="3">Đánh dấu qua cổng</button>
+          </footer>
+        </article>
+
+        <!-- GATE 4 -->
+        <article class="gate" id="gate-4">
+          <header>
+            <b>04</b>
+            <div>
+              <p>DATA &amp; ACCESS · 90 PHÚT</p>
+              <h2>Khóa dữ liệu và quyền trước khi code</h2>
+              <span>Thu thập tối thiểu, phân quyền theo vai trò và log mọi thao tác có hậu quả.</span>
+            </div>
+          </header>
+          <div class="gate-body">
+            <section>
+              <h3>4 mức dữ liệu thực hành</h3>
+              <div class="risks">
+                <span class="r1"><b>Công khai</b>Đã được phép công bố.</span>
+                <span class="r2"><b>Nội bộ</b>Quy trình, phân công.</span>
+                <span class="r3"><b>Nhạy cảm</b>Định danh, liên hệ.</span>
+                <span class="r4"><b>Hạn chế</b>Y tế, tài chính, kỷ luật, secret.</span>
+              </div>
+            </section>
+            <section>
+              <h3>Ma trận quyền tối thiểu</h3>
+              <div class="permission">
+                <div><b>Vai trò</b><b>Xem</b><b>Sửa</b><b>Duyệt</b></div>
+                <div><span>Người nộp</span><span>Hồ sơ mình</span><span>Nháp/bổ sung</span><span>—</span></div>
+                <div><span>Chuyên viên</span><span>Được giao</span><span>Kết luận</span><span>—</span></div>
+                <div><span>Lãnh đạo</span><span>Chờ duyệt</span><span>Ý kiến</span><span>Có</span></div>
+              </div>
+            </section>
+            <section class="wide">
+              <p class="warning"><b>Không dán vào agent:</b> hồ sơ thật, CCCD, thông tin sức khỏe/tài chính, mật khẩu, API key, cookie, dữ liệu chưa được phép xử lý. Hệ thống chính thức phải qua pháp chế, an toàn thông tin và kiến trúc của đơn vị.</p>
+            </section>
+          </div>
+          <footer>
+            <span><b>Artifact</b> DATA_DICTIONARY.md + MA_TRAN_QUYEN.csv</span>
+            <button class="figure-btn" data-complete="4">Đánh dấu qua cổng</button>
+          </footer>
+        </article>
+
+        <!-- GATE 5 -->
+        <article class="gate" id="gate-5">
+          <header>
+            <b>05</b>
+            <div>
+              <p>SPECIFY · 120 PHÚT</p>
+              <h2>Viết đặc tả để AI không được phép đoán</h2>
+              <span>Đặc tả nói cái gì/vì sao; kế hoạch kỹ thuật nói làm thế nào. Chủ nghiệp vụ duyệt đặc tả.</span>
+            </div>
+          </header>
+          <div class="gate-body">
+            <section>
+              <h3>Spec 10 phần</h3>
+              <ol>
+                <li>Bối cảnh, mục tiêu</li>
+                <li>Vai trò</li>
+                <li>Phạm vi/không làm</li>
+                <li>Luồng chính</li>
+                <li>Ngoại lệ</li>
+                <li>Trạng thái/SLA</li>
+                <li>Dữ liệu/validation</li>
+                <li>Quyền/audit</li>
+                <li>Acceptance criteria</li>
+                <li>Rủi ro/câu hỏi mở</li>
+              </ol>
+            </section>
+            <section>
+              <h3>Given–When–Then</h3>
+              <div class="code">
+                <b>AC-07 · Yêu cầu bổ sung</b>
+                <pre>Given hồ sơ “Đang thẩm định”
+And vai trò Chuyên viên
+When nhập lý do và gửi
+Then trạng thái “Chờ bổ sung”
+And người nộp thấy lý do
+And log ghi người, lúc, cũ/mới</pre>
+              </div>
+            </section>
+            <section class="wide">
+              <div class="prompt" id="prompt-spec">Bạn là business analyst hỗ trợ, không tự quyết định nghiệp vụ. Đọc AS_IS.md, TO_BE.md, DATA_DICTIONARY.md và MA_TRAN_QUYEN.csv. Liệt kê mâu thuẫn/câu hỏi mở trước. Soạn SPEC.md theo 10 phần; mỗi yêu cầu có mã; acceptance dùng Given–When–Then; mọi chuyển trạng thái nêu vai trò, điều kiện, log và lỗi. Chưa viết code.</div>
+              <button class="copy" data-copy="prompt-spec">Sao chép prompt</button>
+            </section>
+          </div>
+          <footer>
+            <span><b>Artifact</b> SPEC.md được chủ nghiệp vụ duyệt</span>
+            <button class="figure-btn" data-complete="5">Đánh dấu qua cổng</button>
+          </footer>
+        </article>
+
+        <!-- GATE 6 -->
+        <article class="gate" id="gate-6">
+          <header>
+            <b>06</b>
+            <div>
+              <p>PROTOTYPE · 1–3 NGÀY</p>
+              <h2>Plan → code theo lát cắt</h2>
+              <span>Mỗi lát cắt chạy xuyên từ UI đến dữ liệu giả và có test; luồng chính trước ngoại lệ.</span>
+            </div>
+          </header>
+          <div class="gate-body">
+            <section>
+              <h3>4 lát cắt</h3>
+              <ol>
+                <li><b>Tiếp nhận:</b> tạo, validate, mã hồ sơ.</li>
+                <li><b>Xử lý:</b> phân công, thẩm định, bổ sung.</li>
+                <li><b>Phê duyệt:</b> duyệt/từ chối, lý do, log.</li>
+                <li><b>Quản trị:</b> SLA, lọc, báo cáo giả.</li>
+              </ol>
+            </section>
+            <section>
+              <h3>Kỷ luật phiên</h3>
+              <ul>
+                <li>Đọc SPEC + AGENTS.</li>
+                <li>Lập plan, nêu file; chưa code.</li>
+                <li>Duyệt một lát cắt; giới hạn workspace.</li>
+                <li>Xem diff, chạy test, lưu bằng chứng.</li>
+                <li>Checkpoint trước lát cắt mới.</li>
+              </ul>
+            </section>
+            <section class="wide">
+              <div class="prompt" id="prompt-build">Đọc SPEC.md và AGENTS.md. Chỉ triển khai lát cắt “Tiếp nhận hồ sơ” gồm AC-01 đến AC-05 bằng dữ liệu giả. Lập plan tối đa 6 bước, nêu file, migration, test tự động và test thao tác. Không làm phân công/phê duyệt/báo cáo. Chờ tôi duyệt. Sau triển khai, báo từng AC đạt/chưa đạt và bằng chứng.</div>
+              <button class="copy" data-copy="prompt-build">Sao chép prompt</button>
+            </section>
+          </div>
+          <footer>
+            <span><b>Artifact</b> Prototype + diff + test log</span>
+            <button class="figure-btn" data-complete="6">Đánh dấu qua cổng</button>
+          </footer>
+        </article>
+
+        <!-- GATE 7 -->
+        <article class="gate" id="gate-7">
+          <header>
+            <b>07</b>
+            <div>
+              <p>VERIFY &amp; UAT · 1–2 NGÀY</p>
+              <h2>Kiểm thử quyền, ngoại lệ và truy vết</h2>
+              <span>Happy path chỉ là điểm bắt đầu; lỗi nguy hiểm nhất là sai quyền và thiếu bằng chứng.</span>
+            </div>
+          </header>
+          <div class="gate-body">
+            <section>
+              <h3>6 nhóm test</h3>
+              <div class="chips">
+                <span>Luồng chính</span><span>Dữ liệu sai/thiếu</span><span>Chuyển trạng thái</span><span>Phân quyền</span><span>Audit &amp; SLA</span><span>Restore</span>
+              </div>
+            </section>
+            <section>
+              <h3>Test quyền âm</h3>
+              <ul>
+                <li>Không xem hồ sơ người khác.</li>
+                <li>Không tự xử lý và tự duyệt.</li>
+                <li>URL/API trực tiếp vẫn bị từ chối.</li>
+                <li>Hồ sơ hoàn tất không sửa im lặng.</li>
+                <li>Log nghiệp vụ không thể xóa/sửa.</li>
+              </ul>
+            </section>
+            <section class="wide">
+              <div class="checks">
+                <label><input type="checkbox"> Mỗi test có mã/người chạy</label>
+                <label><input type="checkbox"> Có ảnh/log bằng chứng</label>
+                <label><input type="checkbox"> Lỗi có mức độ/owner</label>
+                <label><input type="checkbox"> Chủ nghiệp vụ ký UAT</label>
+              </div>
+            </section>
+          </div>
+          <footer>
+            <span><b>Artifact</b> UAT_HANH_CHINH.md + báo lỗi</span>
+            <button class="figure-btn" data-complete="7">Đánh dấu qua cổng</button>
+          </footer>
+        </article>
+
+        <!-- GATE 8 -->
+        <article class="gate" id="gate-8">
+          <header>
+            <b>08</b>
+            <div>
+              <p>PILOT &amp; HANDOFF · 1–4 TUẦN</p>
+              <h2>Thí điểm hẹp, có rollback và người vận hành</h2>
+              <span>Go-live là quyết định có chủ sở hữu, phạm vi, giám sát, hỗ trợ và phương án quay lại.</span>
+            </div>
+          </header>
+          <div class="gate-body">
+            <section>
+              <h3>Pre-flight</h3>
+              <ul>
+                <li>Chủ hệ thống, dữ liệu, hỗ trợ.</li>
+                <li>HTTPS, môi trường, secret server-side.</li>
+                <li>Backup đã restore thử.</li>
+                <li>Log, cảnh báo, SLA hỗ trợ.</li>
+                <li>Hướng dẫn người dùng/quản trị.</li>
+                <li>Phạm vi và tiêu chí dừng.</li>
+              </ul>
+            </section>
+            <section>
+              <h3>Đo sau thí điểm</h3>
+              <div class="metrics">
+                <span><b>Tỷ lệ đúng hạn</b>Đúng hạn / tổng</span>
+                <span><b>First-time-right</b>Không bổ sung / tổng</span>
+                <span><b>Lead time</b>Tiếp nhận → hoàn tất</span>
+                <span><b>Lỗi quyền</b>Phải bằng 0</span>
+              </div>
+            </section>
+            <section class="wide">
+              <div class="decision">
+                <article><b>MỞ RỘNG</b><p>Chỉ số đạt, không lỗi nghiêm trọng, đủ vận hành.</p></article>
+                <article><b>GIỮ PHẠM VI</b><p>Có giá trị nhưng cần ổn định thêm.</p></article>
+                <article><b>DỪNG / ROLLBACK</b><p>Sai quyền, mất dữ liệu hoặc không truy vết.</p></article>
+              </div>
+            </section>
+          </div>
+          <footer>
+            <span><b>Artifact</b> GO_LIVE.md + HANDOFF.md</span>
+            <button class="figure-btn" data-complete="8">Hoàn thành guideline</button>
+          </footer>
+        </article>
+      </section>
+
+      <!-- THƯ VIỆN PROMPT ĐẦY ĐỦ 8 MẪU -->
+      <section class="section prompt-library" id="prompts" style="padding: 20px 0;">
+        <header class="section-head">
+          <p class="eyebrow dark">THƯ VIỆN PROMPT</p>
+          <h2>Giao đúng vai cho AI</h2>
+          <p>Prompt không thay artifact. Đính kèm đúng file, yêu cầu câu hỏi mở và giới hạn “chưa sửa” hoặc “chỉ sửa lát cắt”.</p>
+        </header>
+        <div class="prompt-grid">
+          <details open>
+            <summary><span>01</span>Bóc tách AS-IS</summary>
+            <div>
+              <p id="p1">Từ biên bản phỏng vấn, lập bảng: bước, tác nhân, đầu vào, quy tắc, đầu ra, thời gian xử lý/chờ, công cụ, ngoại lệ và bằng chứng. Không tự điền thiếu; tạo danh sách câu hỏi xác minh.</p>
+              <button class="copy" data-copy="p1">Sao chép</button>
+            </div>
+          </details>
+          <details open>
+            <summary><span>02</span>Phản biện TO-BE</summary>
+            <div>
+              <p id="p2">Phản biện TO_BE.md: tìm trạng thái mồ côi, chuyển trạng thái thiếu quyền/điều kiện, SLA thiếu điểm bắt đầu-dừng, vòng lặp không thoát, ngoại lệ thiếu và một người vừa xử lý vừa duyệt. Chưa sửa thiết kế.</p>
+              <button class="copy" data-copy="p2">Sao chép</button>
+            </div>
+          </details>
+          <details open>
+            <summary><span>03</span>Sinh dữ liệu giả</summary>
+            <div>
+              <p id="p3">Tạo 30 hồ sơ GIẢ LẬP theo DATA_DICTIONARY.md gồm ca thường, thiếu, trùng, quá hạn, bổ sung, từ chối và hủy. Không dùng tên, liên hệ, mã định danh có thật. Kèm README ghi rõ dữ liệu giả.</p>
+              <button class="copy" data-copy="p3">Sao chép</button>
+            </div>
+          </details>
+          <details open>
+            <summary><span>04</span>Test quyền</summary>
+            <div>
+              <p id="p4">Từ MA_TRAN_QUYEN.csv và STATE_MACHINE.md, tạo test matrix vai trò × tài nguyên × hành động × trạng thái. Có test cho phép và từ chối; kiểm tra trực tiếp API/URL, không chỉ ẩn nút UI.</p>
+              <button class="copy" data-copy="p4">Sao chép</button>
+            </div>
+          </details>
+          <details open>
+            <summary><span>05</span>Chẩn đoán lỗi</summary>
+            <div>
+              <p id="p5">Chẩn đoán, chưa sửa: ca test [...], vai trò [...], trạng thái [...], bước [...], mong đợi [...], thực tế [...], log [...]. Tìm nguyên nhân gốc, ảnh hưởng, bản sửa nhỏ nhất và test hồi quy.</p>
+              <button class="copy" data-copy="p5">Sao chép</button>
+            </div>
+          </details>
+          <details open>
+            <summary><span>06</span>Tạo handoff</summary>
+            <div>
+              <p id="p6">Tạo HANDOFF.md: phạm vi, kiến trúc, vai trò/trạng thái/dữ liệu, môi trường, file/migration, test+bằng chứng, rủi ro, deploy/rollback/restore, sở hữu và 5 việc tiếp theo. Không chép secret.</p>
+              <button class="copy" data-copy="p6">Sao chép</button>
+            </div>
+          </details>
+          <details open>
+            <summary><span>07</span>Audit Trail &amp; Chống chối bỏ</summary>
+            <div>
+              <p id="p7">Thiết kế bảng nhật ký bất biến (Audit Log) cho quy trình: mọi thao tác phê duyệt, từ chối, yêu cầu bổ sung phải lưu người thực hiện, thời điểm ISO-8601, địa chỉ IP giả lập, trạng thái trước/sau và lý do nghiệp vụ. Log chỉ được thêm mới (Append-only), không được phép sửa hoặc xóa.</p>
+              <button class="copy" data-copy="p7">Sao chép</button>
+            </div>
+          </details>
+          <details open>
+            <summary><span>08</span>Kiểm soát State Machine &amp; SLA</summary>
+            <div>
+              <p id="p8">Tạo module kiểm soát chuyển trạng thái hồ sơ (State Machine): chỉ cho phép chuyển trạng thái theo đúng luồng định nghĩa trong TO_BE.md. Tự động tính hạn xử lý (SLA), cảnh báo màu vàng khi còn 20% thời gian và chuyển màu đỏ kèm thông báo khi quá hạn.</p>
+              <button class="copy" data-copy="p8">Sao chép</button>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- BỘ MẪU THỰC HÀNH -->
+      <section class="section templates" id="templates" style="padding: 20px 0;">
+        <header class="section-head">
+          <p class="eyebrow dark">BỘ MẪU THỰC HÀNH</p>
+          <h2>Tải vào workspace</h2>
+          <p>Tất cả dùng dữ liệu giả và phải được chủ nghiệp vụ điều chỉnh theo quy định đơn vị.</p>
+        </header>
+        <div class="downloads">
+          <a href="starter/YEU_CAU.md" download>
+            <b>MD</b>
+            <span>QUY_TRINH_HANH_CHINH.md<small>AS-IS, TO-BE, SLA, acceptance</small></span>
+            <i>↓</i>
+          </a>
+          <a href="starter/MA_TRAN_QUYEN.csv" download>
+            <b>CSV</b>
+            <span>MA_TRAN_QUYEN.csv<small>Vai trò × tài nguyên × hành động</small></span>
+            <i>↓</i>
+          </a>
+          <a href="starter/CHECKLIST.md" download>
+            <b>MD</b>
+            <span>UAT_HANH_CHINH.md<small>Luồng, quyền, audit, restore</small></span>
+            <i>↓</i>
+          </a>
+          <a href="starter/HANDOFF_HANH_CHINH.md" download>
+            <b>MD</b>
+            <span>HANDOFF_HANH_CHINH.md<small>Vận hành, rollback, sở hữu</small></span>
+            <i>↓</i>
+          </a>
+          <a href="starter/DU_LIEU_MAU.json" download>
+            <b>JSON</b>
+            <span>DU_LIEU_GIA_LAP_HANH_CHINH.json<small>8 hồ sơ giả cho test</small></span>
+            <i>↓</i>
+          </a>
+        </div>
+      </section>
+
+      <!-- NGUỒN CHÍNH THỨC & CƠ SỞ PHÁP LÝ -->
+      <section class="section sources" id="sources" style="padding: 20px 0;">
+        <header class="section-head">
+          <p class="eyebrow dark">NGUỒN CHÍNH THỨC</p>
+          <h2>Cơ sở xây dựng guideline</h2>
+          <p>Đối chiếu chuẩn 2026: Tuân thủ nghiêm ngặt ranh giới bảo mật PII, thủ tục hành chính điện tử và chuẩn an toàn SSDF.</p>
+        </header>
+        <div class="source-list">
+          <a href="https://vanban.chinhphu.vn/?pageid=27160&amp;docid=199753" target="_blank" rel="noopener">
+            <b>01</b><span>Nghị định 45/2020/NĐ-CP<small>Thủ tục hành chính trên môi trường điện tử.</small></span><i>↗</i>
+          </a>
+          <a href="https://vanban.chinhphu.vn/?pageid=27160&amp;docid=219101" target="_blank" rel="noopener">
+            <b>MỚI</b><span>Nghị định 310/2026/NĐ-CP<small>Sửa đổi Nghị định 45/2020; hiệu lực 05/08/2026.</small></span><i>↗</i>
+          </a>
+          <a href="https://vanban.chinhphu.vn" target="_blank" rel="noopener">
+            <b>02</b><span>Luật Bảo vệ dữ liệu cá nhân 2025<small>Hiệu lực 01/01/2026: Phân loại dữ liệu cá nhân cơ bản và nhạy cảm.</small></span><i>↗</i>
+          </a>
+          <a href="https://github.com/github/spec-kit" target="_blank" rel="noopener">
+            <b>03</b><span>GitHub Spec Kit<small>Define what to build before building.</small></span><i>↗</i>
+          </a>
+          <a href="https://www.nist.gov/publications/secure-software-development-framework-ssdf-version-11-recommendations-mitigating-risk" target="_blank" rel="noopener">
+            <b>04</b><span>NIST SSDF 1.1<small>Phát triển phần mềm an toàn theo vòng đời.</small></span><i>↗</i>
+          </a>
+        </div>
+      </section>
+
+      <footer class="chapter-footer-seamless">
+        <nav class="seamless-bottom-nav">
+          <a href="#medical-course" class="nav-link-prev">
+            <small>← QUAY LẠI</small>
+            <span>Chuyên đề: Vibe Coding Y khoa</span>
+          </a>
+          <a href="#home" class="nav-link-next">
+            <small>HOÀN THÀNH TOÀN BỘ →</small>
+            <span>Về Trang bìa &amp; Mục lục</span>
+          </a>
+        </nav>
+      </footer>
+    </article>

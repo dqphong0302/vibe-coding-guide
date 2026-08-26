@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Chốt bản đặc tả yêu cầu phiên bản 1 (YEU_CAU.md)",
+    "completed": true,
+    "createdAt": "2026-08-18T08:30:00.000Z",
+    "priority": "cao",
+    "category": "Kế hoạch"
+  },
+  {
+    "id": 2,
+    "title": "Thiết lập thư mục làm việc và tệp quy tắc AGENTS.md",
+    "completed": true,
+    "createdAt": "2026-08-18T09:15:00.000Z",
+    "priority": "cao",
+    "category": "Chuẩn bị"
+  },
+  {
+    "id": 3,
+    "title": "Kiểm tra giao diện hiển thị trên điện thoại di động",
+    "completed": false,
+    "createdAt": "2026-08-18T10:00:00.000Z",
+    "priority": "trung-binh",
+    "category": "Kiểm thử"
+  },
+  {
+    "id": 4,
+    "title": "Thực hiện 8 ca kiểm thử chức năng theo CHECKLIST.md",
+    "completed": false,
+    "createdAt": "2026-08-18T10:45:00.000Z",
+    "priority": "cao",
+    "category": "Kiểm thử"
+  },
+  {
+    "id": 5,
+    "title": "Xuất bản ứng dụng lên mạng bằng Netlify Drop / GitHub Pages",
+    "completed": false,
+    "createdAt": "2026-08-18T11:20:00.000Z",
+    "priority": "trung-binh",
+    "category": "Triển khai"
+  },
+  {
+    "id": 6,
+    "title": "Lập danh sách tính năng nâng cấp cho phiên bản v2",
+    "completed": false,
+    "createdAt": "2026-08-18T11:35:00.000Z",
+    "priority": "thap",
+    "category": "Nâng cấp"
+  }
+]

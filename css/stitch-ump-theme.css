@@ -1,0 +1,258 @@
+/* ==========================================================================
+   STITCH UMP ACADEMIC VIBE DESIGN SYSTEM (2026 EDITION)
+   Inspired by stitch_ump_vibe_coding_guide design tokens
+   ========================================================================== */
+
+:root {
+  /* Color Palette - UMP Academic Vibe */
+  --ump-primary: #00346f;
+  --ump-primary-container: #004a99;
+  --ump-primary-fixed: #d7e2ff;
+  --ump-on-primary: #ffffff;
+  --ump-secondary: #0062a2;
+  --ump-secondary-container: #62b0fe;
+  --ump-tertiary: #5f2200;
+  --ump-accent-gold: #ffcc00;
+  --ump-surface: #fbf8ff;
+  --ump-surface-dim: #d2d8ff;
+  --ump-surface-low: #f3f2ff;
+  --ump-surface-container: #ececff;
+  --ump-surface-high: #e4e7ff;
+  --ump-surface-lowest: #ffffff;
+  --ump-on-surface: #04154e;
+  --ump-on-surface-variant: #424751;
+  --ump-outline: #737783;
+  --ump-outline-variant: #c2c6d3;
+  --ump-border-muted: #e2e8f0;
+  
+  /* Semantic Tokens */
+  --ink: #04154e;
+  --ink2: #00346f;
+  --paper: #fbf8ff;
+  --card: #ffffff;
+  --line: #c2c6d3;
+  --border-light: #e2e8f0;
+  --text-main: #04154e;
+  --text-body: #1e293b;
+  --text-muted: #424751;
+  --brand-ag: #0062a2;
+  --brand-ag-bg: #f3f2ff;
+  --brand-codex: #059669;
+  --brand-claude: #d97706;
+  
+  /* Typography */
+  --font-heading: 'Manrope', 'Be Vietnam Pro', sans-serif;
+  --font-body: 'Inter', 'Be Vietnam Pro', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  
+  /* Shadows & Glassmorphism */
+  --ump-shadow-sm: 0 2px 8px rgba(4, 21, 78, 0.04);
+  --ump-shadow-md: 0 10px 30px rgba(4, 21, 78, 0.07);
+  --ump-shadow-lg: 0 20px 50px rgba(4, 21, 78, 0.12);
+  --ump-glass-card: rgba(255, 255, 255, 0.95);
+}
+
+/* Global Typography & Background */
+body.ebook-reader-body {
+  background: var(--ump-surface);
+  color: var(--ump-on-surface);
+  font-family: var(--font-body);
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, .chapter-head h2, .cover-title {
+  font-family: var(--font-heading) !important;
+  color: var(--ump-on-surface);
+  letter-spacing: -0.02em;
+}
+
+/* SIDEBAR REFINEMENT (UMP Academic Theme) */
+.sidebar {
+  background: #ffffff !important;
+  border-right: 1px solid var(--ump-border-muted) !important;
+  box-shadow: 4px 0 24px rgba(4, 21, 78, 0.03) !important;
+}
+
+.brand a>b {
+  background: linear-gradient(135deg, var(--ump-primary), var(--ump-secondary)) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0, 52, 111, 0.25) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 800;
+}
+
+.sidebar nav>p {
+  color: var(--ump-secondary) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 800 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.8px !important;
+  text-transform: uppercase;
+  margin-top: 14px;
+}
+
+.sidebar nav a {
+  border-radius: 10px !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  color: var(--ump-on-surface-variant) !important;
+}
+
+.sidebar nav a:hover {
+  background: var(--ump-surface-low) !important;
+  color: var(--ump-primary) !important;
+  transform: translateX(3px) !important;
+}
+
+.sidebar nav a.active {
+  background: #eef2ff !important;
+  color: var(--ump-primary) !important;
+  border-left: 4px solid var(--ump-primary) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 10px rgba(0, 52, 111, 0.08) !important;
+}
+
+.sidebar nav a.active span {
+  color: var(--ump-primary) !important;
+  font-weight: 800 !important;
+}
+
+.sidebar nav a.done span {
+  color: #059669 !important;
+}
+
+/* STICKY TOPBAR */
+.reader-topbar {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid var(--ump-border-muted) !important;
+}
+
+.btn-reader-nav {
+  background: var(--ump-surface-low) !important;
+  color: var(--ump-primary) !important;
+  border: 1px solid var(--ump-outline-variant) !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease !important;
+}
+.btn-reader-nav:hover {
+  background: var(--ump-primary) !important;
+  color: #ffffff !important;
+  border-color: var(--ump-primary) !important;
+}
+
+.reader-page-indicator {
+  background: #f1f5f9 !important;
+  color: var(--ump-on-surface) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  padding: 4px 10px !important;
+  border-radius: 6px !important;
+}
+
+/* EBOOK CHAPTER CARDS (Unboxed & Clean) */
+.ebook-page {
+  padding: 36px 40px 60px !important;
+}
+
+.part-lead-header {
+  background: linear-gradient(135deg, rgba(0, 52, 111, 0.05), rgba(98, 176, 254, 0.08)) !important;
+  border: 1px solid #d7e2ff !important;
+  border-radius: 16px !important;
+  padding: 24px 28px !important;
+  margin-bottom: 28px !important;
+}
+
+.part-lead-header .part-tag {
+  color: var(--ump-primary) !important;
+  background: var(--ump-primary-fixed) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 800 !important;
+}
+
+.chapter-badge-num {
+  background: linear-gradient(135deg, var(--ump-primary), var(--ump-secondary)) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 18px rgba(0, 52, 111, 0.22) !important;
+  border-radius: 14px !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 800 !important;
+}
+
+.chapter-goal-box {
+  background: #f0fdf4 !important;
+  border: 1px solid #bbf7d0 !important;
+  border-left: 4px solid #16a34a !important;
+  border-radius: 12px !important;
+  padding: 16px 20px !important;
+}
+.chapter-goal-box b {
+  color: #15803d !important;
+  font-family: var(--font-heading) !important;
+}
+
+/* CODE BLOCKS & TERMINALS */
+pre, .code pre, .prompt-text {
+  background: #04154e !important;
+  color: #e2e8f0 !important;
+  border-radius: 12px !important;
+  border: 1px solid #1e2c64 !important;
+  font-family: var(--font-mono) !important;
+  box-shadow: 0 4px 16px rgba(4, 21, 78, 0.12) !important;
+}
+
+/* TABLES & CHOICE MATRICES */
+.choice-table, .mini-table, .matrix-table {
+  background: #ffffff !important;
+  border: 1px solid var(--ump-border-muted) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--ump-shadow-sm) !important;
+  overflow: hidden !important;
+}
+
+.choice-table>div:first-child, .mini-table b {
+  background: var(--ump-surface-container) !important;
+  color: var(--ump-on-surface) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+}
+
+/* BUTTONS & CTA */
+.btn-primary-seamless, .hero .btn.primary {
+  background: linear-gradient(135deg, var(--ump-primary), var(--ump-secondary)) !important;
+  color: #ffffff !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 6px 18px rgba(0, 52, 111, 0.22) !important;
+  transition: all 0.2s ease !important;
+}
+.btn-primary-seamless:hover, .hero .btn.primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 24px rgba(0, 52, 111, 0.3) !important;
+}
+
+/* SEAMLESS BOTTOM NAVIGATION */
+.seamless-bottom-nav a {
+  background: #ffffff !important;
+  border: 1px solid var(--ump-border-muted) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--ump-shadow-sm) !important;
+  transition: all 0.2s ease !important;
+}
+.seamless-bottom-nav a:hover {
+  border-color: var(--ump-primary) !important;
+  background: var(--ump-surface-low) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--ump-shadow-md) !important;
+}
+.seamless-bottom-nav a small {
+  color: var(--ump-secondary) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 800 !important;
+}
+.seamless-bottom-nav a span {
+  color: var(--ump-on-surface) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+}

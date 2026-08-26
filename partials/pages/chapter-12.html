@@ -1,0 +1,154 @@
+    <article class="ebook-page" id="chapter-12" data-chapter="12">
+      <header class="chapter-head">
+        <div class="chapter-badge-num">12</div>
+        <div class="chapter-head-info">
+          <p class="chapter-eyebrow">CHƯƠNG 12 · PHẦN III <span>· 30 PHÚT ĐỌC</span></p>
+          <h2>Đưa Ứng Dụng Lên Mạng (Vercel, Netlify &amp; Go-Live)</h2>
+          <p class="chapter-subtitle">Từ máy cá nhân ra thế giới: Hướng dẫn chi tiết cách xuất bản web bằng Netlify Drop, Vercel, trỏ tên miền riêng và nghiệm thu bàn giao.</p>
+        </div>
+      </header>
+
+      <div class="chapter-goal-box">
+        <b>Mục tiêu chương:</b>
+        <span>Làm chủ 3 cách xuất bản ứng dụng lên mạng miễn phí (Netlify Drop kéo-thả trong 30 giây, Vercel tự động hóa CI/CD qua GitHub, và GitHub Pages); biết cách đổi tên miền phụ, gắn tên miền riêng và thực hiện bảng kiểm tra 10 điểm trước khi bàn giao.</span>
+      </div>
+
+      <div class="body">
+        <section class="wide">
+          <div class="figure-showcase">
+            <div class="figure-header">
+              <span class="figure-title">🚀 Hình 12.1: Quy trình tự động triển khai (CI/CD) từ Git lên Vercel &amp; Netlify</span>
+              <div class="figure-actions">
+                <a class="figure-btn" href="assets/official_ui/deploy_workflow.png" target="_blank">🔗 Mở ảnh gốc</a>
+                <button class="figure-btn zoom-btn">🔍 Phóng to</button>
+              </div>
+            </div>
+            <div class="figure-img-wrap">
+              <img src="assets/official_ui/deploy_workflow.png" alt="Sơ đồ luồng đẩy mã nguồn GitHub lên Cloudflare và Vercel" loading="lazy">
+            </div>
+            <div class="figure-caption">
+              <em>Hình 12.1:</em> Khi bạn sửa code hoặc push commit lên GitHub, máy chủ Vercel / Netlify tự động nhận diện và xuất bản phiên bản mới trong 30 giây kèm chứng chỉ bảo mật HTTPS miễn phí.
+            </div>
+          </div>
+
+          <!-- YOUTUBE GUIDELINE: GO-LIVE & DEPLOY VERCEL -->
+          <div class="video-guideline-box">
+            <div class="video-guideline-header">
+              <span class="video-guideline-title">
+                <span class="video-guideline-badge">Hướng Dẫn Vercel</span>
+                📺 Video Thực Hành: Triển Khai &amp; Xuất Bản Web Lên Vercel Cực Nhanh
+              </span>
+              <a class="video-guideline-link" href="https://www.youtube.com/watch?v=U00nmT_jWYs" target="_blank" rel="noopener">Mở trên YouTube ↗</a>
+            </div>
+            <div class="video-card-banner">
+              <div class="video-topic">🎬 "Hướng Dẫn Triển Khai Website Lên Vercel Miễn Phí, Tự Động Hóa CI/CD &amp; Cấu Hình Tên Miền"</div>
+              <div class="video-channel-tag"><span>Chuyên đề: Vercel Cloud Deployment</span> • Video Thực Hành</div>
+              <a class="video-play-btn" href="https://www.youtube.com/watch?v=U00nmT_jWYs" target="_blank" rel="noopener">
+                ▶ Xem Video Trên YouTube
+              </a>
+            </div>
+            <div class="video-guideline-body">
+              <strong>Thực hành triển khai:</strong> Xem trực tiếp quy trình kết nối kho mã nguồn GitHub với Vercel, tự động build &amp; deploy và kiểm tra trang web trực tuyến với chứng chỉ HTTPS.
+              <div class="video-guideline-timestamps">
+                <span class="video-stamp-pill">⏱️ 01:20 — Chuẩn bị mã nguồn &amp; Đăng nhập Vercel</span>
+                <span class="video-stamp-pill">⏱️ 04:45 — Import GitHub Repo &amp; Bấm Deploy</span>
+                <span class="video-stamp-pill">⏱️ 08:30 — Kiểm tra link online &amp; Tên miền</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- HƯỚNG DẪN CHI TIẾT BẰNG CHỮ CÁC CÁCH XUẤT BẢN -->
+        <section>
+          <h3>1. Cách 1: Xuất bản siêu tốc bằng Netlify Drop (Kéo - Thả trong 30 giây)</h3>
+          <p>Đây là cách đơn giản nhất dành cho người làm Vibe Coding: <strong>không cần cài đặt phần mềm, không cần dùng dòng lệnh Git</strong> mà vẫn có ngay trang web chạy online với đường dẫn HTTPS an toàn.</p>
+          <div class="code">
+            <div><span>4 BƯỚC THỰC HIỆN VỚI NETLIFY DROP</span></div>
+            <pre>Bước 1: Mở trình duyệt và truy cập vào địa chỉ: https://app.netlify.com/drop
+Bước 2: Mở thư mục dự án trên máy tính của bạn (thư mục chứa file index.html cùng các file css, js).
+Bước 3: Dùng chuột KÉO TOÀN BỘ THƯ MỤC ĐÓ VÀ THẢ vào ô chấm nét đứt trên màn hình Netlify.
+Bước 4: Chờ khoảng 10-15 giây để hệ thống tải lên. Netlify sẽ cấp ngay một đường link trực tiếp (ví dụ: https://happy-curie-123456.netlify.app).</pre>
+          </div>
+          <div class="hint">
+            <strong>Mẹo đổi tên miền phụ đẹp mắt trên Netlify:</strong><br>
+            Sau khi tải lên thành công, bấm vào mục <em>Site configuration</em> → Chọn <em>Change site name</em> → Gõ tên bạn muốn (ví dụ: <code>so-tay-sinh-vien</code>) → Bấm <em>Save</em>. Đường link của bạn sẽ đổi thành <code>https://so-tay-sinh-vien.netlify.app</code> hoàn toàn miễn phí!
+          </div>
+        </section>
+
+        <section>
+          <h3>2. Cách 2: Triển khai tự động chuẩn doanh nghiệp với Vercel</h3>
+          <p>Vercel là nền tảng điện toán đám mây hàng đầu thế giới dành cho ứng dụng web. Khi kết nối với GitHub, mỗi lần bạn sửa mã nguồn và lưu lại, Vercel sẽ <strong>tự động cập nhật trang web sau 30 giây</strong>.</p>
+          <div class="code">
+            <div><span>4 BƯỚC TRIỂN KHAI VỚI VERCEL</span></div>
+            <pre>Bước 1: Đẩy toàn bộ mã nguồn của bạn lên một kho lưu trữ (Repository) trên GitHub.
+Bước 2: Mở trang https://vercel.com → Đăng nhập bằng tài khoản GitHub (Continue with GitHub).
+Bước 3: Tại bảng điều khiển Vercel, nhấp vào nút "Add New..." ở góc trên bên phải → Chọn "Project" → Nhấn "Import" cạnh kho GitHub vừa tạo.
+Bước 4: Tại màn hình cấu hình:
+  - Project Name: Đặt tên cho ứng dụng của bạn.
+  - Framework Preset: Nếu là HTML/CSS/JS thuần, chọn "Other".
+  - Environment Variables: Thêm các khóa bí mật nếu dự án có dùng API ngoài.
+  - Nhấn nút "Deploy" màu xanh.</pre>
+          </div>
+          <p>Sau khoảng 20-30 giây, màn hình bắn pháo hoa xuất hiện và bạn nhận được đường dẫn dạng <code>https://ten-du-an.vercel.app</code> có tốc độ tải siêu nhanh trên toàn cầu.</p>
+        </section>
+
+        <section>
+          <h3>3. Cách 3: Xuất bản miễn phí trọn đời bằng GitHub Pages</h3>
+          <p>Nếu bạn đã lưu trữ mã nguồn trên GitHub, bạn có thể bật tính năng GitHub Pages tích hợp sẵn:</p>
+          <ol>
+            <li>Mở trang GitHub repository của bạn trên trình duyệt → Chọn thẻ <strong>Settings</strong> (Cài đặt) ở thanh menu trên cùng.</li>
+            <li>Tại menu bên trái, chọn mục <strong>Pages</strong>.</li>
+            <li>Ở phần <em>Build and deployment</em> → Mục <em>Branch</em>, chọn nhánh <code>main</code> (hoặc <code>master</code>) và chọn thư mục <code>/(root)</code> → Nhấn <strong>Save</strong>.</li>
+            <li>Chờ 1-2 phút rồi làm mới trang, GitHub sẽ cung cấp link công khai dạng: <code>https://&lt;ten-tai-khoan&gt;.github.io/&lt;ten-repo&gt;/</code>.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h3>4. Cấu hình tên miền riêng (Custom Domain)</h3>
+          <p>Để gắn tên miền của cơ quan hay thương hiệu của bạn (ví dụ: <code>ungdung.bvchoray.vn</code> hoặc <code>app.cuaban.com</code>), vào trang quản lý DNS của nhà cung cấp tên miền và thêm các bản ghi sau:</p>
+          <div class="code">
+            <div><span>BẢN GHI DNS MẪU TRỎ VỀ VERCEL / NETLIFY</span></div>
+            <pre>Loại bản ghi    Tên máy chủ (Host)      Giá trị đích (Value / Points to)       TTL
+CNAME           app                     cname.vercel-dns.com.                 Tự động
+CNAME           web                     ten-site-cua-ban.netlify.app.         Tự động
+A               @                       76.76.21.21 (Vercel IP)               Tự động</pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>5. Bảng kiểm tra 10 điểm Go-Live bắt buộc trước khi bàn giao</h3>
+          <div class="prompt">
+            <b>CHECKLIST GO-LIVE CUỐI CÙNG:</b>
+            <ol style="margin-top: 8px; padding-left: 20px;">
+              <li>[ ] <strong>Console sạch:</strong> Mở F12 không còn dòng lỗi đỏ nào (`Uncaught Error`).</li>
+              <li>[ ] <strong>Bảo vệ bí mật:</strong> Không có bất kỳ mật khẩu hay API Key thật nào bị lộ trong file mã nguồn.</li>
+              <li>[ ] <strong>Thử nghiệm F5:</strong> Tải lại trang trên link online xem dữ liệu nhập vào có còn nguyên không.</li>
+              <li>[ ] <strong>Kiểm tra trên điện thoại di động:</strong> Dùng điện thoại thật mở đường link web xem có bị tràn viền hay nút bấm khó bấm không.</li>
+              <li>[ ] <strong>Kiểm tra liên kết:</strong> Bấm thử tất cả các nút và menu xem có trang nào bị lỗi 404 không.</li>
+              <li>[ ] <strong>Chứng chỉ HTTPS:</strong> Đảm bảo thanh địa chỉ trình duyệt hiện biểu tượng ổ khóa an toàn.</li>
+              <li>[ ] <strong>Thông báo người dùng:</strong> Khi gửi form thành công hoặc có lỗi, luôn hiện thông báo Toast rõ ràng.</li>
+              <li>[ ] <strong>Tiêu đề &amp; Biểu tượng:</strong> Đã đặt thẻ <code>&lt;title&gt;</code> tiếng Việt rõ nghĩa và gắn icon (Favicon).</li>
+              <li>[ ] <strong>Dữ liệu mẫu:</strong> Đã dọn dẹp các dữ liệu nháp thử nghiệm không cần thiết.</li>
+              <li>[ ] <strong>Tài liệu hướng dẫn:</strong> Đã viết file <code>README.md</code> hoặc hướng dẫn ngắn gọn cho người tiếp nhận sử dụng.</li>
+            </ol>
+          </div>
+        </section>
+      </div>
+
+      <footer class="chapter-footer-seamless">
+        <div class="chapter-status-line">
+          <span>Chương 12 / 12</span>
+          <button class="chapter-btn-read" data-complete-chapter="12">✓ Hoàn tất toàn bộ 12 chương sách</button>
+        </div>
+        <nav class="seamless-bottom-nav">
+          <a href="#chapter-11" class="nav-link-prev">
+            <small>← QUAY LẠI</small>
+            <span>Chương 11: Kiểm thử &amp; Sửa lỗi</span>
+          </a>
+          <a href="#appendix-a" class="nav-link-next">
+            <small>PHỤ LỤC TIẾP THEO →</small>
+            <span>Phụ lục A: Thư viện Prompt mẫu</span>
+          </a>
+        </nav>
+      </footer>
+    </article>

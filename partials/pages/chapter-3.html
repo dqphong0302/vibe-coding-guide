@@ -1,0 +1,165 @@
+    <article class="ebook-page" id="chapter-3" data-chapter="3">
+      <header class="chapter-head">
+        <div class="chapter-badge-num">03</div>
+        <div class="chapter-head-info">
+          <p class="chapter-eyebrow">CHƯƠNG 03 · PHẦN I <span>· 25 PHÚT ĐỌC</span></p>
+          <h2>Chuẩn Bị Workspace &amp; Kho Mã Nguồn Chuẩn Cho AI</h2>
+          <p class="chapter-subtitle">Kho mã nguồn tốt cho con người cũng là kho mã nguồn tốt nhất cho AI Agent hiểu ngữ cảnh.</p>
+        </div>
+      </header>
+
+      <div class="chapter-goal-box">
+        <b>Mục tiêu chương:</b>
+        <span>Tổ chức cây thư mục chuẩn cho AI Agent quét nhanh; thiết lập bộ hồ sơ quy tắc dự án (AGENTS.md, SPEC.md, RULES.md, .gitignore); nắm vững kỷ luật Git an toàn và nguyên tắc bảo mật Zero Secret Leakage.</span>
+      </div>
+
+      <div class="body">
+        <section>
+          <h3>1. Cấu trúc thư mục tối ưu cho AI Agent</h3>
+          <p>AI Agent đọc hiểu thư mục rất nhanh nếu bạn đặt tên tệp có ý nghĩa, tránh nhồi nhét mọi thứ vào 1 file duy nhất nhưng cũng không chia tách quá vụn vặt:</p>
+          <div class="code">
+            <div><span>CẤU TRÚC WORKSPACE TIÊU CHUẨN</span></div>
+            <pre>my-project/
+├── .gitignore          # Chặn commit file rác và bí mật (.env, node_modules, tmp/)
+├── AGENTS.md           # Quy tắc hành vi &amp; phong cách viết mã cho AI Agent
+├── SPEC.md             # Tài liệu đặc tả yêu cầu kỹ thuật &amp; tiêu chí nghiệm thu
+├── index.html          # Trang chủ ứng dụng (HTML ngữ nghĩa, sạch sẽ)
+├── css/
+│   ├── style.css       # Design tokens, reset, biến màu sắc &amp; font chữ
+│   └── components.css  # Giao diện các thành phần chi tiết
+├── js/
+│   ├── app.js          # Logic điều phối chính &amp; routing
+│   └── modules/        # Các module xử lý dữ liệu và API
+├── data/
+│   └── sample.json     # Dữ liệu mẫu phục vụ kiểm thử
+└── tests/              # Kịch bản kiểm thử tự động</pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>1.1. Chụp “baseline” trước khi giao Agent sửa mã</h3>
+          <p>Đừng bắt đầu bằng yêu cầu “sửa hết đi”. Trước mỗi thay đổi đáng kể, hãy ghi nhận trạng thái đang chạy được để biết lỗi nào có sẵn và lỗi nào xuất hiện sau khi Agent can thiệp.</p>
+          <ol>
+            <li><strong>Đọc hướng dẫn:</strong> mở <code>README.md</code>, <code>SPEC.md</code> và các quy tắc hiện có trước khi ra lệnh.</li>
+            <li><strong>Kiểm tra trạng thái Git:</strong> dùng <code>git status</code>; không trộn thay đổi dở dang của người khác vào nhiệm vụ mới.</li>
+            <li><strong>Chạy đúng kiểm tra đã có:</strong> chỉ chạy lệnh được dự án khai báo, như <code>npm test</code>, <code>npm run build</code> hoặc checklist thủ công trong README.</li>
+            <li><strong>Lưu bằng chứng ngắn:</strong> ghi lại lệnh đã chạy, kết quả và ảnh Preview nếu có. Khi test vốn đã lỗi, tách nó thành việc riêng thay vì quy cho thay đổi mới.</li>
+          </ol>
+          <div class="hint"><strong>Prompt an toàn:</strong> “Chỉ đọc repo. Hãy cho tôi biết trạng thái Git, các lệnh kiểm tra được khai báo và kết quả baseline. Chưa sửa bất kỳ tệp nào.”</div>
+        </section>
+
+        <!-- THƯ VIỆN PROMPT KHỞI TẠO WORKSPACE THỰC CHIẾN -->
+        <section class="wide" style="margin: 20px 0;">
+          <div style="background: linear-gradient(135deg, #0f172a, #1e293b); border: 1px solid #334155; border-radius: 14px; padding: 24px; color: #f8fafc;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 18px;">
+              <h4 style="margin: 0; font-size: 16px; color: #38bdf8; display: flex; align-items: center; gap: 8px;">
+                <span>⚡</span> Thư Viện Prompt Khởi Tạo Workspace &amp; Hồ Sơ Quy Tắc Dự Án (Bootstrap Prompts)
+              </h4>
+              <span style="background: #0284c7; color: #ffffff; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700;">Sao Chép Dùng Liền</span>
+            </div>
+
+            <!-- PROMPT 1 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #334155; border-radius: 10px; padding: 16px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <b style="color: #67e8f9; font-size: 13px;">📁 Mẫu 1: Khởi Tạo Cây Thư Mục Chuẩn &amp; File .gitignore Bảo Mật</b>
+                <span style="font-size: 10.5px; color: #94a3b8;">Dựng móng dự án</span>
+              </div>
+              <pre style="background: #020617; padding: 12px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 0; border: 1px solid #1e293b;">Hãy khởi tạo cấu trúc thư mục hoàn chỉnh cho dự án web mới:
+1. Tạo các thư mục: css/, js/, data/, assets/diagrams/, assets/icons/, tests/.
+2. Tạo file .gitignore chuẩn, loại trừ: .env, node_modules/, .DS_Store, tmp/, *.log, dist/.
+3. Tạo file index.html cơ bản với thẻ HTML5 ngữ nghĩa, nạp sẵn font Be Vietnam Pro và liên kết css/style.css, js/app.js.
+4. Tạo file README.md ghi rõ mục tiêu dự án, cách chạy thử nghiệm và cấu trúc thư mục.</pre>
+            </div>
+
+            <!-- PROMPT 2 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #334155; border-radius: 10px; padding: 16px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <b style="color: #67e8f9; font-size: 13px;">📜 Mẫu 2: Tự Động Sinh File Nội Quy Dự Án AGENTS.md</b>
+                <span style="font-size: 10.5px; color: #94a3b8;">Thiết lập "vòng kim cô" cho AI</span>
+              </div>
+              <pre style="background: #020617; padding: 12px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 0; border: 1px solid #1e293b;">Hãy tạo file AGENTS.md tại thư mục gốc của dự án với các quy định nghiêm ngặt sau:
+- Vai trò: Bạn là Kỹ sư lập trình Fullstack giàu kinh nghiệm, chuyên về HTML5/CSS/Vanilla JS.
+- Quy tắc công nghệ: Không tự ý cài đặt thêm framework bên ngoài (React/Vue/Tailwind) trừ khi tôi yêu cầu. Mọi CSS phải đặt trong file .css riêng, không viết inline style tràn lan.
+- Bảo mật: Tuyệt đối không lưu mật khẩu hay API Key ở mã nguồn client.
+- Quy trình sửa đổi: Phải phân tích giải pháp và lập kế hoạch (Plan) trước; chỉ sửa đúng file liên quan (Minimal Changes), không xóa hay viết lại mã nguồn đang hoạt động ổn định.</pre>
+            </div>
+
+            <!-- PROMPT 3 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #334155; border-radius: 10px; padding: 16px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <b style="color: #67e8f9; font-size: 13px;">🛡️ Mẫu 3: Đọc Baseline &amp; Kiểm Tra An Toàn Trước Khi Giao Nhiệm Vụ Mới</b>
+                <span style="font-size: 10.5px; color: #94a3b8;">Chống ghi đè mã nguồn</span>
+              </div>
+              <pre style="background: #020617; padding: 12px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 0; border: 1px solid #1e293b;">Chỉ đọc repository. Chưa sửa đổi bất kỳ tệp nào.
+Hãy quét toàn bộ cấu trúc dự án và báo cáo cho tôi:
+1. Trạng thái Git hiện tại (các file đang staged, modified hoặc untracked).
+2. Tóm tắt kiến trúc hiện có và các module đang chạy ổn định.
+3. Bản kế hoạch từng bước (Step-by-step Plan) để thực hiện nhiệm vụ [Mô tả tính năng cần làm].
+Sau khi tôi duyệt bản kế hoạch này, bạn mới được bắt đầu viết mã.</pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="wide">
+          <div class="figure-showcase">
+            <div class="figure-header">
+              <span class="figure-title">📂 Hình 3.1: Giải phẫu kho mã nguồn chuẩn mực cho AI Agent</span>
+              <div class="figure-actions">
+                <a class="figure-btn" href="assets/diagrams/03_repo_anatomy.png" target="_blank">🔗 Mở ảnh gốc</a>
+                <button class="figure-btn zoom-btn">🔍 Phóng to</button>
+              </div>
+            </div>
+            <div class="figure-img-wrap">
+              <img src="assets/diagrams/03_repo_anatomy.png" alt="Giải phẫu kho mã nguồn repo chuẩn cho AI" loading="lazy">
+            </div>
+            <div class="figure-caption">
+              <em>Hình 3.1:</em> Tổ chức thư mục rõ ràng giúp Agent định vị tệp cần sửa mà không đọc thừa thãi, tiết kiệm Context Window và hạn chế xung đột mã.
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>2. Bộ ba tài liệu "Định hướng hành vi AI"</h3>
+          <p>Để Agent không đi chệch hướng, hãy luôn duy trì 3 file văn bản ở thư mục gốc:</p>
+          <ol>
+            <li><strong>SPEC.md (Tài liệu đặc tả):</strong> Định nghĩa ứng dụng làm gì, ai dùng, các trường dữ liệu và tiêu chí nghiệm thu cụ thể.</li>
+            <li><strong>AGENTS.md (Quy tắc thực thi):</strong> Quy định ngôn ngữ lập trình, thư viện được phép dùng, tiêu chuẩn đặt tên hàm và yêu cầu lập kế hoạch trước khi viết mã.</li>
+            <li><strong>.gitignore (Bộ lọc an toàn):</strong> Danh sách các file và thư mục cấm đẩy lên Git (file chứa API Key, file tạm, thư mục cài đặt nặng).</li>
+          </ol>
+        </section>
+
+        <section>
+          <h3>3. Kỷ luật Git an toàn tuyệt đối khi lập trình cùng AI</h3>
+          <ul>
+            <li><strong>Tạo nhánh mới cho từng tính năng (Feature Branch):</strong> Luôn tạo nhánh mới như <code>git checkout -b feat/user-auth</code> trước khi yêu cầu AI viết mã lớn. Nếu AI làm hỏng, bạn có thể xóa nhánh đi làm lại mà không ảnh hưởng nhánh chính <code>main</code>.</li>
+            <li><strong>Commit theo từng lát cắt nhỏ (Semantic Commits):</strong> Commit ngay khi một phần tính năng chạy tốt. Ví dụ: <code>feat: tạo form nhập liệu</code> → <code>feat: kết nối api lưu đơn</code>.</li>
+            <li><strong>Luôn kiểm tra Visual Diff:</strong> Không gõ <code>git add .</code> một cách mù quáng. Hãy mở giao diện Diff để xem từng dòng code AI đã sửa đổi.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>4. Quản lý biến môi trường (.env) và bảo mật</h3>
+          <div class="warn">
+            <strong>NGUYÊN TẮC ZERO SECRET LEAKAGE:</strong>
+            <p style="margin: 6px 0 0;">Tạo file <code>.env.example</code> chứa các tên biến mẫu (như <code>SUPABASE_URL=your_url_here</code>) để đẩy lên Git, trong khi file <code>.env</code> thật chứa khóa bí mật bắt buộc phải được khai báo trong <code>.gitignore</code>.</p>
+          </div>
+        </section>
+      </div>
+
+      <footer class="chapter-footer-seamless">
+        <div class="chapter-status-line">
+          <span>Chương 3 / 12</span>
+          <button class="chapter-btn-read" data-complete-chapter="3">✓ Đánh dấu đã đọc chương 3</button>
+        </div>
+        <nav class="seamless-bottom-nav">
+          <a href="#chapter-2" class="nav-link-prev">
+            <small>← QUAY LẠI</small>
+            <span>Chương 02: Mô hình hoạt động Web App</span>
+          </a>
+          <a href="#chapter-4" class="nav-link-next">
+            <small>CHƯƠNG TIẾP THEO →</small>
+            <span>Chương 04: Google Antigravity</span>
+          </a>
+        </nav>
+      </footer>
+    </article>

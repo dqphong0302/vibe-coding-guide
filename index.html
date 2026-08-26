@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cẩm Nang Thực Chiến Vibe Coding &amp; AI Coding Agent (2026 Edition) · Đại Học Y Dược TP.HCM</title>
+  <meta name="description"
+    content="Ebook chuyên khảo thực chiến 12 chương &amp; 2 chuyên đề: Làm chủ Google Antigravity, OpenAI Codex và Claude Desktop từ tư duy Vibe Coding, Spec-Driven đến triển khai thực tế tại Đại học Y Dược TP.HCM.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=DM+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css?v=1">
+  <link rel="stylesheet" href="css/course-reader.css?v=1">
+  <link rel="stylesheet" href="css/content-features.css?v=1">
+  <link rel="stylesheet" href="css/guidelines.css?v=1">
+  <link rel="stylesheet" href="css/components.css?v=44">
+  <link rel="stylesheet" href="css/medical-course.css?v=1">
+  <link rel="stylesheet" href="css/admin-guide.css?v=2">
+  <link rel="stylesheet" href="css/stitch-ump-theme.css?v=1">
+</head>
+
+<body class="ebook-reader-body">
+
+  <!-- TOP READING PROGRESS LINE -->
+  <div class="reading-progress-line" id="reading" aria-hidden="true"></div>
+
+  <!-- MAIN APPLICATION SHELL -->
+  <div class="shell">
+
+    <!-- SIDEBAR NAVIGATION (FIXED & PINNED) -->
+    <aside class="sidebar" id="sidebar" aria-label="Mục lục Ebook">
+      <div class="brand">
+        <a href="#home">
+          <b>AG</b>
+          <div>
+            <strong>AI Coding Agent</strong>
+            <small>Tài liệu tham khảo Vibe Coding 2026</small>
+          </div>
+        </a>
+        <button class="mobile-close" id="close" type="button" aria-label="Đóng mục lục">&times;</button>
+      </div>
+
+      <!-- READING PROGRESS TRACKER -->
+      <div class="progress" aria-label="Tiến độ hoàn thành">
+        <div class="progress-info">
+          <span>Tiến độ đọc</span>
+          <strong id="progress-label">0/12 chương</strong>
+        </div>
+        <i><b id="progress-bar"></b></i>
+      </div>
+
+      <!-- TABLE OF CONTENTS (12 CHAPTERS & 4 APPENDICES) -->
+      <nav class="sidebar-nav">
+        <a class="nav-cover active" href="#home"><span>🏠</span><b>Trang bìa &amp; Mục lục</b></a>
+
+        <p>PHẦN I: NỀN TẢNG &amp; TƯ DUY</p>
+        <a href="#chapter-1" data-chapter="1"><span>01</span><b>Bản chất Vibe Coding</b></a>
+        <a href="#chapter-2" data-chapter="2"><span>02</span><b>Kiến trúc Web App</b></a>
+        <a href="#chapter-3" data-chapter="3"><span>03</span><b>Chuẩn bị Workspace</b></a>
+
+        <p>PHẦN II: TAM MÃ AI AGENT</p>
+        <a href="#chapter-4" data-chapter="4"><span>04</span><b>Google Antigravity</b></a>
+        <a href="#chapter-5" data-chapter="5"><span>05</span><b>OpenAI Codex</b></a>
+        <a href="#chapter-6" data-chapter="6"><span>06</span><b>Claude Desktop &amp; MCP</b></a>
+        <a href="#chapter-7" data-chapter="7"><span>07</span><b>So sánh &amp; Phối hợp</b></a>
+
+        <p>PHẦN III: QUY TRÌNH TỪ A ĐẾN Z</p>
+        <a href="#chapter-8" data-chapter="8"><span>08</span><b>Thiết kế UI/UX &amp; Google Stitch</b></a>
+        <a href="#chapter-9" data-chapter="9"><span>09</span><b>Dữ liệu &amp; Bảo mật</b></a>
+        <a href="#chapter-10" data-chapter="10"><span>10</span><b>Đặc tả Spec-Driven</b></a>
+        <a href="#chapter-11" data-chapter="11"><span>11</span><b>Kiểm thử &amp; Sửa lỗi</b></a>
+        <a href="#chapter-12" data-chapter="12"><span>12</span><b>Go-Live &amp; Xuất bản</b></a>
+
+        <p>PHẦN IV: PHỤ LỤC &amp; TÀI NGUYÊN</p>
+        <a href="#appendix-a"><span>A</span><b>Thư viện Prompt</b></a>
+        <a href="#appendix-c"><span>C</span><b>Bộ Starter Kit</b></a>
+
+        <p>PHẦN V: CHUYÊN ĐỀ THỰC HÀNH</p>
+        <a href="#medical-course"><span>⚕</span><b>Vibe Coding Y khoa (4 buổi)</b></a>
+        <a href="#admin-guide"><span>🏛</span><b>Số hóa quy trình 8 cổng</b></a>
+      </nav>
+
+      <!-- SECONDARY SATELLITE LINKS -->
+      <div class="side-tools">
+        <p>TÀI LIỆU VỆ TINH</p>
+        <a href="slide.html" target="_blank">🖥️ Bộ slide 51 trang trực quan</a>
+        <button id="reset" type="button">↺ Đặt lại tiến độ đọc</button>
+      </div>
+    </aside>
+
+    <button class="backdrop" id="backdrop" aria-label="Đóng mục lục"></button>
+
+    <!-- MAIN EBOOK CONTENT -->
+    <main id="main">
+      <!-- STICKY READER TOOLBAR -->
+      <header class="reader-topbar" id="reader-topbar">
+        <div class="reader-left-group">
+          <button class="btn-menu-mobile" id="menu" type="button" aria-label="Mở mục lục">☰ Mục lục</button>
+          <div class="reader-breadcrumb">
+            <b>📘 AI Agent Ebook</b>
+            <span>/</span>
+            <span id="reader-current-title">Trang bìa &amp; Mục lục</span>
+          </div>
+        </div>
+        <div class="reader-nav-btns">
+          <button class="btn-reader-nav" id="top-btn-prev" type="button">← Trước</button>
+          <span class="reader-page-indicator" id="top-page-num">01 / 17</span>
+          <button class="btn-reader-nav" id="top-btn-next" type="button">Tiếp theo →</button>
+        </div>
+      </header>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 0: TRANG BÌA (100% SEAMLESS & UNBOXED) -->
+      <!-- ================================================================= -->
+      <div data-page-module="home"></div>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 1: CHƯƠNG 1 -->
+      <!-- ================================================================= -->
+      <div data-page-module="chapter-1"></div>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 2: CHƯƠNG 2 -->
+      <!-- ================================================================= -->
+      <div data-page-module="chapter-2"></div>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 3: CHƯƠNG 3 -->
+      <!-- ================================================================= -->
+      <div data-page-module="chapter-3"></div>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 4: CHƯƠNG 4 -->
+      <!-- ================================================================= -->
+      <div data-page-module="chapter-4"></div>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 5: CHƯƠNG 5 -->
+      <!-- ================================================================= -->
+      <div data-page-module="chapter-5"></div>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 6: CHƯƠNG 6 -->
+      <!-- ================================================================= -->
+      <div data-page-module="chapter-6"></div>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 7: CHƯƠNG 7 -->
+      <!-- ================================================================= -->
+      <div data-page-module="chapter-7"></div>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 8: CHƯƠNG 8 -->
+      <!-- ================================================================= -->
+      <div data-page-module="chapter-8"></div>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 9: CHƯƠNG 9 -->
+      <!-- ================================================================= -->
+      <div data-page-module="chapter-9"></div>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 10: CHƯƠNG 10 -->
+      <!-- ================================================================= -->
+      <div data-page-module="chapter-10"></div>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 11: CHƯƠNG 11 -->
+      <!-- ================================================================= -->
+      <div data-page-module="chapter-11"></div>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 12: CHƯƠNG 12 -->
+      <!-- ================================================================= -->
+      <div data-page-module="chapter-12"></div>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 13: PHỤ LỤC A -->
+      <!-- ================================================================= -->
+      <div data-page-module="appendix-a"></div>
+
+      <!-- ================================================================= -->
+      <!-- PAGE 14: PHỤ LỤC C -->
+      <!-- ================================================================= -->
+      <div data-page-module="appendix-c"></div>
+
+      <!-- ================================================================= -->
+      <!-- CHUYÊN ĐỀ: LỘ TRÌNH VIBE CODING Y KHOA -->
+      <!-- ================================================================= -->
+      <div data-page-module="medical-course"></div>
+
+      <!-- ================================================================= -->
+      <!-- CHUYÊN ĐỀ: SỐ HÓA QUY TRÌNH 8 CỔNG -->
+      <!-- ================================================================= -->
+      <div data-page-module="admin-guide"></div>
+
+      <!-- SITE FOOTER -->
+      <footer class="site-footer" id="ebook-footer">
+        <div>
+          <b>Vibe Coding · 2026 Edition</b>
+          <p>Cẩm nang thực chiến làm chủ Google Antigravity, OpenAI Codex &amp; Claude Desktop.</p>
+        </div>
+        <a href="#home">Về trang bìa ↑</a>
+      </footer>
+    </main>
+  </div>
+
+  <!-- IMAGE LIGHTBOX MODAL -->
+  <div class="image-lightbox" id="image-lightbox">
+    <button class="lightbox-close" aria-label="Đóng">&times;</button>
+    <img class="lightbox-content" src="" alt="Hình ảnh chi tiết">
+    <div class="lightbox-caption"></div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- CONTENT + SCRIPT BOOTSTRAP -->
+  <script src="js/content-loader.js?v=3"></script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+{
+  "thong_bao_an_toan": "BỘ DỮ LIỆU GIẢ LẬP PHỤC VỤ KIỂM THỬ - KHÔNG CHỨA THÔNG TIN CÁ NHÂN HOẶC HỒ SƠ THẬT",
+  "phien_ban": "1.0.0",
+  "ngay_tao": "2026-08-18T08:00:00.000Z",
+  "tong_so_ho_so": 8,
+  "danh_sach_ho_so": [
+    {
+      "ma_ho_so": "HS-GIA-0001",
+      "nguoi_nop_id": "NV-GIA-01",
+      "ho_ten_nguoi_nop": "Nguyễn Văn Giả Lập A",
+      "phong_ban": "Phòng Kế hoạch - Tài chính",
+      "loai_xac_nhan": "CONG_TAC",
+      "muc_dich": "Xin cấp giấy xác nhận thời gian công tác để làm thủ tục gia hạn hộ chiếu công vụ.",
+      "trang_thai": "nhap",
+      "ngay_tao": "2026-08-18T08:15:00.000Z",
+      "sla_han": null,
+      "chuyen_vien_phu_trach": null,
+      "ghi_chu": "Hồ sơ đang soạn nháp, chưa gửi văn thư."
+    },
+    {
+      "ma_ho_so": "HS-GIA-0002",
+      "nguoi_nop_id": "NV-GIA-02",
+      "ho_ten_nguoi_nop": "Trần Thị Mẫu B",
+      "phong_ban": "Phòng Tổ chức Cán bộ",
+      "loai_xac_nhan": "THU_NHAP",
+      "muc_dich": "Xác nhận thu nhập 3 tháng gần nhất để làm hồ sơ mua nhà ở xã hội.",
+      "trang_thai": "da_tiep_nhan",
+      "ngay_tao": "2026-08-18T08:30:00.000Z",
+      "sla_han": "2026-08-18T12:30:00.000Z",
+      "chuyen_vien_phu_trach": "CV-GIA-01",
+      "ghi_chu": "Văn thư đã tiếp nhận, đang phân công chuyên viên thụ lý."
+    },
+    {
+      "ma_ho_so": "HS-GIA-0003",
+      "nguoi_nop_id": "NV-GIA-03",
+      "ho_ten_nguoi_nop": "Lê Hoàng Test C",
+      "phong_ban": "Trung tâm Công nghệ Thông tin",
+      "loai_xac_nhan": "CONG_TAC_VA_THU_NHAP",
+      "muc_dich": "Xác nhận công tác và thu nhập phục vụ hồ sơ xin học bổng sau đại học.",
+      "trang_thai": "cho_bo_sung",
+      "ngay_tao": "2026-08-17T14:00:00.000Z",
+      "sla_han": null,
+      "chuyen_vien_phu_trach": "CV-GIA-02",
+      "ghi_chu": "Yêu cầu bổ sung: Tệp đính kèm quyết định phân công công tác bị mờ, cần chụp lại."
+    },
+    {
+      "ma_ho_so": "HS-GIA-0004",
+      "nguoi_nop_id": "NV-GIA-04",
+      "ho_ten_nguoi_nop": "Phạm Quốc Mẫu D",
+      "phong_ban": "Phòng Hành chính - Quản trị",
+      "loai_xac_nhan": "CONG_TAC",
+      "muc_dich": "Xác nhận quá trình công tác phục vụ hồ sơ dự thi chứng chỉ hành nghề.",
+      "trang_thai": "dang_tham_dinh",
+      "ngay_tao": "2026-08-18T09:00:00.000Z",
+      "sla_han": "2026-08-18T17:00:00.000Z",
+      "chuyen_vien_phu_trach": "CV-GIA-01",
+      "ghi_chu": "Chuyên viên đang đối chiếu sổ bảo hiểm xã hội và quyết định tuyển dụng."
+    },
+    {
+      "ma_ho_so": "HS-GIA-0005",
+      "nguoi_nop_id": "NV-GIA-05",
+      "ho_ten_nguoi_nop": "Hoàng Minh Test E",
+      "phong_ban": "Ban Quản lý Dự án",
+      "loai_xac_nhan": "THU_NHAP",
+      "muc_dich": "Xác nhận thu nhập năm 2025 phục vụ quyết toán thuế thu nhập cá nhân.",
+      "trang_thai": "cho_phe_duyet",
+      "ngay_tao": "2026-08-17T10:00:00.000Z",
+      "sla_han": "2026-08-18T14:00:00.000Z",
+      "chuyen_vien_phu_trach": "CV-GIA-03",
+      "ghi_chu": "Chuyên viên đã thẩm định ĐẠT, đã trình lên Lãnh đạo phòng ký duyệt."
+    },
+    {
+      "ma_ho_so": "HS-GIA-0006",
+      "nguoi_nop_id": "NV-GIA-06",
+      "ho_ten_nguoi_nop": "Vũ Hải Mẫu F",
+      "phong_ban": "Phòng Pháp chế",
+      "loai_xac_nhan": "CONG_TAC",
+      "muc_dich": "Xác nhận công tác để làm thẻ ra vào tòa nhà liên cơ quan.",
+      "trang_thai": "hoan_tat",
+      "ngay_tao": "2026-08-16T08:00:00.000Z",
+      "sla_han": "2026-08-16T17:00:00.000Z",
+      "chuyen_vien_phu_trach": "CV-GIA-02",
+      "ghi_chu": "Lãnh đạo đã phê duyệt cấp giấy xác nhận điện tử số #XN-2026-0006."
+    },
+    {
+      "ma_ho_so": "HS-GIA-0007",
+      "nguoi_nop_id": "NV-GIA-07",
+      "ho_ten_nguoi_nop": "Đỗ Thu Test G",
+      "phong_ban": "Phòng Hợp tác Quốc tế",
+      "loai_xac_nhan": "THU_NHAP",
+      "muc_dich": "Xác nhận mức lương dự kiến tương lai.",
+      "trang_thai": "tu_choi",
+      "ngay_tao": "2026-08-15T09:30:00.000Z",
+      "sla_han": "2026-08-15T17:30:00.000Z",
+      "chuyen_vien_phu_trach": "CV-GIA-01",
+      "ghi_chu": "Từ chối: Đơn vị chỉ xác nhận thu nhập thực tế đã chi trả, không xác nhận thu nhập dự kiến."
+    },
+    {
+      "ma_ho_so": "HS-GIA-0008",
+      "nguoi_nop_id": "NV-GIA-08",
+      "ho_ten_nguoi_nop": "Bùi Văn Mẫu H",
+      "phong_ban": "Phòng Nghiên cứu Phát triển",
+      "loai_xac_nhan": "CONG_TAC_VA_THU_NHAP",
+      "muc_dich": "Xác nhận thời gian thử việc.",
+      "trang_thai": "dang_tham_dinh",
+      "ngay_tao": "2026-08-14T08:00:00.000Z",
+      "sla_han": "2026-08-14T17:00:00.000Z",
+      "chuyen_vien_phu_trach": "CV-GIA-03",
+      "ghi_chu": "Cảnh báo quá hạn SLA: Hồ sơ chưa có kết luận sau thời hạn quy định, đã kích hoạt thông báo leo thang."
+    }
+  ]
+}

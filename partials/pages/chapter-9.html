@@ -1,0 +1,179 @@
+<article class="ebook-page" id="chapter-9" data-chapter="9">
+      <header class="chapter-head">
+        <div class="chapter-badge-num">09</div>
+        <div class="chapter-head-info">
+          <p class="chapter-eyebrow">CHƯƠNG 09 · PHẦN III <span>· 25 PHÚT ĐỌC</span></p>
+          <h2>Bảo Mật Dữ Liệu, Phân Quyền &amp; Kiểm Thử Vượt Quyền Bằng AI</h2>
+          <p class="chapter-subtitle">Vibe Coding an toàn: Thiết lập phân quyền đa vai trò, bộ testcase bảo mật và dùng AI đóng vai Hacker rà soát lỗ hổng vượt quyền tiềm ẩn.</p>
+        </div>
+      </header>
+
+      <div class="chapter-goal-box">
+        <b>Mục tiêu chương:</b>
+        <span>Nắm vững 3 nguyên tắc bảo mật cơ bản trong Vibe Coding; xây dựng bộ Test Case phân quyền cho nhiều vai trò (Khách, Người nộp, Chuyên viên, Admin); sử dụng Prompt đóng vai Hacker để AI tự động dò quét các lỗ hổng vượt quyền mà mắt thường con người không thấy.</span>
+      </div>
+
+      <div class="body">
+        <section>
+          <h3>1. Ba chiếc "dây an toàn" bảo mật người làm Vibe Coding cần biết</h3>
+          <p>Khi ra lệnh cho AI viết ứng dụng, bạn không cần phải là chuyên gia an ninh mạng hay thuộc lòng các thuật toán phức tạp. Bạn chỉ cần nắm chắc <strong>3 chiếc dây an toàn</strong> sau:</p>
+          <div class="mini-table">
+            <div><b>Dây an toàn</b><b>Rủi ro nếu bỏ qua</b><b>Cách xử lý đơn giản</b></div>
+            <div><span><b>1. Khóa bí mật &amp; Dữ liệu thật</b></span><span>Lộ thông tin sinh viên/bệnh nhân, bị đánh cắp API Key</span><span>Dùng Mock data (dữ liệu giả) khi chat với AI; cất key vào file <code>.env</code></span></div>
+            <div><span><b>2. Phân quyền hiển thị &amp; Thực thi</b></span><span>Người dùng thường tự ý duyệt đơn hoặc xóa nhầm hồ sơ của người khác</span><span>Chỉ định rõ: User chỉ thấy việc của mình, chỉ Admin mới có quyền Duyệt/Xóa</span></div>
+            <div><span><b>3. Chống mất dữ liệu (F5)</b></span><span>Người dùng tải lại trang thì dữ liệu biến mất hoặc trang bị trắng đơ</span><span>Yêu cầu AI bọc hàm lưu trữ an toàn (Safe LocalStorage với try-catch)</span></div>
+          </div>
+        </section>
+
+        <!-- NĂM MÔ HÌNH KẾT NỐI DỮ LIỆU THỰC CHIẾN -->
+        <section class="wide">
+          <h3>2. Năm Lựa Chọn Kết Nối Dữ Liệu Trong Vibe Coding (Từ Nhẹ Đến Nâng Cao)</h3>
+          <p>Không có một giải pháp đúng cho mọi bài toán. Tùy theo nhu cầu và độ nhạy cảm của dữ liệu, hãy chọn mô hình phù hợp:</p>
+          <div class="choice-table" style="min-width: 820px;">
+            <div><b>Mô hình</b><b>Cơ chế lưu trữ</b><b>Ưu điểm lớn nhất</b><b>Ranh giới an toàn cần nhớ</b></div>
+            <div>
+              <span><b>00 · LocalStorage</b></span>
+              <span>Lưu trực tiếp trong trình duyệt máy cá nhân</span>
+              <span>Không cần backend, chạy offline 100% không tốn chi phí</span>
+              <span>Chỉ dùng cho 1 người/1 máy; xóa cache trình duyệt là mất</span>
+            </div>
+            <div>
+              <span><b>01 · Google Sheets</b></span>
+              <span>Form HTML → Google Apps Script → Bảng tính</span>
+              <span>Người không biết kỹ thuật vẫn mở Excel xem và lọc báo cáo được</span>
+              <span>Không gửi tài khoản/quyển Drive cho AI; chỉ truyền dữ liệu 3-5 cột</span>
+            </div>
+            <div>
+              <span><b>02 · SQLite Backend</b></span>
+              <span>Node.js (<code>node:sqlite</code>) → file <code>noi-bo.db</code></span>
+              <span>Dữ liệu tập trung nội bộ, sao lưu cực nhanh chỉ bằng 1 file <code>.db</code></span>
+              <span>Không commit file <code>.db</code> lên Git công khai</span>
+            </div>
+            <div>
+              <span><b>03 · Supabase RLS</b></span>
+              <span>Postgres Cloud + Row Level Security</span>
+              <span>Đồng bộ nhiều người dùng thời gian thực, có xác thực tài khoản</span>
+              <span>BẮT BUỘC bật RLS (Người dùng A không được xem dòng của Người B)</span>
+            </div>
+            <div>
+              <span><b>04 · AI Backend Proxy</b></span>
+              <span>Browser → Backend giữ API Key → Gọi AI → Trả bản nháp</span>
+              <span>Bảo vệ tuyệt đối API Key, kiểm soát token và chi phí</span>
+              <span>Bật <code>MOCK_AI=true</code> trước; AI chỉ tạo nháp, con người duyệt cuối</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- BẢNG TESTCASE BẢO MẬT & PHÂN QUYỀN ĐA VAI TRÒ -->
+        <section class="wide">
+          <h3>3. Bảng Ma Trận Test Case Phân Quyền Đa Vai Trò (Multi-Role Security Matrix)</h3>
+          <p>Trước khi đưa ứng dụng vào sử dụng, hãy chạy thử các kịch bản sau với từng vai trò người dùng để đảm bảo không ai làm được điều vượt quá thẩm quyền:</p>
+          <div class="choice-table" style="min-width: 800px;">
+            <div><b>Vai trò kiểm thử</b><b>Hành động cố tình thử nghiệm</b><b>Kỳ vọng hệ thống (Phải chặn)</b><b>Đánh giá an toàn</b></div>
+            <div><span><b>1. Khách vãng lai (Guest)</b></span><span>Cố tình nhập đường link trực tiếp vào trang quản trị</span><span>Chuyển hướng ngay về trang đăng nhập hoặc trang chủ công khai</span><span>🔒 An toàn</span></div>
+            <div><span><b>2. Người nộp (Sinh viên / User)</b></span><span>Cố sửa ID trong thanh URL hoặc LocalStorage để xem đơn của người khác</span><span>Báo lỗi "Không có quyền truy cập", màn hình không hiển thị bất kỳ thông tin nào của đơn đó</span><span>🔒 An toàn</span></div>
+            <div><span><b>3. Người nộp (Sinh viên / User)</b></span><span>Mở F12 gõ lệnh duyệt hồ sơ hoặc tìm nút "Phê duyệt"</span><span>Nút bấm không tồn tại; hàm xử lý từ chối lệnh nếu không đúng mã quyền Admin</span><span>🔒 An toàn</span></div>
+            <div><span><b>4. Người nộp (Sinh viên / User)</b></span><span>Cố sửa nội dung hồ sơ khi hồ sơ đã ở trạng thái "Đang thẩm định"</span><span>Toàn bộ các ô nhập bị vô hiệu hóa (disabled), nút "Lưu thay đổi" bị ẩn</span><span>🔒 An toàn</span></div>
+            <div><span><b>5. Chuyên viên (Reviewer)</b></span><span>Thử bấm nút "Xóa vĩnh viễn hồ sơ"</span><span>Chuyên viên chỉ có nút "Yêu cầu bổ sung" và "Duyệt chuyển tiếp", không có quyền xóa dữ liệu</span><span>🔒 An toàn</span></div>
+            <div><span><b>6. Quản trị viên (Admin)</b></span><span>Thực hiện phê duyệt, từ chối kèm lý do hoặc khôi phục dữ liệu</span><span>Toàn quyền thao tác; mọi thao tác quan trọng đều được ghi lại vào lịch sử</span><span>🔒 An toàn</span></div>
+          </div>
+        </section>
+
+        <!-- BỘ PROMPT BẢO MẬT THỰC CHIẾN CHO VIBE CODING -->
+        <section class="wide">
+          <div style="background: linear-gradient(135deg, #0f172a, #1e293b); border: 1px solid #334155; border-radius: 14px; padding: 24px; color: #f8fafc; margin-top: 14px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 18px;">
+              <h4 style="margin: 0; font-size: 16px; color: #38bdf8; display: flex; align-items: center; gap: 8px;">
+                <span>🛡️</span> Thư Viện Prompt Bảo Mật &amp; Kiểm Thử Lỗ Hổng Bằng AI (Copy Dùng Ngay)
+              </h4>
+              <span style="background: #0284c7; color: #ffffff; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700;">Dành Cho Vibe Coding</span>
+            </div>
+
+            <!-- PROMPT 1: RED TEAM AUDIT PROMPT (ĐẶC BIỆT MẠNH) -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #0284c7; border-radius: 10px; padding: 16px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <b style="color: #38bdf8; font-size: 13.5px;">🕵️ Prompt Đặc Biệt: Dùng AI Đóng Vai Hacker Dò Lỗ Hổng Vượt Quyền Tiềm Ẩn</b>
+                <span style="font-size: 10.5px; background: #0369a1; color: #fff; padding: 2px 8px; border-radius: 6px;">Cực Kỳ Quan Trọng</span>
+              </div>
+              <pre style="background: #020617; padding: 12px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 0; border: 1px solid #1e293b;">Hãy đóng vai một chuyên gia bảo mật kiểm thử xâm nhập (White-hat Hacker / Red Team) rà soát toàn bộ mã nguồn của dự án này.
+Nhiệm vụ của bạn là tìm ra TẤT CẢ các lỗ hổng phân quyền, kẽ hở vượt quyền và điểm yếu logic mà mắt thường con người không thấy:
+
+1. Lỗ hổng ẩn giao diện: Nút "Phê duyệt" hoặc "Xóa" có phải chỉ bị ẩn bằng CSS (`display: none`) nhưng nếu người dùng mở Console F12 gọi hàm JavaScript thì vẫn chạy được không?
+2. Lỗ hổng can thiệp dữ liệu: Người dùng có thể tự mở F12 sửa `localStorage` (ví dụ đổi role="user" thành role="admin" hoặc đổi mã sinh viên) để xem/sửa hồ sơ của người khác không?
+3. Lỗ hổng phơi bày biến toàn cục: Các hàm xử lý quan trọng có bị gắn trực tiếp vào `window` để ai cũng gọi được từ thanh địa chỉ không?
+4. Lỗ hổng chèn mã độc (XSS): Có ô nhập liệu nào đang in trực tiếp vào `innerHTML` thay vì `textContent` không?
+
+KẾT QUẢ TRẢ VỀ:
+- Lập bảng danh sách các kẽ hở tìm thấy (Mức độ: Nghiêm trọng / Trung bình / Nhẹ).
+- Hướng dẫn cách người xấu có thể khai thác kẽ hở đó.
+- Cung cấp đoạn mã đã sửa chữa (Vá lỗ hổng) theo nguyên tắc sửa đổi tối thiểu (Minimal Fix), không làm hỏng các tính năng đang chạy.</pre>
+            </div>
+
+            <!-- PROMPT 2 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #334155; border-radius: 10px; padding: 16px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <b style="color: #67e8f9; font-size: 13px;">🔒 Prompt 2: Chốt chặn chống lộ thông tin bí mật &amp; Tạo dữ liệu mẫu an toàn</b>
+                <span style="font-size: 10.5px; color: #94a3b8;">Bảo vệ dữ liệu cá nhân</span>
+              </div>
+              <pre style="background: #020617; padding: 12px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 0; border: 1px solid #1e293b;">Hãy tạo một file `DU_LIEU_MAU.json` chứa 10 bản ghi hồ sơ mẫu để tôi chạy thử ứng dụng.
+RÀNG BUỘC BẢO MẬT BẮT BUỘC:
+- 100% tên người, mã số, địa chỉ phải là HƯ CẤU (ví dụ: Nguyễn Văn A, SV-2026-001).
+- TUYỆT ĐỐI KHÔNG tạo số điện thoại thật, email thật hay số căn cước công dân (CCCD).
+- Không hardcode bất kỳ API Key, mật khẩu hay token nào vào trong mã nguồn. Nếu có khóa cấu hình, hãy tạo file `.env.example` và hướng dẫn tôi cách nạp.</pre>
+            </div>
+
+            <!-- PROMPT 3 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #334155; border-radius: 10px; padding: 16px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <b style="color: #67e8f9; font-size: 13px;">👥 Prompt 3: Thiết lập phân quyền vai trò (User thường vs Quản lý)</b>
+                <span style="font-size: 10.5px; color: #94a3b8;">Chặn thao tác vượt quyền</span>
+              </div>
+              <pre style="background: #020617; padding: 12px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 0; border: 1px solid #1e293b;">Hãy bổ sung logic phân quyền người dùng đơn giản cho ứng dụng:
+1. Vai trò "Người nộp" (User): Chỉ xem được danh sách các hồ sơ do chính mình gửi lên; không được thấy nút "Phê duyệt" hay "Từ chối".
+2. Vai trò "Cán bộ duyệt" (Admin): Xem được toàn bộ hồ sơ của tất cả sinh viên; có các nút "Duyệt", "Từ chối kèm lý do" và nút "Xuất file CSV".
+3. Khi người dùng bấm nút xóa một mục, luôn hiện hộp thoại xác nhận: "Bạn có chắc chắn muốn xóa mục này? Thao tác này không thể hoàn tác."</pre>
+            </div>
+
+            <!-- PROMPT 4 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #334155; border-radius: 10px; padding: 16px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <b style="color: #67e8f9; font-size: 13px;">💾 Prompt 4: Lưu trữ an toàn &amp; Chống mất dữ liệu khi nhấn F5</b>
+                <span style="font-size: 10.5px; color: #94a3b8;">Bảo vệ dữ liệu LocalStorage</span>
+              </div>
+              <pre style="background: #020617; padding: 12px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 0; border: 1px solid #1e293b;">Hãy viết hàm lưu trữ dữ liệu vào LocalStorage thật an toàn và chống lỗi sập trang:
+- Mỗi khi thêm, sửa hoặc xóa dữ liệu, tự động đồng bộ ngay vào `localStorage.setItem('ten_ung_dung_data')`.
+- Khi người dùng tải lại trang (F5) hoặc mở lại trình duyệt, tự động nạp lại dữ liệu cũ đầy đủ.
+- Bắt buộc bọc khối đọc dữ liệu trong `try ... catch`. Nếu dữ liệu trong máy người dùng bị hỏng hoặc lỗi định dạng, hãy tự động nạp lại bộ dữ liệu mặc định an toàn thay vì làm trắng trang.</pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>3. Bốn câu lệnh kiểm tra an toàn nhanh trước khi đưa vào sử dụng</h3>
+          <p>Trước khi đưa ứng dụng cho người khác dùng thử, hãy tự chạy 4 bài kiểm tra thực tế sau:</p>
+          <ul>
+            <li><strong>Thử nghiệm F5 (Tải lại trang):</strong> Nhập 2 công việc mới → Nhấn F5 xem công việc có còn nguyên không.</li>
+            <li><strong>Thử nghiệm ô trống &amp; Ký tự lạ:</strong> Thử để trống và bấm nút Gửi xem có hiện cảnh báo đỏ không; gõ chữ <code>&lt;h1&gt;Lỗi&lt;/h1&gt;</code> vào ô tên xem có bị phóng to chữ không.</li>
+            <li><strong>Thử nghiệm nút Xóa:</strong> Bấm Xóa → Nhấn "Hủy" trên thông báo xem dữ liệu có được giữ lại an toàn không.</li>
+            <li><strong>Quét mã nguồn tìm khóa bí mật:</strong> Đảm bảo không có chuỗi API Key hay mật khẩu thật nào bị lưu thẳng trong các file JavaScript hoặc HTML.</li>
+          </ul>
+        </section>
+      </div>
+
+      <footer class="chapter-footer-seamless">
+        <div class="chapter-status-line">
+          <span>Chương 09 / 12</span>
+          <button class="chapter-btn-read" data-complete-chapter="9">✓ Đánh dấu đã đọc chương 9</button>
+        </div>
+        <nav class="seamless-bottom-nav">
+          <a href="#chapter-8" class="nav-link-prev">
+            <small>← QUAY LẠI</small>
+            <span>Chương 08: Thiết kế UI/UX &amp; Google Stitch</span>
+          </a>
+          <a href="#chapter-10" class="nav-link-next">
+            <small>CHƯƠNG TIẾP THEO →</small>
+            <span>Chương 10: Đặc tả Spec-Driven</span>
+          </a>
+        </nav>
+      </footer>
+    </article>

@@ -1,0 +1,248 @@
+    <article class="ebook-page" id="chapter-5" data-chapter="5">
+      <header class="chapter-head">
+        <div class="chapter-badge-num">05</div>
+        <div class="chapter-head-info">
+          <p class="chapter-eyebrow">CHƯƠNG 05 · PHẦN II <span>· 30 PHÚT ĐỌC</span></p>
+          <h2>Làm Chủ OpenAI Codex: Desktop App, CLI &amp; AGENTS.md</h2>
+          <p class="chapter-subtitle">Công cụ lập trình AI thế hệ mới từ OpenAI với môi trường Sandbox cô lập và khả năng thực thi lệnh terminal mạnh mẽ.</p>
+        </div>
+      </header>
+
+      <div class="chapter-goal-box">
+        <b>Mục tiêu chương:</b>
+        <span>Sử dụng thành thạo Codex Desktop &amp; CLI; hiểu cơ chế Sandbox an toàn; thiết lập cây phân cấp file AGENTS.md; sử dụng cây phân nhánh Session Branching để thử nghiệm nhiều hướng giải quyết và xử lý xung đột mã nguồn.</span>
+      </div>
+
+      <div class="body">
+        <section class="wide">
+          <div class="figure-showcase">
+            <div class="figure-header">
+              <span class="figure-title">🤖 Hình 5.1: Giao diện thực tế OpenAI Codex Desktop &amp; CLI</span>
+              <div class="figure-actions">
+                <a class="figure-btn" href="assets/official_ui/codex_app.png" target="_blank">🔗 Mở ảnh gốc</a>
+                <button class="figure-btn zoom-btn">🔍 Phóng to</button>
+              </div>
+            </div>
+            <div class="figure-img-wrap">
+              <img src="assets/official_ui/codex_app.png" alt="Giao diện OpenAI Codex Desktop: Session Tree, Terminal Sandbox, Diff Reviewer" loading="lazy">
+            </div>
+            <div class="figure-caption">
+              <em>Hình 5.1:</em> Không gian làm việc của OpenAI Codex với cơ chế xem trước Diff màu sắc, cây phiên làm việc (Session Tree) và bảng điều khiển Sandbox cô lập an toàn.
+            </div>
+          </div>
+
+          <!-- YOUTUBE GUIDELINE: OPENAI CODEX -->
+          <div class="video-guideline-box">
+            <div class="video-guideline-header">
+              <span class="video-guideline-title">
+                <span class="video-guideline-badge">Hướng Dẫn Thực Chiến</span>
+                📺 Video Hướng Dẫn: Làm Chủ OpenAI Codex &amp; Kỷ Luật Lập Trình Tác Nhân
+              </span>
+              <a class="video-guideline-link" href="https://www.youtube.com/watch?v=PqxPSzeoVQU" target="_blank" rel="noopener">Mở trên YouTube ↗</a>
+            </div>
+            <div class="video-card-banner">
+              <div class="video-topic">🎬 "Hướng Dẫn Sử Dụng OpenAI Codex — Quản Trị Phiên, Terminal Sandbox &amp; File AGENTS.md"</div>
+              <div class="video-channel-tag"><span>Chuyên đề: OpenAI Codex &amp; Reasoning Models</span> • Video Thực Hành</div>
+              <a class="video-play-btn" href="https://www.youtube.com/watch?v=PqxPSzeoVQU" target="_blank" rel="noopener">
+                ▶ Xem Video Trên YouTube
+              </a>
+            </div>
+            <div class="video-guideline-body">
+              <strong>Kinh nghiệm thực chiến:</strong> Hướng dẫn chi tiết cách khai thác sức mạnh của OpenAI Codex, vận hành môi trường Terminal Sandbox an toàn, quản lý cây phân nhánh Session Branching và tối ưu hạn ngạch Token.
+              <div class="video-guideline-timestamps">
+                <span class="video-stamp-pill">⏱️ 01:15 — Giao diện Codex Desktop &amp; CLI</span>
+                <span class="video-stamp-pill">⏱️ 06:20 — Cơ chế Sandbox &amp; Duyệt Diff</span>
+                <span class="video-stamp-pill">⏱️ 12:40 — Thiết lập file nội quy AGENTS.md</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>1. Kiến trúc nền tảng và mô hình suy luận của Codex</h3>
+          <p>OpenAI Codex không chỉ là một chatbot lập trình thông thường. Nền tảng của nó là các mô hình lý luận chuyên biệt (Reasoning Models), đặc biệt là dòng <strong>o3, o3-mini và GPT-4o</strong>, được tối ưu hóa cho bài toán lập trình đa bước có điều kiện ràng buộc phức tạp.</p>
+          <p>Điểm khác biệt cốt lõi so với các chatbot thông thường là Codex hoạt động theo mô hình <strong>tác nhân thực thi (Execution Agent)</strong>: nó không chỉ <em>sinh văn bản mô tả giải pháp</em> mà còn <em>thực sự chạy các lệnh trong môi trường sandbox</em>, quan sát đầu ra, phân tích kết quả và tự điều chỉnh hướng đi cho đến khi đạt mục tiêu. Cơ chế này gọi là <strong>vòng lặp Observe-Plan-Execute-Verify (OPEV)</strong>:</p>
+          <ol>
+            <li><strong>Observe (Quan sát):</strong> Codex đọc toàn bộ mã nguồn trong thư mục dự án, phân tích cấu trúc file và nội dung AGENTS.md để nắm bối cảnh.</li>
+            <li><strong>Plan (Lên kế hoạch):</strong> Codex tự phân rã yêu cầu thành các nhiệm vụ nhỏ có thứ tự thực hiện rõ ràng và dự đoán các rủi ro kỹ thuật.</li>
+            <li><strong>Execute (Thực thi):</strong> Codex viết mã, chạy lệnh trong Sandbox, xem kết quả và tiếp tục điều chỉnh cho đến khi đạt kết quả mong muốn.</li>
+            <li><strong>Verify (Xác minh):</strong> Codex chạy các bộ test (pytest, jest) để tự kiểm tra tính đúng đắn của mã nguồn vừa tạo trước khi trình kết quả cho người dùng.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h3>2. Terminal Sandbox: Pháo đài an toàn cho tự động hóa</h3>
+          <p>Đây là tính năng phân biệt Codex khỏi tất cả các AI khác. Mọi lệnh terminal mà Codex cần thực thi đều chạy trong một <strong>môi trường container cô lập hoàn toàn</strong>, không có quyền truy cập vào file system thật của bạn nếu không được cấp phép rõ ràng.</p>
+          <p>Codex hỗ trợ 3 chế độ phê duyệt (Approval Mode) khác nhau:</p>
+          <div class="mini-table">
+            <div><b>Chế độ</b><b>Cờ lệnh</b><b>Hành vi</b><b>Dùng khi nào</b></div>
+            <div><span><b>Tự động hoàn toàn</b></span><span><code>--approval-mode auto</code></span><span>Tự chạy mọi lệnh mà không hỏi</span><span>Môi trường CI/CD đáng tin cậy</span></div>
+            <div><span><b>Thủ công (khuyến nghị)</b></span><span><code>--approval-mode manual</code></span><span>Hỏi xác nhận trước mỗi lệnh</span><span>Dự án thực tế, code quan trọng</span></div>
+            <div><span><b>Chỉ đọc</b></span><span><code>--approval-mode suggest</code></span><span>Chỉ đề xuất, không thực thi</span><span>Rà soát, phân tích bảo mật</span></div>
+          </div>
+          <div class="code">
+            <div><span>CÁC LỆNH CODEX CLI THIẾT YẾU</span></div>
+            <pre># Cài đặt Codex CLI toàn cục
+npm install -g @openai/codex
+
+# Khởi động phiên làm việc chế độ thủ công (an toàn nhất)
+codex --approval-mode manual
+
+# Yêu cầu Codex phân tích bảo mật, không sửa file
+codex --approval-mode suggest "Rà soát toàn bộ thư mục /api và liệt kê các lỗ hổng SQL Injection tiềm năng"
+
+# Yêu cầu Codex cài dependencies và chạy test
+codex "Cài đặt jest, tạo file test cơ bản cho module auth.js và chạy npm test"
+
+# Yêu cầu với giới hạn thư mục cụ thể
+codex --workspace ./backend "Refactor hàm validateUser để hỗ trợ OAuth2"</pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>3. Phân cấp quy tắc AGENTS.md: Hệ thống điều lệ của dự án</h3>
+          <p>File <code>AGENTS.md</code> là "hiến pháp" của dự án dành cho Codex. Hệ thống đọc file này theo <strong>cấu trúc phân cấp thư mục</strong>: file ở thư mục gốc áp dụng cho toàn dự án, file ở thư mục con sẽ kế thừa và ghi đè cho phạm vi đó. Đây là một ưu điểm mạnh hơn file GEMINI.md của Antigravity vì cho phép quy tắc chi tiết theo từng module.</p>
+          <div class="code">
+            <div><span>CẤU TRÚC AGENTS.md TOÀN DIỆN CHO DỰ ÁN</span></div>
+            <pre># ======================================================================
+# AGENTS.md - Điều lệ tự động hóa toàn dự án (ROOT LEVEL)
+# Phiên bản: 2.0 | Áp dụng cho: Google Antigravity, OpenAI Codex, Claude
+# ======================================================================
+
+## 1. NGUYÊN TẮC BẤT BIẾN (Không bao giờ vi phạm)
+- **Không xóa mã nguồn cũ** nếu chưa có sự xác nhận rõ ràng từ người dùng.
+- **Không tự ý tạo thêm tính năng** nằm ngoài phạm vi v1 trong SPEC.md.
+- **Không hardcode** API Key, password, connection string vào bất kỳ file nào.
+- **Không xóa file SPEC.md, AGENTS.md** hoặc bất kỳ tài liệu dự án nào.
+
+## 2. NGÔN NGỮ VÀ TECH STACK
+- Frontend: HTML5 ngữ nghĩa, Vanilla CSS/JavaScript (không dùng jQuery).
+- Backend: Node.js (Express) hoặc Python (FastAPI) theo SPEC.md.
+- Database: SQLite (phát triển cục bộ), PostgreSQL (production).
+- Deployment: Vercel (frontend), Railway (backend).
+
+## 3. QUY ƯỚC ĐẶT TÊN MÃ NGUỒN
+- Hàm JavaScript/Python: camelCase hoặc snake_case tùy ngôn ngữ.
+- Hằng số: UPPER_SNAKE_CASE (ví dụ: MAX_RETRY_COUNT).
+- Tên file: lowercase-kebab-case (ví dụ: user-auth.js, api-gateway.py).
+- Database table/column: snake_case (ví dụ: user_profiles, created_at).
+
+## 4. PHONG CÁCH PHẢN HỒI
+- Sau mỗi lần thực thi, tóm tắt: (1) Những file đã thay đổi, (2) Lý do thay đổi, (3) Bước tiếp theo đề xuất.
+- Khi gặp điểm không rõ trong yêu cầu, HỎI TRƯỚC khi làm.
+- Luôn viết comment tiếng Việt cho logic phức tạp.
+
+## 5. TEST VÀ ĐẢM BẢO CHẤT LƯỢNG
+- Viết unit test cho mọi hàm xử lý nghiệp vụ cốt lõi.
+- Sau khi sửa bug, chạy `npm test` hoặc `pytest` để kiểm tra hồi quy.
+- Báo cáo bao phủ test (Coverage) nếu được yêu cầu.</pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>4. Session Tree &amp; Branching: Thử nghiệm song song các giải pháp</h3>
+          <p>Đây là tính năng độc quyền của Codex Desktop không có trên bất kỳ AI coding tool nào khác. Session Tree cho phép bạn <strong>rẽ nhánh phiên làm việc như Git</strong> — từ một điểm gốc, bạn có thể thử nghiệm nhiều hướng tiếp cận song song mà không làm ảnh hưởng lẫn nhau.</p>
+          <div class="hint">
+            <strong>VÍ DỤ THỰC TẾ — PHÂN TÍCH LỰA CHỌN KIẾN TRÚC CSDL:</strong><br>
+            Bạn đang phân vân giữa SQLite và PostgreSQL cho hệ thống quản lý đơn hàng 10,000 bản ghi/ngày.<br><br>
+            <strong>Nhánh A (SQLite):</strong> Tạo từ commit gốc → Codex xây dựng phiên bản SQLite → Chạy benchmark 10,000 bản ghi → Đo thời gian query: 45ms trung bình.<br>
+            <strong>Nhánh B (PostgreSQL):</strong> Tạo từ cùng commit gốc → Codex xây dựng phiên bản PostgreSQL + index → Chạy cùng benchmark → Thời gian query: 8ms với full-text search.<br><br>
+            Kết quả: Bạn so sánh trực quan trên Session Tree và chọn nhánh B. Codex merge nhánh B vào nhánh chính chỉ với một cú click.
+          </div>
+          <p>Quy trình sử dụng Session Branching chuyên nghiệp:</p>
+          <ol>
+            <li><strong>Commit điểm khởi đầu:</strong> Trước khi rẽ nhánh, đảm bảo codebase ổn định và đã được kiểm thử cơ bản.</li>
+            <li><strong>Tạo nhánh thử nghiệm:</strong> Click "Branch Session" trên giao diện Codex Desktop hoặc dùng lệnh <code>codex branch "Thử kiến trúc microservices"</code>.</li>
+            <li><strong>Thử nghiệm độc lập:</strong> Mỗi nhánh hoạt động hoàn toàn độc lập — bao gồm file system và terminal sandbox riêng.</li>
+            <li><strong>So sánh và quyết định:</strong> Xem diff giữa các nhánh, kiểm tra kết quả test và chọn nhánh tốt nhất.</li>
+            <li><strong>Merge hoặc Abandon:</strong> Apply nhánh được chọn vào project thật, các nhánh thất bại được xóa sạch không để lại vết.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h3>5. Visual Diff Reviewer: Quyền kiểm soát tối cao của lập trình viên</h3>
+          <p>Mọi thay đổi Codex đề xuất đều phải đi qua <strong>màn hình Visual Diff</strong> trước khi được ghi vào file thật. Đây là cơ chế bảo vệ quan trọng nhất, ngăn chặn trường hợp AI tự ý thay đổi logic quan trọng mà bạn không nhận ra.</p>
+          <p>Cách đọc màn hình Visual Diff hiệu quả:</p>
+          <ul>
+            <li><strong>Dòng màu xanh lá (+):</strong> Mã mới được thêm vào — luôn đọc kỹ để đảm bảo logic đúng với ý định.</li>
+            <li><strong>Dòng màu đỏ (-):</strong> Mã cũ bị xóa — kiểm tra xem có logic nghiệp vụ quan trọng nào đang bị xóa không.</li>
+            <li><strong>Dòng xám (context):</strong> Mã không thay đổi, hiển thị để bạn hiểu ngữ cảnh xung quanh.</li>
+            <li><strong>Header @@ -10,7 +10,15 @@:</strong> Cho biết thay đổi bắt đầu từ dòng 10, cũ có 7 dòng, mới có 15 dòng.</li>
+          </ul>
+          <div class="hint">
+            <strong>THÓI QUEN CHUYÊN NGHIỆP KHI REVIEW DIFF:</strong><br>
+            Trước khi bấm "Apply Changes", hãy kiểm tra 3 điều: (1) Có dòng xóa nào chứa logic xử lý lỗi quan trọng không? (2) Có dòng thêm nào giới thiệu dependency mới không cần thiết không? (3) Có bất kỳ thông tin nhạy cảm nào (key, password, token) xuất hiện trong diff không? Nếu có bất kỳ dấu hiệu đáng ngờ nào, hãy chọn "Request Changes" thay vì "Apply".
+          </div>
+        </section>
+
+        <section>
+          <h3>6. Tích hợp Codex vào quy trình CI/CD chuyên nghiệp</h3>
+          <p>Codex CLI không chỉ dùng cho phát triển thủ công — nó có thể chạy tự động trong pipeline CI/CD như một bước tự động hóa thông minh:</p>
+          <div class="code">
+            <div><span>GITHUB ACTIONS - TÍCH HỢP CODEX REVIEW TỰ ĐỘNG</span></div>
+            <pre">name: AI Code Review với Codex
+on: [pull_request]
+
+jobs:
+  codex-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Cài đặt Codex CLI
+        run: npm install -g @openai/codex
+        
+      - name: Yêu cầu Codex rà soát PR
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          codex --approval-mode suggest             "Rà soát các thay đổi trong PR này. Kiểm tra:             1) Lỗ hổng bảo mật,             2) Hiệu suất query database,             3) Tính nhất quán với coding convention trong AGENTS.md.             Xuất báo cáo dạng Markdown." > review_report.md
+          
+      - name: Đăng báo cáo vào PR Comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs')
+            const report = fs.readFileSync('review_report.md', 'utf8')
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '## 🤖 Báo cáo rà soát bởi Codex AI
+
+' + report
+            })</pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>7. So sánh chuyên sâu: Codex vs Antigravity cho từng tác vụ cụ thể</h3>
+          <div class="mini-table">
+            <div><b>Tác vụ</b><b>Dùng Codex</b><b>Dùng Antigravity</b></div>
+            <div><span><b>Viết unit test hàng loạt</b></span><span>✅ Ưu tiên — Sandbox chạy test thật, kiểm tra coverage</span><span>✅ Tốt — Nhưng không chạy test tự động</span></div>
+            <div><span><b>Refactor module lớn (500+ dòng)</b></span><span>✅ Ưu tiên — Session Branching an toàn</span><span>⚠️ Dùng được nhưng cần thận trọng hơn</span></div>
+            <div><span><b>Debug lỗi runtime phức tạp</b></span><span>✅ Ưu tiên — Chạy code thật trong sandbox để tái hiện lỗi</span><span>⚠️ Phân tích tĩnh, không chạy được code</span></div>
+            <div><span><b>Lập kế hoạch kiến trúc</b></span><span>⚠️ Dùng được nhưng thiếu context dài</span><span>✅ Ưu tiên — 1M+ token context, sinh Artifacts</span></div>
+            <div><span><b>Kiểm thử UI Playwright</b></span><span>❌ Không hỗ trợ browser automation</span><span>✅ Ưu tiên — Browser Subagent tích hợp sẵn</span></div>
+            <div><span><b>Cài package và migrate DB</b></span><span>✅ Ưu tiên — Chạy npm/pip/migration thật trong sandbox</span><span>❌ Không thực thi lệnh terminal</span></div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="chapter-footer-seamless">
+        <div class="chapter-status-line">
+          <span>Chương 5 / 12</span>
+          <button class="chapter-btn-read" data-complete-chapter="5">✓ Đánh dấu đã đọc chương 5</button>
+        </div>
+        <nav class="seamless-bottom-nav">
+          <a href="#chapter-4" class="nav-link-prev">
+            <small>← QUAY LẠI</small>
+            <span>Chương 04: Google Antigravity</span>
+          </a>
+          <a href="#chapter-6" class="nav-link-next">
+            <small>CHƯƠNG TIẾP THEO →</small>
+            <span>Chương 06: Claude Desktop &amp; MCP</span>
+          </a>
+        </nav>
+      </footer>
+    </article>

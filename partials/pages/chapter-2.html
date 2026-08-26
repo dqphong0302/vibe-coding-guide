@@ -1,0 +1,133 @@
+    <article class="ebook-page" id="chapter-2" data-chapter="2">
+      <header class="chapter-head">
+        <div class="chapter-badge-num">02</div>
+        <div class="chapter-head-info">
+          <p class="chapter-eyebrow">CHƯƠNG 02 · PHẦN I <span>· 25 PHÚT ĐỌC</span></p>
+          <h2>Mô Hình Hoạt Động Của Web App &amp; Luồng Dữ Liệu</h2>
+          <p class="chapter-subtitle">Hiểu rõ 4 tầng cấu tạo của ứng dụng web và 5 đường đi của dữ liệu để không bao giờ hỏi AI những câu mơ hồ.</p>
+        </div>
+      </header>
+
+      <div class="chapter-goal-box">
+        <b>Mục tiêu chương:</b>
+        <span>Nắm vững phân tầng Frontend - Backend - Database - Hosting; phân tích 5 cấp độ lưu trữ dữ liệu từ LocalStorage đến Cloud PostgreSQL; hiểu cách dữ liệu di chuyển an toàn qua HTTP/JSON và xác định kiến trúc phù hợp cho dự án của bạn.</span>
+      </div>
+
+      <div class="body">
+        <section class="wide">
+          <div class="figure-showcase">
+            <div class="figure-header">
+              <span class="figure-title">🏗️ Hình 2.1: Kiến trúc tổng quan 4 tầng của một ứng dụng Web</span>
+              <div class="figure-actions">
+                <a class="figure-btn" href="assets/official_ui/ai_app_architecture.png" target="_blank">🔗 Mở ảnh gốc</a>
+                <button class="figure-btn zoom-btn">🔍 Phóng to</button>
+              </div>
+            </div>
+            <div class="figure-img-wrap">
+              <img src="assets/official_ui/ai_app_architecture.png" alt="Kiến trúc ứng dụng Web: UI, API, Database, Hosting" loading="lazy">
+            </div>
+            <div class="figure-caption">
+              <em>Hình 2.1:</em> Mô hình tách biệt rõ ràng giữa <strong>Giao diện người dùng (Frontend)</strong>, <strong>Xử lý nghiệp vụ &amp; Bảo mật (Backend/API)</strong>, <strong>Lưu trữ có cấu trúc (Database)</strong> và <strong>Đám mây triển khai (Hosting/Cloud)</strong>.
+            </div>
+          </div>
+
+          <!-- YOUTUBE GUIDELINE: MÔ HÌNH WEB APP & DATABASE -->
+          <div class="video-guideline-box">
+            <div class="video-guideline-header">
+              <span class="video-guideline-title">
+                <span class="video-guideline-badge">Kênh Tôi Đi Code Dạo</span>
+                📺 Video Hướng Dẫn: Tự Học HTML &amp; Dựng Website Đơn Giản Trong 15 Phút
+              </span>
+              <a class="video-guideline-link" href="https://www.youtube.com/watch?v=jSyH0HxKQPY" target="_blank" rel="noopener">Mở trên YouTube ↗</a>
+            </div>
+            <div class="video-card-banner">
+              <div class="video-topic">🎬 "Hiểu Rõ Khung Xương Web App: Cấu Trúc Thẻ HTML, Trình Duyệt &amp; Luồng Giao Diện"</div>
+              <div class="video-channel-tag"><span>Kênh: Tôi Đi Code Dạo (Phạm Huy Hoàng)</span> • 320.000+ Lượt xem</div>
+              <a class="video-play-btn" href="https://www.youtube.com/watch?v=jSyH0HxKQPY" target="_blank" rel="noopener">
+                ▶ Xem Video Trên YouTube
+              </a>
+            </div>
+            <div class="video-guideline-body">
+              <strong>Kiến thức nền tảng:</strong> Hướng dẫn trực quan cách một trang web được xây dựng, cấu trúc các thẻ HTML, cách nhúng CSS định dạng và cách trình duyệt render giao diện cho người dùng.
+              <div class="video-guideline-timestamps">
+                <span class="video-stamp-pill">⏱️ 01:15 — Cấu trúc thẻ HTML cơ bản</span>
+                <span class="video-stamp-pill">⏱️ 06:40 — Tạo biểu mẫu nhập liệu (Form)</span>
+                <span class="video-stamp-pill">⏱️ 12:20 — Mở file chạy trực tiếp trên trình duyệt</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>1. Bốn tầng cấu tạo của một ứng dụng Web hiện đại</h3>
+          <p>Mọi hệ thống phần mềm web dù đơn giản hay phức tạp đều được xây dựng dựa trên 4 tầng nền tảng:</p>
+          <ul>
+            <li><strong>Tầng 1: Frontend (Client-side):</strong> Chạy trên trình duyệt của người dùng (Chrome, Safari). Bao gồm HTML (khung xương), CSS (định dạng thị giác) và JavaScript (hành vi tương tác). <em>Quy tắc vàng:</em> Frontend là môi trường công khai, tuyệt đối không bao giờ chứa mật khẩu hoặc API Key bí mật.</li>
+            <li><strong>Tầng 2: Backend &amp; API (Server-side):</strong> Chạy trên máy chủ từ xa (Node.js, Python FastAPI, Go, hoặc Serverless Functions). Nhiệm vụ: Xác minh danh tính người dùng, kiểm tra quyền hạn (Authorization), thực hiện nghiệp vụ tính toán và giao tiếp với CSDL.</li>
+            <li><strong>Tầng 3: Database (Cơ sở dữ liệu):</strong> Nơi lưu trữ dữ liệu bền vững (Persistent Data) theo cấu trúc bảng (Relational SQL) hoặc tài liệu (NoSQL). CSDL đảm bảo dữ liệu không bị mất khi người dùng tắt trình duyệt hoặc máy chủ khởi động lại.</li>
+            <li><strong>Tầng 4: Infrastructure &amp; Hosting (Hạ tầng mạng):</strong> Máy chủ đám mây, mạng phân phối nội dung (CDN), tên miền (DNS) và chứng chỉ bảo mật HTTPS (Vercel, Netlify, Cloudflare, AWS).</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>2. Phân tích 5 cấp độ lưu trữ dữ liệu trong thực tế</h3>
+          <p>Tùy theo giai đoạn thử nghiệm hay triển khai chính thức, bạn sẽ yêu cầu AI Coding Agent lựa chọn đường đi dữ liệu phù hợp:</p>
+          <ol>
+            <li><strong>Level 1 - Memory State (Bộ nhớ tạm JS):</strong> Dữ liệu chỉ nằm trong biến JavaScript (mất ngay khi người dùng nhấn F5 tải lại trang). Thích hợp cho hoạt ảnh giao diện và form nhiều bước trước khi submit.</li>
+            <li><strong>Level 2 - LocalStorage / IndexedDB:</strong> Lưu trực tiếp trên trình duyệt cá nhân của từng thiết bị. Không cần máy chủ, không tốn phí, xây dựng xong trong 5 phút. Rất phù hợp cho ứng dụng ghi chú cá nhân, mockup demo hoặc lưu cài đặt giao diện (Dark Mode).</li>
+            <li><strong>Level 3 - Mock JSON File:</strong> Đọc dữ liệu từ file tĩnh <code>data.json</code>. Rất tiện lợi cho việc kiểm tra giao diện với 30-50 bản ghi mẫu trước khi kết nối CSDL thật.</li>
+            <li><strong>Level 4 - SQLite Local Database:</strong> CSDL quan hệ lưu trong 1 file đơn duy nhất trên máy tính hoặc server. Siêu nhẹ, hỗ trợ đầy đủ cú pháp SQL tiêu chuẩn, không cần cài đặt dịch vụ CSDL phức tạp. Thích hợp cho app nội bộ máy tính và công cụ nội bộ.</li>
+            <li><strong>Level 5 - Cloud Database (Supabase / PostgreSQL):</strong> CSDL quan hệ đám mây hoàn chỉnh, hỗ trợ hàng triệu người dùng, xác thực tài khoản, phân quyền Row-Level Security (RLS) và sao lưu tự động. Đây là lựa chọn bắt buộc cho sản phẩm thương mại.</li>
+          </ol>
+        </section>
+
+        <section class="wide">
+          <div class="choice-table">
+            <div><b>Mức lưu trữ</b><b>Ưu điểm nổi bật</b><b>Nhược điểm &amp; Rủi ro</b><b>Khi nào nên dùng?</b></div>
+            <div><span><b>1. LocalStorage</b></span><span>Cực nhanh, 0đ, không cần backend</span><span>Dữ liệu không đồng bộ qua máy khác, dễ bị xóa</span><span>Prototype, bài lab cá nhân, lưu Theme</span></div>
+            <div><span><b>2. SQLite file</b></span><span>Chuẩn SQL, tốc độ cao, file đơn gọn</span><span>Khó scale đa máy chủ phân tán</span><span>Tool nội bộ máy tính, hệ thống 1 server</span></div>
+            <div><span><b>3. Supabase Cloud</b></span><span>Bảo mật cấp doanh nghiệp, Auth có sẵn, API REST</span><span>Cần kết nối mạng, có giới hạn gói free</span><span>Sản phẩm chính thức, app nhiều người dùng</span></div>
+          </div>
+        </section>
+
+        <section>
+          <h3>3. Cách dữ liệu di chuyển: REST API, JSON và HTTP Methods</h3>
+          <p>Khi người dùng thực hiện một thao tác trên giao diện (ví dụ: bấm nút "Lưu đơn hàng"), một luồng dữ liệu chuẩn sẽ diễn ra:</p>
+          <div class="code">
+            <div><span>LUỒNG GIAO TIẾP HTTP CHUẨN</span></div>
+            <pre>[Client Frontend] --(1) Gửi HTTP POST + Body JSON--> [Backend API Server]
+                                                            |
+                                                   (2) Kiểm tra Token / Quyền
+                                                   (3) Validate dữ liệu
+                                                            |
+                                                   (4) Ghi vào [Database]
+                                                            |
+[Client Frontend] &lt;--(5) Nhận HTTP 200 OK + JSON kết quả--- [Backend API Server]</pre>
+          </div>
+          <p>Các phương thức HTTP tiêu chuẩn bạn cần biết khi giao tiếp với AI:</p>
+          <ul>
+            <li><code>GET /api/items</code>: Lấy danh sách bản ghi (không làm thay đổi dữ liệu).</li>
+            <li><code>POST /api/items</code>: Tạo mới một bản ghi.</li>
+            <li><code>PUT / PATCH /api/items/123</code>: Cập nhật thông tin bản ghi số 123.</li>
+            <li><code>DELETE /api/items/123</code>: Xóa bản ghi số 123.</li>
+          </ul>
+        </section>
+      </div>
+
+      <footer class="chapter-footer-seamless">
+        <div class="chapter-status-line">
+          <span>Chương 2 / 12</span>
+          <button class="chapter-btn-read" data-complete-chapter="2">✓ Đánh dấu đã đọc chương 2</button>
+        </div>
+        <nav class="seamless-bottom-nav">
+          <a href="#chapter-1" class="nav-link-prev">
+            <small>← QUAY LẠI</small>
+            <span>Chương 01: Bản chất Vibe Coding</span>
+          </a>
+          <a href="#chapter-3" class="nav-link-next">
+            <small>CHƯƠNG TIẾP THEO →</small>
+            <span>Chương 03: Chuẩn bị Workspace</span>
+          </a>
+        </nav>
+      </footer>
+    </article>

@@ -1,0 +1,169 @@
+    <article class="ebook-page" id="chapter-4" data-chapter="4">
+      <div class="part-lead-header">
+        <span class="part-tag">PHẦN II · CÔNG CỤ CHUYÊN SÂU</span>
+        <h2>Tam Mã AI Coding Agent Thực Chiến</h2>
+        <p>Khảo sát sâu sắc 3 công cụ lập trình AI mạnh nhất hiện nay: Google Antigravity, OpenAI Codex và Claude Desktop. Nắm vững giao diện, phím tắt, cơ chế lưu bộ nhớ và cách phối hợp tối ưu chi phí.</p>
+      </div>
+
+      <header class="chapter-head">
+        <div class="chapter-badge-num">04</div>
+        <div class="chapter-head-info">
+          <p class="chapter-eyebrow">CHƯƠNG 04 · PHẦN II <span>· 30 PHÚT ĐỌC</span></p>
+          <h2>Làm Chủ Google Antigravity: IDE, CLI &amp; Hệ Thống Artifacts</h2>
+          <p class="chapter-subtitle">Trợ lý mã nguồn tự chủ từ DeepMind với cơ chế sinh Artifact tài liệu, duyệt diff trực quan và điều khiển trình duyệt headless.</p>
+        </div>
+      </header>
+
+      <div class="chapter-goal-box">
+        <b>Mục tiêu chương:</b>
+        <span>Làm chủ toàn bộ hệ sinh thái Google Antigravity (IDE, agy CLI, Python SDK); vận hành thành thạo hệ thống Artifacts (Plan &amp; Walkthrough); khai thác Browser Subagent để kiểm thử UI tự động và thiết lập cấu hình GEMINI.md nâng cao.</span>
+      </div>
+
+      <div class="body">
+        <section class="wide">
+          <div class="figure-showcase">
+            <div class="figure-header">
+              <span class="figure-title">🌌 Hình 4.1: Giao diện thực tế Google Antigravity IDE (2026 Edition)</span>
+              <div class="figure-actions">
+                <a class="figure-btn" href="assets/official_ui/antigravity_plan.png" target="_blank">🔗 Mở ảnh gốc</a>
+                <button class="figure-btn zoom-btn">🔍 Phóng to</button>
+              </div>
+            </div>
+            <div class="figure-img-wrap">
+              <img src="assets/official_ui/antigravity_plan.png" alt="Giao diện Google Antigravity IDE: Agent Chat, Artifacts Panel, Editor, Browser Subagent" loading="lazy">
+            </div>
+            <div class="figure-caption">
+              <em>Hình 4.1:</em> Bố cục 4 khu vực làm việc của Google Antigravity: <strong>Thanh tác vụ Agent</strong> (trái), <strong>Khung soạn thảo mã nguồn</strong> (giữa), <strong>Hệ thống Artifacts &amp; Plan</strong> (phải) và <strong>Trình duyệt kiểm thử Browser Subagent</strong>.
+            </div>
+          </div>
+
+          <!-- YOUTUBE GUIDELINE: GOOGLE ANTIGRAVITY -->
+          <div class="video-guideline-box">
+            <div class="video-guideline-header">
+              <span class="video-guideline-title">
+                <span class="video-guideline-badge">Series Antigravity</span>
+                📺 Video Hướng Dẫn: Làm Chủ Google Antigravity &amp; Trợ Lý Lập Trình Tự Chủ
+              </span>
+              <a class="video-guideline-link" href="https://www.youtube.com/watch?v=jxHzdaNMUlI&amp;list=PLMpzwYzN40ePz2ZxNkbOjs907VctUWdTi&amp;index=1" target="_blank" rel="noopener">Mở trên YouTube ↗</a>
+            </div>
+            <div class="video-card-banner">
+              <div class="video-topic">🎬 "Khám Phá &amp; Thực Chiến Google Antigravity — Hệ Thống Kế Hoạch, Artifacts &amp; Agent Tự Chủ"</div>
+              <div class="video-channel-tag"><span>Series: Google Antigravity Masterclass</span> • Video Thực Hành</div>
+              <a class="video-play-btn" href="https://www.youtube.com/watch?v=jxHzdaNMUlI&amp;list=PLMpzwYzN40ePz2ZxNkbOjs907VctUWdTi&amp;index=1" target="_blank" rel="noopener">
+                ▶ Xem Video Trên YouTube
+              </a>
+            </div>
+            <div class="video-guideline-body">
+              <strong>Điểm nhấn kỹ thuật:</strong> Hướng dẫn chi tiết cách vận hành Google Antigravity IDE, thiết lập quy trình duyệt kế hoạch (Artifacts &amp; Plan), chỉ đạo Subagent và kiểm thử tự động trên trình duyệt.
+              <div class="video-guideline-timestamps">
+                <span class="video-stamp-pill">⏱️ 01:00 — Giao diện Antigravity IDE</span>
+                <span class="video-stamp-pill">⏱️ 05:20 — Quy trình duyệt Kế hoạch (Plan Mode)</span>
+                <span class="video-stamp-pill">⏱️ 11:30 — Vận hành Browser Subagent &amp; Artifacts</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>1. Kiến trúc tổng thể của Google Antigravity 2.0</h3>
+          <p>Google Antigravity 2.0 được phát triển bởi Google DeepMind, tích hợp dòng mô hình Gemini 2.5/3.0 với khả năng xử lý Context Window cực lớn (lên tới 1–2 triệu token) cùng cơ chế <strong>Reactive Messaging</strong> và <strong>Multi-Agent Delegation</strong>. Hệ sinh thái Antigravity gồm 4 cấu phần chủ lực:</p>
+          <ul>
+            <li><strong>Antigravity IDE &amp; Command Center:</strong> Môi trường phát triển tích hợp đầy đủ tính năng soạn thảo, quản lý phiên làm việc, trực quan hóa Git Diff và hệ thống duyệt kế hoạch Artifacts tương tác.</li>
+            <li><strong>Antigravity CLI (agy):</strong> Công cụ dòng lệnh mạnh mẽ cho phép chạy Agent trực tiếp từ Terminal trên macOS, Linux và Windows với cờ <code>--worktree</code> an toàn.</li>
+            <li><strong>Subagents &amp; Parallel Workers:</strong> Khả năng phân tách nhiệm vụ lớn thành nhiều subagent độc lập (nghiên cứu tài liệu, kiểm thử giao diện, rà soát bảo mật) chạy song song mà không làm ô nhiễm ngữ cảnh chính.</li>
+            <li><strong>Custom Skills &amp; Knowledge System:</strong> Hệ thống nạp kỹ năng mở rộng qua cấu trúc <code>SKILL.md</code> (kèm YAML frontmatter) và quản lý bộ nhớ Knowledge Items được lưu bền vững.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>2. Điểm mạnh vượt trội: Hệ thống Artifacts &amp; Planning Mode</h3>
+          <p>Khác biệt cốt lõi của Antigravity so với các chatbot thông thường là <strong>Hệ thống Artifacts</strong> và cơ chế <strong>Planning Mode</strong>. Thay vì nhồi nhét hàng nghìn dòng giải thích vào khung chat, Antigravity tách riêng thành các tài liệu cấu trúc:</p>
+          <ol>
+            <li><strong>Implementation Plan (implementation_plan.md):</strong> Kế hoạch kỹ thuật chi tiết trước khi hành động. Chứa danh sách chính xác các file cần tạo mới (<code>[NEW]</code>), sửa đổi (<code>[MODIFY]</code>) hoặc xóa bỏ (<code>[DELETE]</code>), phân tích rủi ro và các câu hỏi cần người dùng duyệt. Khi bạn bấm nút <strong>Proceed</strong>, Agent mới bắt đầu sửa mã nguồn.</li>
+            <li><strong>Walkthrough (walkthrough.md):</strong> Báo cáo nghiệm thu sau khi hoàn thành công việc. Tóm tắt những thay đổi đã thực hiện, kết quả kiểm thử và hướng dẫn người dùng chạy thử kèm ảnh/video minh họa.</li>
+            <li><strong>Architecture &amp; Data Diagrams:</strong> Sơ đồ luồng dữ liệu hoặc biểu đồ cấu trúc được kết xuất trực quan bằng Mermaid hoặc PlantUML.</li>
+          </ol>
+          <div class="hint">
+            <strong>MẸO THỰC CHIẾN VỚI ARTIFACTS:</strong><br>
+            Bạn có thể bôi đen và bình luận trực tiếp lên từng dòng của <code>implementation_plan.md</code> để yêu cầu Agent điều chỉnh kiến trúc trước khi phê duyệt thực thi!
+          </div>
+        </section>
+
+        <section>
+          <h3>3. Hệ thống Kỹ năng (Custom Skills) &amp; Phân tầng Quy tắc (Rules)</h3>
+          <p>Antigravity cho phép người dùng tùy biến hành vi của Agent thông qua 2 cấp độ thư mục:</p>
+          <div class="mini-table">
+            <div><b>Cấp độ</b><b>Đường dẫn</b><b>Mục đích &amp; Phạm vi</b></div>
+            <div><span><b>Toàn cục (Global)</b></span><span><code>~/.gemini/config/</code></span><span>Chứa các kỹ năng và quy tắc dùng chung cho toàn bộ dự án trên máy tính của bạn.</span></div>
+            <div><span><b>Dự án (Workspace)</b></span><span><code>.agents/</code> và <code>GEMINI.md</code></span><span>Chứa các quy tắc riêng biệt, coding standards và context đặc thù của riêng dự án đó.</span></div>
+          </div>
+          <p>Mỗi Kỹ năng (Skill) được đóng gói trong một thư mục chứa tệp <code>SKILL.md</code> với cấu trúc YAML chuẩn hóa:</p>
+          <div class="code">
+            <div><span>CẤU TRÚC SKILL.MD CHUẨN TRONG ANTIGRAVITY</span></div>
+            <pre>---
+name: security-auditor
+description: Tự động quét lỗ hổng OWASP Top 10, SQLi, XSS và bảo vệ dữ liệu PII theo Luật BV DLCN 2025.
+---
+
+# Hướng dẫn Kỹ sư Bảo mật
+1. Khi phát hiện mã nguồn xử lý dữ liệu người dùng, kiểm tra cơ chế escape/sanitize.
+2. Tuyệt đối cấm hardcode API Key, mật khẩu, JWT token trong file mã nguồn.
+3. Tạo báo cáo bảo mật dưới dạng bảng kiểm tra ĐẠT / CẢNH BÁO / NGUY HIỂM.</pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>4. Trình duyệt kiểm thử tự động Browser Subagent</h3>
+          <p>Antigravity tích hợp một <em>Browser Subagent</em> chạy Chromium ngầm. Nó có thể:</p>
+          <ul>
+            <li>Tự động mở trang web cục bộ (<code>http://localhost:3000</code>).</li>
+            <li>Bấm vào các nút, nhập văn bản vào các ô input và chuyển đổi giữa các tab.</li>
+            <li>Chụp ảnh màn hình (screenshot) và quay video WebP để báo cáo trực quan cho bạn thấy giao diện thực tế.</li>
+            <li>Tự động đọc Console log để phát hiện các lỗi JavaScript ẩn mà mắt thường không thấy.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>5. Bộ lệnh Slash Commands chuyên sâu &amp; Context Cache</h3>
+          <p>Antigravity cung cấp các lệnh tương tác nhanh (Slash Commands) giúp tối ưu hóa hiệu suất làm việc:</p>
+          <div class="mini-table">
+            <div><b>Lệnh</b><b>Công dụng</b><b>Ví dụ sử dụng</b></div>
+            <div><span><code>/goal</code></span><span>Kích hoạt chế độ chạy tự động liên tục cho đến khi đạt mục tiêu kiểm thử.</span><span><code>/goal Xây dựng hoàn tất module điểm danh và đạt 100% test</code></span></div>
+            <div><span><code>/grill-me</code></span><span>Kích hoạt chế độ phỏng vấn phản biện để làm rõ yêu cầu trước khi lập kế hoạch.</span><span><code>/grill-me về luồng duyệt đơn xin hoãn thi</code></span></div>
+            <div><span><code>/schedule</code></span><span>Đặt lịch thực thi tác vụ định kỳ (Cron) hoặc hẹn giờ tự động.</span><span><code>/schedule CronExpression="0 9 * * *" Prompt="Quét lỗi bảo mật"</code></span></div>
+            <div><span><code>/learn</code></span><span>Lưu lại kinh nghiệm và pattern đã giải quyết thành tri thức cho các phiên sau.</span><span><code>/learn Cách fix lỗi tiếng Việt UTF-8 khi xuất CSV</code></span></div>
+          </div>
+        </section>
+
+        <section>
+          <h3>6. Cấu hình file quy tắc GEMINI.md chuẩn</h3>
+          <p>Tạo file <code>GEMINI.md</code> tại thư mục gốc của dự án để ép Antigravity tuân thủ các chuẩn mực phát triển:</p>
+          <div class="code">
+            <div><span>GEMINI.md - QUY TẮC BẮT BUỘC DỰ ÁN</span></div>
+            <pre># Quy tắc dự án cho Antigravity 2.0
+1. Luôn tạo và cập nhật `implementation_plan.md` trước khi viết mã.
+2. Viết mã HTML5/CSS ngữ nghĩa, chuẩn W3C, không dùng thư viện nặng khi chưa yêu cầu.
+3. Khi sửa CSS, luôn kiểm tra hiển thị trên điện thoại di động (Mobile) và máy tính (Desktop).
+4. Sử dụng Sequential Thinking để giải quyết các bài toán logic phức tạp.
+5. Tuyệt đối không đưa dữ liệu thật của sinh viên, bệnh nhân hay mật khẩu vào mã nguồn.</pre>
+          </div>
+        </section>
+      </div>
+
+      <footer class="chapter-footer-seamless">
+        <div class="chapter-status-line">
+          <span>Chương 4 / 12</span>
+          <button class="chapter-btn-read" data-complete-chapter="4">✓ Đánh dấu đã đọc chương 4</button>
+        </div>
+        <nav class="seamless-bottom-nav">
+          <a href="#chapter-3" class="nav-link-prev">
+            <small>← QUAY LẠI</small>
+            <span>Chương 03: Chuẩn bị Workspace</span>
+          </a>
+          <a href="#chapter-5" class="nav-link-next">
+            <small>CHƯƠNG TIẾP THEO →</small>
+            <span>Chương 05: OpenAI Codex</span>
+          </a>
+        </nav>
+      </footer>
+    </article>

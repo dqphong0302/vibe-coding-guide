@@ -1,0 +1,143 @@
+    <article class="ebook-page" id="chapter-10" data-chapter="10">
+      <header class="chapter-head">
+        <div class="chapter-badge-num">10</div>
+        <div class="chapter-head-info">
+          <p class="chapter-eyebrow">CHƯƠNG 10 · PHẦN III <span>· 30 PHÚT ĐỌC</span></p>
+          <h2>Đặc Tả Kỹ Thuật Không Đoán Mò: Phương Pháp Spec-Driven</h2>
+          <p class="chapter-subtitle">Nguyên tắc số 1 để AI không tự ý bịa tính năng: Viết SPEC.md theo cú pháp Given-When-Then và phân chia phạm vi v1/v2 rõ ràng.</p>
+        </div>
+      </header>
+
+      <div class="chapter-goal-box">
+        <b>Mục tiêu chương:</b>
+        <span>Hiểu rõ tại sao 80% dự án AI thất bại do thiếu đặc tả; làm chủ cấu trúc tài liệu SPEC.md 10 phần tiêu chuẩn; viết kịch bản kiểm thử theo cú pháp Given-When-Then và thiết lập ranh giới tính năng In-scope vs Out-of-scope dứt khoát.</span>
+      </div>
+
+      <div class="body">
+        <section>
+          <h3>1. Tại sao 80% dự án thất bại vì thiếu đặc tả?</h3>
+          <p>Khi bạn ra lệnh mơ hồ như: <em>"Làm cho tôi một ứng dụng quản lý công việc"</em>, mô hình AI buộc phải tự suy diễn hàng trăm quyết định kiến trúc: Dữ liệu lưu ở đâu? Có cần phân quyền không? Khi xóa công việc thì xóa vĩnh viễn hay chuyển vào thùng rác? Trạng thái công việc có mấy bước?</p>
+          <p>Mỗi lần AI tự đoán mò là một lần tăng nguy cơ sinh mã nguồn rác và xung đột logic. <strong>Phương pháp Spec-Driven Development (SDD)</strong> yêu cầu con người viết rõ ràng các quyết định này vào file <code>SPEC.md</code> trước khi AI viết dòng mã đầu tiên. Đây không phải là thủ tục rườm rà, mà là hàng rào kỹ thuật ngăn AI phá hủy cấu trúc dự án.</p>
+        </section>
+
+        <section class="wide">
+          <div class="figure-showcase">
+            <div class="figure-header">
+              <span class="figure-title">📋 Hình 10.1: Quy trình Spec-Driven Development — Từ Ý Tưởng Đến Acceptance Test</span>
+              <div class="figure-actions">
+                <a class="figure-btn" href="assets/diagrams/07_spec_driven.png" target="_blank">🔗 Mở ảnh gốc</a>
+                <button class="figure-btn zoom-btn">🔍 Phóng to</button>
+              </div>
+            </div>
+            <div class="figure-img-wrap">
+              <img src="assets/diagrams/07_spec_driven.png" alt="Quy trình Spec-Driven Development: PRD, Given-When-Then, Implementation Plan, Automated Verification" loading="lazy">
+            </div>
+            <div class="figure-caption">
+              <em>Hình 10.1:</em> Chu trình 4 bước của Spec-Driven Development: <strong>Đặc tả 10 phần</strong> → <strong>Tiêu chí Given-When-Then</strong> → <strong>Kế hoạch kỹ thuật (Plan)</strong> → <strong>Kiểm thử nghiệm thu tự động</strong>.
+            </div>
+          </div>
+
+          <!-- YOUTUBE GUIDELINE: AI-DRIVEN SPEC -->
+          <div class="video-guideline-box">
+            <div class="video-guideline-header">
+              <span class="video-guideline-title">
+                <span class="video-guideline-badge">Series AI-Driven Development</span>
+                📺 Video Hướng Dẫn: Quy Trình Đặc Tả &amp; Phát Triển Phần Mềm Cùng AI
+              </span>
+              <a class="video-guideline-link" href="https://www.youtube.com/watch?v=4t0zD9gveo0&amp;list=PLDHSigHSDJWW2TkRAeBXplLy5dF1rkHYi&amp;index=6" target="_blank" rel="noopener">Mở trên YouTube ↗</a>
+            </div>
+            <div class="video-card-banner">
+              <div class="video-topic">🎬 "Quy Trình Đặc Tả Yêu Cầu &amp; Phát Triển Ứng Dụng Chuẩn AI-Driven (SPEC.md → Plan → Code)"</div>
+              <div class="video-channel-tag"><span>Series: AI-Driven Software Engineering</span> • Video Thực Hành</div>
+              <a class="video-play-btn" href="https://www.youtube.com/watch?v=4t0zD9gveo0&amp;list=PLDHSigHSDJWW2TkRAeBXplLy5dF1rkHYi&amp;index=6" target="_blank" rel="noopener">
+                ▶ Xem Video Trên YouTube
+              </a>
+            </div>
+            <div class="video-guideline-body">
+              <strong>Quy trình công nghiệp:</strong> Hướng dẫn cách xây dựng tài liệu đặc tả kỹ thuật (SPEC.md), bóc tách kiến trúc, định dạng tiêu chí nghiệm thu Given-When-Then và chỉ đạo AI triển khai chính xác theo kế hoạch.
+              <div class="video-guideline-timestamps">
+                <span class="video-stamp-pill">⏱️ 01:30 — Bóc tách tài liệu yêu cầu (PRD &amp; SPEC)</span>
+                <span class="video-stamp-pill">⏱️ 06:45 — Thiết kế luồng dữ liệu &amp; Schema CSDL</span>
+                <span class="video-stamp-pill">⏱️ 13:20 — Tiêu chí kiểm thử Given-When-Then</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>2. Cấu trúc tài liệu SPEC.md 10 phần tiêu chuẩn</h3>
+          <p>Tài liệu đặc tả hoàn chỉnh gồm đúng 10 mục cốt lõi:</p>
+          <div class="code">
+            <div><span>KHUNG TÀI LIỆU SPEC.MD TIÊU CHUẨN</span></div>
+            <pre># SPEC.md - ĐẶC TẢ KỸ THUẬT DỰ ÁN
+
+## 1. Mục tiêu và Bối cảnh (Problem &amp; Goal)
+- Giải quyết vấn đề gì? Cho đối tượng nào?
+- Thước đo thành công: Số lượng thao tác giảm, thời gian xử lý nhanh hơn.
+
+## 2. Ranh giới tính năng (Scope)
+- In-scope (Phải làm trong v1): Danh sách tính năng cốt lõi.
+- Out-of-scope (Tuyệt đối không làm trong v1): Các tính năng phức tạp để dành v2.
+
+## 3. Kiến trúc tổng thể &amp; Công nghệ (Tech Stack)
+- Frontend: HTML5, CSS Variables, Vanilla JS (không dùng framework phức tạp).
+- Backend / Lưu trữ: LocalStorage / Supabase / PostgreSQL.
+- API Endpoints: Danh sách các đường dẫn dữ liệu.
+
+## 4. Mô hình dữ liệu (Data Models &amp; Schema)
+- Bảng 1: Các trường, kiểu dữ liệu, khóa chính, ràng buộc.
+- Bảng 2: Quan hệ giữa các bảng (1-1, 1-N).
+
+## 5. Luồng người dùng &amp; Kịch bản (User Flows)
+- Bước 1 -> Bước 2 -> Bước 3 -> Kết quả mong đợi.
+
+## 6. Tiêu chí nghiệm thu (Given-When-Then Acceptance Criteria)
+- Scenario 1: Given [Trạng thái ban đầu], When [Thực hiện hành động], Then [Kết quả xảy ra].
+- Scenario 2: Xử lý khi dữ liệu nhập vào bị sai hoặc bỏ trống.
+
+## 7. Ràng buộc bảo mật &amp; Phân quyền (Security &amp; Auth)
+- Ai được xem dữ liệu nào? Ai được quyền sửa/xóa?
+- Cơ chế bảo vệ API Key và chống XSS/SQL Injection.
+
+## 8. Trải nghiệm người dùng &amp; 5 trạng thái UI
+- Ideal State, Empty State, Loading State, Error State, Partial State.
+
+## 9. Kế hoạch kiểm thử (Test Plan)
+- Happy path, Edge cases, Negative testing, Persistence test.
+
+## 10. Checklist bàn giao (Definition of Done)
+- Code sạch, không lỗi Console F12, chạy mượt trên thiết bị di động (Mobile), đầy đủ tài liệu README.</pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>3. Kỹ thuật viết Given-When-Then để AI tự kiểm tra mã</h3>
+          <p>Khi mô tả hành vi ứng dụng cho AI, hãy dùng cú pháp Given-When-Then chuẩn công nghiệp để AI có thể tự động viết test case và tự kiểm tra mã của chính nó:</p>
+          <div class="prompt">
+            <b>MẪU PROMPT GIVEN-WHEN-THEN CHUẨN:</b>
+            <p><strong>Scenario:</strong> Sinh viên đăng ký cấp giấy xác nhận học tập.<br>
+            <strong>Given:</strong> Sinh viên đã đăng nhập thành công và đang ở trang biểu mẫu đăng ký.<br>
+            <strong>When:</strong> Sinh viên chọn lý do "Vay vốn ngân hàng" và nhấn nút "Gửi yêu cầu".<br>
+            <strong>Then:</strong> Hệ thống tạo bản ghi mới với trạng thái "Chờ duyệt", hiển thị mã hồ sơ dạng <code>XN-2026-XXXX</code> và gửi thông báo Toast màu xanh: <em>"Đã gửi yêu cầu thành công!"</em>.<br>
+            <strong>Edge Case:</strong> Nếu sinh viên bỏ trống ô lý do, viền ô chuyển sang màu đỏ và hiển thị dòng chữ: <em>"Vui lòng nhập lý do xin cấp giấy"</em>, nút Gửi bị vô hiệu hóa.</p>
+          </div>
+        </section>
+      </div>
+
+      <footer class="chapter-footer-seamless">
+        <div class="chapter-status-line">
+          <span>Chương 10 / 12</span>
+          <button class="chapter-btn-read" data-complete-chapter="10">✓ Đánh dấu đã đọc chương 10</button>
+        </div>
+        <nav class="seamless-bottom-nav">
+          <a href="#chapter-9" class="nav-link-prev">
+            <small>← QUAY LẠI</small>
+            <span>Chương 09: Dữ liệu &amp; Bảo mật</span>
+          </a>
+          <a href="#chapter-11" class="nav-link-next">
+            <small>CHƯƠNG TIẾP THEO →</small>
+            <span>Chương 11: Kiểm thử &amp; Sửa lỗi</span>
+          </a>
+        </nav>
+      </footer>
+    </article>

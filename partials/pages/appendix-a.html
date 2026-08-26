@@ -1,0 +1,260 @@
+    <article class="ebook-page" id="appendix-a">
+      <div class="part-lead-header">
+        <span class="part-tag">PHẦN IV · PHỤ LỤC &amp; TÀI NGUYÊN</span>
+        <h2>Phụ Lục Tra Cứu, Starter Kit &amp; Thư Viện Prompt Thực Chiến</h2>
+        <p>Kho tài nguyên thực chiến: Chuỗi prompt mẫu từ A-Z cho bài toán Y khoa thực tế, từ điển thuật ngữ chuyên ngành, bộ starter kit tải về và sổ tay cứu hộ.</p>
+      </div>
+
+      <header class="chapter-head">
+        <div class="chapter-badge-num" style="background: linear-gradient(135deg, #0284c7, #0ea5e9);">A</div>
+        <div class="chapter-head-info">
+          <p class="chapter-eyebrow">PHỤ LỤC A <span>· THƯ VIỆN PROMPT THỰC CHIẾN</span></p>
+          <h2>Chuỗi Prompt Từ A Đến Z: Xây Dựng Ứng Dụng Y Khoa</h2>
+          <p class="chapter-subtitle">Bộ prompt hoàn chỉnh theo luồng thực tế: Từ đặc tả bài toán, thiết kế Google Stitch, Frontend, Backend, Phân quyền đa vai trò, CSDL đến Bảo mật dữ liệu y tế.</p>
+        </div>
+      </header>
+
+      <div class="chapter-goal-box">
+        <b>Bài toán thực tế xuyên suốt:</b>
+        <span>Xây dựng <strong>"Cổng Tiếp Nhận &amp; Quản Lý Hồ Sơ Khám Bệnh (MedCare Portal)"</strong> phục vụ 4 vai trò: Bệnh nhân (đăng ký khám, xem kết quả), Điều dưỡng (tiếp đón, đo sinh hiệu), Bác sĩ (khám, chẩn đoán, kê toa) và Quản trị viên (báo cáo thống kê).</span>
+      </div>
+
+      <div class="body">
+        <!-- GIAI ĐOẠN 1: ĐẶC TẢ BÀI TOÁN -->
+        <section class="wide">
+          <h3 style="color: #0284c7; display: flex; align-items: center; gap: 8px;">
+            <span>📋</span> Giai đoạn 1: Prompt Đặc Tả Bài Toán Y Khoa &amp; Phạm Vi Dự Án (PRD &amp; SPEC)
+          </h3>
+          <div class="prompt">
+            <b>PROMPT 1: KHỞI TẠO ĐẶC TẢ SPEC.MD 10 PHẦN CHO HỆ THỐNG KHÁM BỆNH</b>
+            <p>Dùng để ép AI thiết lập khung tài liệu kỹ thuật chuẩn xác, không tự ý suy diễn tính năng rác.</p>
+            <pre style="background: #020617; padding: 14px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 8px 0; border: 1px solid #1e293b;">Hãy đóng vai trò Kỹ sư Trưởng kiêm Chuyên gia Hệ thống Y tế. Tôi muốn xây dựng ứng dụng Web App "Cổng Tiếp Nhận &amp; Quản Lý Khám Bệnh Khoa Khám (MedCare Portal)".
+Hãy tạo tài liệu `SPEC.md` hoàn chỉnh gồm 10 phần tiêu chuẩn:
+1. Bối cảnh &amp; Mục tiêu: Giảm thời gian chờ đợi xếp hàng của bệnh nhân, chuẩn hóa quy trình nhập sinh hiệu và toa thuốc.
+2. Ranh giới tính năng (Scope):
+   - In-scope v1: Đăng ký lịch khám, tiếp nhận đo sinh hiệu (Huyết áp, Mạch, SpO2, Chiều cao, Cân nặng), ghi chép chẩn đoán của bác sĩ, in phiếu khám và lưu trữ cục bộ an toàn.
+   - Out-of-scope v1: Chưa tích hợp cổng thanh toán trực tuyến, chưa kết nối máy xét nghiệm tự động.
+3. Công nghệ: HTML5 ngữ nghĩa, Vanilla CSS (CSS Variables), JavaScript thuần, dữ liệu lưu LocalStorage an toàn (không dùng framework phức tạp).
+4. Mô hình 4 vai trò: Bệnh nhân, Điều dưỡng, Bác sĩ, Quản trị.
+5. Danh mục 5 tiêu chí nghiệm thu Given-When-Then.
+
+Tuyệt đối chưa viết mã nguồn, hãy xuất bản tài liệu SPEC.md trước để tôi duyệt.</pre>
+            <button class="figure-btn" data-copy="p-spec-med">Sao chép prompt</button>
+            <div id="p-spec-med" style="display:none;">Hãy đóng vai trò Kỹ sư Trưởng kiêm Chuyên gia Hệ thống Y tế. Tôi muốn xây dựng ứng dụng Web App "Cổng Tiếp Nhận &amp; Quản Lý Khám Bệnh Khoa Khám (MedCare Portal)".
+Hãy tạo tài liệu `SPEC.md` hoàn chỉnh gồm 10 phần tiêu chuẩn:
+1. Bối cảnh &amp; Mục tiêu: Giảm thời gian chờ đợi xếp hàng của bệnh nhân, chuẩn hóa quy trình nhập sinh hiệu và toa thuốc.
+2. Ranh giới tính năng (Scope):
+   - In-scope v1: Đăng ký lịch khám, tiếp nhận đo sinh hiệu (Huyết áp, Mạch, SpO2, Chiều cao, Cân nặng), ghi chép chẩn đoán của bác sĩ, in phiếu khám và lưu trữ cục bộ an toàn.
+   - Out-of-scope v1: Chưa tích hợp cổng thanh toán trực tuyến, chưa kết nối máy xét nghiệm tự động.
+3. Công nghệ: HTML5 ngữ nghĩa, Vanilla CSS (CSS Variables), JavaScript thuần, dữ liệu lưu LocalStorage an toàn (không dùng framework phức tạp).
+4. Mô hình 4 vai trò: Bệnh nhân, Điều dưỡng, Bác sĩ, Quản trị.
+5. Danh mục 5 tiêu chí nghiệm thu Given-When-Then.
+
+Tuyệt đối chưa viết mã nguồn, hãy xuất bản tài liệu SPEC.md trước để tôi duyệt.</div>
+          </div>
+        </section>
+
+        <!-- GIAI ĐOẠN 2: GOOGLE STITCH UI -->
+        <section class="wide">
+          <h3 style="color: #0284c7; display: flex; align-items: center; gap: 8px;">
+            <span>🎨</span> Giai đoạn 2: Prompt Thiết Kế Giao Diện Google Stitch (Desktop &amp; Mobile)
+          </h3>
+          <div class="prompt">
+            <b>PROMPT 2.1: THIẾT KẾ DASHBOARD BÁC SĨ / ĐIỀU DƯỠNG TRÊN MÁY TÍNH (DESKTOP)</b>
+            <p>Prompt nạp vào Google Stitch để sinh giao diện bảng điều khiển quản trị khoa khám bệnh.</p>
+            <pre style="background: #020617; padding: 14px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 8px 0; border: 1px solid #1e293b;">Hãy thiết kế giao diện Dashboard Quản lý Khám bệnh trên Desktop chuẩn Google Stitch bằng HTML5 và Vanilla CSS.
+YÊU CẦU THIẾT KẾ:
+- Bố cục: 1 Header trên cùng (Logo Bệnh viện, Tên phòng khám, Nút đổi vai trò Bác sĩ/Điều dưỡng); 1 Sidebar bên trái thu gọn được; khu vực trung tâm chia 2 cột:
+  + Cột trái (40%): Danh sách hàng đợi bệnh nhân chờ khám (hiển thị Mã hồ sơ, Tên, Giờ hẹn, Huy hiệu trạng thái: Chờ khám [Vàng], Đang khám [Xanh], Đã khám [Xanh lá]).
+  + Cột phải (60%): Chi tiết phiếu khám của bệnh nhân đang chọn (Khối đo Sinh hiệu: Huyết áp, Mạch, Nhiệt độ, BMI; Khối Chẩn đoán ICD-10; Khối Kê toa thuốc có nút Thêm thuốc).
+- Phong cách: Tone màu Xanh Y khoa (#0284c7), nền thẻ trắng xám nhạt (#f8fafc), bo góc 10px, font chữ Be Vietnam Pro sạch sẽ, chuyên nghiệp.</pre>
+            <button class="figure-btn" data-copy="p-stitch-desk">Sao chép prompt</button>
+            <div id="p-stitch-desk" style="display:none;">Hãy thiết kế giao diện Dashboard Quản lý Khám bệnh trên Desktop chuẩn Google Stitch bằng HTML5 và Vanilla CSS.
+YÊU CẦU THIẾT KẾ:
+- Bố cục: 1 Header trên cùng (Logo Bệnh viện, Tên phòng khám, Nút đổi vai trò Bác sĩ/Điều dưỡng); 1 Sidebar bên trái thu gọn được; khu vực trung tâm chia 2 cột:
+  + Cột trái (40%): Danh sách hàng đợi bệnh nhân chờ khám (hiển thị Mã hồ sơ, Tên, Giờ hẹn, Huy hiệu trạng thái: Chờ khám [Vàng], Đang khám [Xanh], Đã khám [Xanh lá]).
+  + Cột phải (60%): Chi tiết phiếu khám của bệnh nhân đang chọn (Khối đo Sinh hiệu: Huyết áp, Mạch, Nhiệt độ, BMI; Khối Chẩn đoán ICD-10; Khối Kê toa thuốc có nút Thêm thuốc).
+- Phong cách: Tone màu Xanh Y khoa (#0284c7), nền thẻ trắng xám nhạt (#f8fafc), bo góc 10px, font chữ Be Vietnam Pro sạch sẽ, chuyên nghiệp.</div>
+          </div>
+
+          <div class="prompt">
+            <b>PROMPT 2.2: THIẾT KẾ BIỂU MẪU ĐẶT LỊCH KHÁM TRÊN ĐIỆN THOẠI DI ĐỘNG (MOBILE)</b>
+            <p>Prompt nạp vào Google Stitch để sinh giao diện đặt khám tối ưu cho bệnh nhân dùng điện thoại.</p>
+            <pre style="background: #020617; padding: 14px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 8px 0; border: 1px solid #1e293b;">Hãy thiết kế giao diện Biểu mẫu Đăng ký Lịch khám dành cho bệnh nhân tối ưu trên điện thoại di động bằng HTML5/CSS:
+- Bố cục 1 cột dọc: Các trường Họ tên bệnh nhân, Năm sinh, Triệu chứng ban đầu, Chọn Chuyên khoa (Nội tổng quát, Tim mạch, Tiêu hóa), Chọn Giờ khám.
+- Trải nghiệm di động: Mọi nút bấm và ô chọn có chiều cao rộng rãi (dễ chạm ngón tay không bị trượt), nhãn đặt ngay phía trên ô nhập.
+- Phản hồi trực quan: Có thanh tiến trình 3 bước (1. Điền thông tin -> 2. Xác nhận -> 3. Nhận phiếu hẹn có mã QR/Mã số). Khi nhấn gửi, nút chuyển hiệu ứng xoay loading và hiện Toast thông báo thành công.</pre>
+            <button class="figure-btn" data-copy="p-stitch-mob">Sao chép prompt</button>
+            <div id="p-stitch-mob" style="display:none;">Hãy thiết kế giao diện Biểu mẫu Đăng ký Lịch khám dành cho bệnh nhân tối ưu trên điện thoại di động bằng HTML5/CSS:
+- Bố cục 1 cột dọc: Các trường Họ tên bệnh nhân, Năm sinh, Triệu chứng ban đầu, Chọn Chuyên khoa (Nội tổng quát, Tim mạch, Tiêu hóa), Chọn Giờ khám.
+- Trải nghiệm di động: Mọi nút bấm và ô chọn có chiều cao rộng rãi (dễ chạm ngón tay không bị trượt), nhãn đặt ngay phía trên ô nhập.
+- Phản hồi trực quan: Có thanh tiến trình 3 bước (1. Điền thông tin -> 2. Xác nhận -> 3. Nhận phiếu hẹn có mã QR/Mã số). Khi nhấn gửi, nút chuyển hiệu ứng xoay loading và hiện Toast thông báo thành công.</div>
+          </div>
+        </section>
+
+        <!-- GIAI ĐOẠN 3: FRONTEND & 5 TRẠNG THÁI -->
+        <section class="wide">
+          <h3 style="color: #0284c7; display: flex; align-items: center; gap: 8px;">
+            <span>💻</span> Giai đoạn 3: Prompt Xây Dựng Frontend &amp; 5 Trạng Thái Giao Diện
+          </h3>
+          <div class="prompt">
+            <b>PROMPT 3: LẬP TRÌNH KHUNG FRONTEND ĐỦ 5 TRẠNG THÁI MÀN HÌNH</b>
+            <pre style="background: #020617; padding: 14px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 8px 0; border: 1px solid #1e293b;">Hãy ghép mã HTML5 và Vanilla CSS cho toàn bộ ứng dụng MedCare Portal theo cấu trúc Design Tokens:
+1. Thiết lập biến :root trong CSS: `--primary: #0284c7; --success: #10b981; --warning: #f59e0b; --danger: #ef4444; --bg-page: #f8fafc;`.
+2. Xử lý đủ 5 trạng thái cho bảng danh sách bệnh nhân:
+   - Ideal State: Danh sách bệnh nhân kèm chỉ số sinh hiệu đầy đủ.
+   - Empty State: Hình minh họa hồ sơ rỗng + Thông báo "Hiện tại chưa có bệnh nhân nào trong hàng đợi" + Nút "+ Tiếp nhận bệnh nhân mới".
+   - Loading State: Hiệu ứng Shimmer Skeleton lướt nhẹ khi đang đọc dữ liệu.
+   - Error State: Khung viền đỏ báo lỗi "Không thể đọc dữ liệu hồ sơ" kèm nút "Thử tải lại".
+   - Partial State: Cắt gọn tên chẩn đoán quá dài bằng dấu ba chấm (...) và tooltip hiển thị đầy đủ.</pre>
+            <button class="figure-btn" data-copy="p-fe-5state">Sao chép prompt</button>
+            <div id="p-fe-5state" style="display:none;">Hãy ghép mã HTML5 và Vanilla CSS cho toàn bộ ứng dụng MedCare Portal theo cấu trúc Design Tokens:
+1. Thiết lập biến :root trong CSS: `--primary: #0284c7; --success: #10b981; --warning: #f59e0b; --danger: #ef4444; --bg-page: #f8fafc;`.
+2. Xử lý đủ 5 trạng thái cho bảng danh sách bệnh nhân:
+   - Ideal State: Danh sách bệnh nhân kèm chỉ số sinh hiệu đầy đủ.
+   - Empty State: Hình minh họa hồ sơ rỗng + Thông báo "Hiện tại chưa có bệnh nhân nào trong hàng đợi" + Nút "+ Tiếp nhận bệnh nhân mới".
+   - Loading State: Hiệu ứng Shimmer Skeleton lướt nhẹ khi đang đọc dữ liệu.
+   - Error State: Khung viền đỏ báo lỗi "Không thể đọc dữ liệu hồ sơ" kèm nút "Thử tải lại".
+   - Partial State: Cắt gọn tên chẩn đoán quá dài bằng dấu ba chấm (...) và tooltip hiển thị đầy đủ.</div>
+          </div>
+        </section>
+
+        <!-- GIAI ĐOẠN 4: DATABASE & DATA SCHEMA -->
+        <section class="wide">
+          <h3 style="color: #0284c7; display: flex; align-items: center; gap: 8px;">
+            <span>🗄️</span> Giai đoạn 4: Prompt Thiết Kế Cơ Sở Dữ Liệu &amp; Schema Y Tế
+          </h3>
+          <div class="prompt">
+            <b>PROMPT 4: TẠO CẤU TRÚC DỮ LIỆU SCHEMA JSON / LOCALSTORAGE CHUẨN Y KHOA</b>
+            <pre style="background: #020617; padding: 14px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 8px 0; border: 1px solid #1e293b;">Hãy định nghĩa cấu trúc dữ liệu JSON Schema chuẩn để lưu trữ trong `localStorage` cho hệ thống MedCare Portal:
+Bao gồm 3 thực thể liên kết với nhau:
+1. `patients` (Bệnh nhân): `id`, `patient_code` (dạng BN-2026-XXXX), `full_name`, `birth_year`, `gender`, `phone_masked`, `created_at`.
+2. `examinations` (Phiếu khám bệnh): `id`, `patient_id`, `doctor_name`, `department`, `symptoms`, `vitals` { `blood_pressure`, `heart_rate`, `temperature`, `spo2`, `height`, `weight`, `bmi` }, `diagnosis_icd10`, `status` ('cho_kham', 'dang_kham', 'da_kham', 'huy'), `created_at`, `updated_at`.
+3. `prescriptions` (Đơn thuốc): `id`, `exam_id`, `medications` [ { `drug_name`, `dosage`, `unit`, `usage_instruction` } ], `doctor_notes`.
+
+Tạo sẵn file `DU_LIEU_MAU.json` chứa 5 bản ghi mẫu hoàn chỉnh với các chỉ số sinh hiệu hợp lý để kiểm thử ngay.</pre>
+            <button class="figure-btn" data-copy="p-db-schema">Sao chép prompt</button>
+            <div id="p-db-schema" style="display:none;">Hãy định nghĩa cấu trúc dữ liệu JSON Schema chuẩn để lưu trữ trong `localStorage` cho hệ thống MedCare Portal:
+Bao gồm 3 thực thể liên kết với nhau:
+1. `patients` (Bệnh nhân): `id`, `patient_code` (dạng BN-2026-XXXX), `full_name`, `birth_year`, `gender`, `phone_masked`, `created_at`.
+2. `examinations` (Phiếu khám bệnh): `id`, `patient_id`, `doctor_name`, `department`, `symptoms`, `vitals` { `blood_pressure`, `heart_rate`, `temperature`, `spo2`, `height`, `weight`, `bmi` }, `diagnosis_icd10`, `status` ('cho_kham', 'dang_kham', 'da_kham', 'huy'), `created_at`, `updated_at`.
+3. `prescriptions` (Đơn thuốc): `id`, `exam_id`, `medications` [ { `drug_name`, `dosage`, `unit`, `usage_instruction` } ], `doctor_notes`.
+
+Tạo sẵn file `DU_LIEU_MAU.json` chứa 5 bản ghi mẫu hoàn chỉnh với các chỉ số sinh hiệu hợp lý để kiểm thử ngay.</div>
+          </div>
+        </section>
+
+        <!-- GIAI ĐOẠN 5: BACKEND LOGIC & TÍNH TOÁN Y KHOA -->
+        <section class="wide">
+          <h3 style="color: #0284c7; display: flex; align-items: center; gap: 8px;">
+            <span>⚙️</span> Giai đoạn 5: Prompt Lập Trình Logic Backend &amp; Tự Động Hóa Nghiệp Vụ
+          </h3>
+          <div class="prompt">
+            <b>PROMPT 5: VIẾT HÀM XỬ LÝ LOGIC NGHIỆP VỤ &amp; TÍNH TOÁN CHỈ SỐ Y TẾ</b>
+            <pre style="background: #020617; padding: 14px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 8px 0; border: 1px solid #1e293b;">Hãy viết toàn bộ logic xử lý JavaScript cho hệ thống khám bệnh:
+1. Hàm tự động sinh mã hồ sơ: Sinh mã duy nhất dạng `#KB-2026-0001` tăng tự động.
+2. Hàm tự động tính chỉ số BMI: Khi điều dưỡng nhập Chiều cao (cm) và Cân nặng (kg), tự động tính BMI = Cân nặng / ((Chiều cao/100)^2), làm tròn 1 chữ số thập phân và phân loại tự động (Thiếu cân / Bình thường / Thừa cân / Béo phì).
+3. Hàm cảnh báo sinh hiệu bất thường: Nếu Huyết áp tâm thu >= 140 hoặc Nhiệt độ >= 38.5°C, tự động hiển thị chữ đỏ nhấp nháy cảnh báo điều dưỡng.
+4. Quản lý trạng thái: Chuyển trạng thái mượt mà từ "Chờ khám" -> "Đang khám" -> "Đã khám hoàn tất". Hồ sơ đã hoàn tất không cho phép chỉnh sửa sinh hiệu ban đầu.</pre>
+            <button class="figure-btn" data-copy="p-logic-med">Sao chép prompt</button>
+            <div id="p-logic-med" style="display:none;">Hãy viết toàn bộ logic xử lý JavaScript cho hệ thống khám bệnh:
+1. Hàm tự động sinh mã hồ sơ: Sinh mã duy nhất dạng `#KB-2026-0001` tăng tự động.
+2. Hàm tự động tính chỉ số BMI: Khi điều dưỡng nhập Chiều cao (cm) và Cân nặng (kg), tự động tính BMI = Cân nặng / ((Chiều cao/100)^2), làm tròn 1 chữ số thập phân và phân loại tự động (Thiếu cân / Bình thường / Thừa cân / Béo phì).
+3. Hàm cảnh báo sinh hiệu bất thường: Nếu Huyết áp tâm thu >= 140 hoặc Nhiệt độ >= 38.5°C, tự động hiển thị chữ đỏ nhấp nháy cảnh báo điều dưỡng.
+4. Quản lý trạng thái: Chuyển trạng thái mượt mà từ "Chờ khám" -> "Đang khám" -> "Đã khám hoàn tất". Hồ sơ đã hoàn tất không cho phép chỉnh sửa sinh hiệu ban đầu.</div>
+          </div>
+        </section>
+
+        <!-- GIAI ĐOẠN 6: PHÂN QUYỀN ĐA VAI TRÒ & CẤP BẬC -->
+        <section class="wide">
+          <h3 style="color: #0284c7; display: flex; align-items: center; gap: 8px;">
+            <span>👥</span> Giai đoạn 6: Prompt Phân Quyền Đa Vai Trò &amp; Cấp Bậc (Roles &amp; Levels)
+          </h3>
+          <div class="prompt">
+            <b>PROMPT 6: THIẾT LẬP PHÂN QUYỀN 4 VAI TRÒ &amp; KHÓA THAO TÁC CẤM</b>
+            <pre style="background: #020617; padding: 14px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 8px 0; border: 1px solid #1e293b;">Hãy thiết lập ma trận phân quyền 4 vai trò rõ ràng trong ứng dụng:
+1. Vai trò "Bệnh nhân" (Level 1): Chỉ có quyền xem form đăng ký khám và tra cứu đúng mã phiếu khám của chính mình; không thấy danh sách bệnh nhân khác và không có nút chỉnh sửa.
+2. Vai trò "Điều dưỡng tiếp đón" (Level 2): Xem danh sách hàng đợi, nhập/sửa chỉ số sinh hiệu (Huyết áp, Mạch, Cân nặng); KHÔNG có quyền kê đơn thuốc hay kết luận chẩn đoán.
+3. Vai trò "Bác sĩ điều trị" (Level 3): Xem đầy đủ sinh hiệu, nhập chẩn đoán bệnh, kê đơn thuốc và bấm nút "Hoàn thành ca khám".
+4. Vai trò "Quản trị viên / Lãnh đạo" (Level 4): Xem toàn bộ bảng thống kê số ca khám trong ngày, xuất báo cáo file CSV, cấu hình danh mục thuốc và phòng khám.
+
+Yêu cầu: Viết hàm kiểm tra quyền thực thi (Role-check) ở tầng xử lý logic để người dùng không thể mở F12 gọi lén hàm của vai trò cao hơn.</pre>
+            <button class="figure-btn" data-copy="p-roles-med">Sao chép prompt</button>
+            <div id="p-roles-med" style="display:none;">Hãy thiết lập ma trận phân quyền 4 vai trò rõ ràng trong ứng dụng:
+1. Vai trò "Bệnh nhân" (Level 1): Chỉ có quyền xem form đăng ký khám và tra cứu đúng mã phiếu khám của chính mình; không thấy danh sách bệnh nhân khác và không có nút chỉnh sửa.
+2. Vai trò "Điều dưỡng tiếp đón" (Level 2): Xem danh sách hàng đợi, nhập/sửa chỉ số sinh hiệu (Huyết áp, Mạch, Cân nặng); KHÔNG có quyền kê đơn thuốc hay kết luận chẩn đoán.
+3. Vai trò "Bác sĩ điều trị" (Level 3): Xem đầy đủ sinh hiệu, nhập chẩn đoán bệnh, kê đơn thuốc và bấm nút "Hoàn thành ca khám".
+4. Vai trò "Quản trị viên / Lãnh đạo" (Level 4): Xem toàn bộ bảng thống kê số ca khám trong ngày, xuất báo cáo file CSV, cấu hình danh mục thuốc và phòng khám.
+
+Yêu cầu: Viết hàm kiểm tra quyền thực thi (Role-check) ở tầng xử lý logic để người dùng không thể mở F12 gọi lén hàm của vai trò cao hơn.</div>
+          </div>
+        </section>
+
+        <!-- GIAI ĐOẠN 7: BẢO MẬT DỮ LIỆU Y TẾ & CHỐNG MẤT DỮ LIỆU -->
+        <section class="wide">
+          <h3 style="color: #0284c7; display: flex; align-items: center; gap: 8px;">
+            <span>🛡️</span> Giai đoạn 7: Prompt Bảo Mật Dữ Liệu Y Tế &amp; Chống Mất Dữ Liệu (F5)
+          </h3>
+          <div class="prompt">
+            <b>PROMPT 7: RÀO CHẮN BẢO VỆ DỮ LIỆU Y TẾ, KHỬ ĐỘC XSS &amp; LƯU AN TOÀN</b>
+            <pre style="background: #020617; padding: 14px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 8px 0; border: 1px solid #1e293b;">Hãy bổ sung toàn diện các tiêu chuẩn an toàn dữ liệu y tế cho ứng dụng:
+1. Bảo vệ dữ liệu cá nhân (PII): Tuyệt đối không lưu số CCCD hoặc mật khẩu trong mã nguồn; số điện thoại bệnh nhân phải được che dạng `090****123` khi hiển thị ở màn hình công cộng.
+2. Khử độc ô nhập liệu: Sử dụng `textContent` khi in thông tin bệnh nhân và toa thuốc, chống tuyệt đối việc chèn mã HTML độc hại hoặc thẻ &lt;script&gt;.
+3. Chống mất dữ liệu khi F5: Bọc toàn bộ quá trình đọc/ghi LocalStorage trong khối `try ... catch`. Nếu dữ liệu bộ nhớ trình duyệt bị lỗi định dạng, tự động phục hồi về bộ dữ liệu mẫu an toàn mà không làm đơ ứng dụng.
+4. Chặn xóa nhầm: Khi bấm xóa một dòng thuốc hoặc hủy ca khám, luôn hiển thị hộp thoại xác nhận bắt buộc.</pre>
+            <button class="figure-btn" data-copy="p-sec-med">Sao chép prompt</button>
+            <div id="p-sec-med" style="display:none;">Hãy bổ sung toàn diện các tiêu chuẩn an toàn dữ liệu y tế cho ứng dụng:
+1. Bảo vệ dữ liệu cá nhân (PII): Tuyệt đối không lưu số CCCD hoặc mật khẩu trong mã nguồn; số điện thoại bệnh nhân phải được che dạng `090****123` khi hiển thị ở màn hình công cộng.
+2. Khử độc ô nhập liệu: Sử dụng `textContent` khi in thông tin bệnh nhân và toa thuốc, chống tuyệt đối việc chèn mã HTML độc hại hoặc thẻ &lt;script&gt;.
+3. Chống mất dữ liệu khi F5: Bọc toàn bộ quá trình đọc/ghi LocalStorage trong khối `try ... catch`. Nếu dữ liệu bộ nhớ trình duyệt bị lỗi định dạng, tự động phục hồi về bộ dữ liệu mẫu an toàn mà không làm đơ ứng dụng.
+4. Chặn xóa nhầm: Khi bấm xóa một dòng thuốc hoặc hủy ca khám, luôn hiển thị hộp thoại xác nhận bắt buộc.</div>
+          </div>
+        </section>
+
+        <!-- GIAI ĐOẠN 8: KIỂM THỬ & GO-LIVE -->
+        <section class="wide">
+          <h3 style="color: #0284c7; display: flex; align-items: center; gap: 8px;">
+            <span>🚀</span> Giai đoạn 8: Prompt Kiểm Thử Nghiệm Thu &amp; Xuất Bản Go-Live
+          </h3>
+          <div class="prompt">
+            <b>PROMPT 8: BẮT AI CHẠY MA TRẬN 8 CA TEST NGHIỆM THU &amp; ĐÓNG GÓI XUẤT BẢN</b>
+            <pre style="background: #020617; padding: 14px; border-radius: 8px; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; margin: 8px 0; border: 1px solid #1e293b;">Hãy thực hiện kiểm thử tự động toàn diện và chuẩn bị xuất bản ứng dụng:
+1. Lập bảng kết quả 8 ca kiểm thử nghiệm thu:
+   - TC1: Đăng ký ca khám mới thành công.
+   - TC2: Để trống trường bắt buộc báo lỗi đỏ.
+   - TC3: Tự động tính đúng chỉ số BMI.
+   - TC4: Chuyển đổi vai trò Bác sĩ/Điều dưỡng hoạt động đúng quyền.
+   - TC5: Nhấn F5 dữ liệu vẫn giữ nguyên 100%.
+   - TC6: Kiểm tra không bị tràn cuộn ngang trên điện thoại di động.
+   - TC7: Mở Console F12 kiểm tra không còn bất kỳ lỗi đỏ nào.
+   - TC8: Xuất thành công danh sách ca khám ra file CSV.
+2. Hướng dẫn tôi 2 cách xuất bản ứng dụng lên mạng: 1) Kéo thả thư mục lên Netlify Drop trong 30 giây; 2) Đẩy lên GitHub để Vercel tự động deploy.</pre>
+            <button class="figure-btn" data-copy="p-test-deploy">Sao chép prompt</button>
+            <div id="p-test-deploy" style="display:none;">Hãy thực hiện kiểm thử tự động toàn diện và chuẩn bị xuất bản ứng dụng:
+1. Lập bảng kết quả 8 ca kiểm thử nghiệm thu:
+   - TC1: Đăng ký ca khám mới thành công.
+   - TC2: Để trống trường bắt buộc báo lỗi đỏ.
+   - TC3: Tự động tính đúng chỉ số BMI.
+   - TC4: Chuyển đổi vai trò Bác sĩ/Điều dưỡng hoạt động đúng quyền.
+   - TC5: Nhấn F5 dữ liệu vẫn giữ nguyên 100%.
+   - TC6: Kiểm tra không bị tràn cuộn ngang trên điện thoại di động.
+   - TC7: Mở Console F12 kiểm tra không còn bất kỳ lỗi đỏ nào.
+   - TC8: Xuất thành công danh sách ca khám ra file CSV.
+2. Hướng dẫn tôi 2 cách xuất bản ứng dụng lên mạng: 1) Kéo thả thư mục lên Netlify Drop trong 30 giây; 2) Đẩy lên GitHub để Vercel tự động deploy.</div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="chapter-footer-seamless">
+        <nav class="seamless-bottom-nav">
+          <a href="#chapter-12" class="nav-link-prev">
+            <small>← QUAY LẠI</small>
+            <span>Chương 12: Go-Live &amp; Xuất bản</span>
+          </a>
+          <a href="#appendix-c" class="nav-link-next">
+            <small>TIẾP THEO →</small>
+            <span>Phụ lục C: Bộ Starter Kit</span>
+          </a>
+        </nav>
+      </footer>
+    </article>

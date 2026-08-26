@@ -1,0 +1,1023 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Bộ slide 51 trang hướng dẫn thực hành Vibe Coding &amp; AI Coding Agent: chốt bài toán, cắt phạm vi, vẽ trước khi làm, viết đặc tả, giao việc cho AI, nghiệm thu và bàn giao tại Đại học Y Dược TP.HCM.">
+<title>Bộ Slide 51 Trang · Cẩm Nang Vibe Coding &amp; AI Coding Agent (2026 Edition) · Đại Học Y Dược TP.HCM</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/slides.css?v=2">
+</head>
+<body>
+<a class="skip" href="#viewport">Đến nội dung slide</a>
+
+<header class="mobile-head">
+  <a href="index.html"><i>VC</i>Vibe Coding Lab</a>
+  <button id="btn-menu" aria-controls="deck-nav" aria-expanded="false">&#9776; Mục lục slide</button>
+</header>
+
+<div class="shell">
+
+  <aside class="deck-nav" id="deck-nav">
+    <div class="nav-brand">
+      <a href="index.html"><i>VC</i><span>Vibe Coding Lab<small>Bộ slide · Làm app đúng ý</small></span></a>
+      <button id="nav-close" aria-label="Đóng mục lục">&times;</button>
+    </div>
+
+    <div class="nav-progress">
+      <div><span>Đang xem</span><strong id="nav-bar-label">1/51</strong></div>
+      <i><b id="nav-bar"></b></i>
+      <p id="nav-bar-msg">Mở đầu</p>
+    </div>
+
+    <nav class="nav-list" id="nav-list" aria-label="Danh sách slide"></nav>
+
+    <div class="nav-foot">
+      <button id="btn-print">&#9096; In / lưu toàn bộ slide thành PDF</button>
+      <a href="index.html#appendix-a">Thư viện Prompt mẫu</a>
+      <a href="admin-guide.html">★ Sổ tay số hóa quy trình</a>
+      <a href="index.html">&larr; 📘 Ebook 12 Chương</a>
+      <p class="nav-keys"><kbd>&larr;</kbd> <kbd>&rarr;</kbd> chuyển slide · <kbd>F</kbd> toàn màn hình · trên điện thoại thì vuốt trái/phải</p>
+    </div>
+  </aside>
+
+  <button class="backdrop" id="backdrop" aria-label="Đóng mục lục"></button>
+
+  <main class="deck-main">
+    <div class="deck-top">
+      <span class="act" id="deck-act"></span>
+      <div class="ctrl">
+        <button id="btn-print2" title="In hoặc lưu PDF">&#9096; PDF</button>
+        <button id="btn-fs" title="Toàn màn hình">&#9974; Toàn màn hình</button>
+        <button id="btn-prev" aria-label="Slide trước">&larr;</button>
+        <span class="count" id="deck-count">1 / 51</span>
+        <button id="btn-next" aria-label="Slide sau">&rarr;</button>
+      </div>
+    </div>
+
+    <div class="viewport" id="viewport">
+      <button class="tapzone prev" aria-label="Slide trước"><span>&larr;</span></button>
+      <button class="tapzone next" aria-label="Slide sau"><span>&rarr;</span></button>
+
+<!-- ==================== MỞ ĐẦU ==================== -->
+
+<section class="slide cover on" data-act="MỞ ĐẦU">
+  <div class="s-inner">
+    <p class="s-kick">CHUYÊN ĐỀ TẬP HUẤN · VIBE CODING CHO HÀNH CHÍNH TRƯỜNG Y KHOA</p>
+    <h2>Làm sao để ra được một app <em>đúng như mình muốn?</em></h2>
+    <p class="s-lead">51 slide, mỗi slide một ý. Không dạy lập trình — dạy cách biến điều bạn đang hình dung trong đầu thành thứ AI làm được đúng ngay từ vòng đầu.</p>
+    <div class="s-body">
+      <div class="cover-meta">
+        <span><b>7 chặng</b><small>Từ ý tưởng đến bàn giao</small></span>
+        <span><b>6 checkpoint</b><small>Qua chặng bằng bằng chứng</small></span>
+        <span><b>0 dòng code</b><small>Chỉ cần viết tiếng Việt rõ ràng</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="MỞ ĐẦU">
+  <div class="s-inner">
+    <p class="s-kick">CÁCH ĐỌC BỘ SLIDE NÀY</p>
+    <h2>Mỗi slide chỉ có đúng một ý — và luôn theo một cấu trúc</h2>
+    <p class="s-lead">Bạn không cần ghi chép. Cấu trúc dưới đây lặp lại ở cả 51 slide, nên đọc đến slide thứ ba là bạn đã quen mắt và biết chỗ nào cần chú ý.</p>
+    <div class="s-body">
+      <div class="s-steps">
+        <div><b>DÒNG 1</b><span>Nhãn chặng</span><small>Cho biết bạn đang ở đâu trong lộ trình 7 chặng.</small></div>
+        <div><b>DÒNG 2</b><span>Tiêu đề = câu chốt</span><small>Đọc riêng dòng này cũng đã nắm được ý chính.</small></div>
+        <div><b>DÒNG 3</b><span>Giải thích vì sao</span><small>Lý do đằng sau, kèm hệ quả nếu làm sai.</small></div>
+        <div><b>KHỐI GIỮA</b><span>Bảng, ví dụ, prompt</span><small>Phần cụ thể hóa: bắt chước được ngay.</small></div>
+        <div><b>DÒNG CUỐI</b><span>LÀM NGAY</span><small>Việc bạn làm được trong 5–15 phút sau buổi học.</small></div>
+      </div>
+    </div>
+    <p class="s-do"><b>LÀM NGAY</b> Mở sẵn một tệp ghi chú trống. Mỗi lần thấy dòng “LÀM NGAY” hợp với công việc của bạn, chép nó vào đó. Cuối buổi bạn có một danh sách việc riêng, không phải một tập slide bỏ xó.</p>
+  </div>
+</section>
+
+<section class="slide" data-act="MỞ ĐẦU">
+  <div class="s-inner">
+    <p class="s-kick">VẤN ĐỀ</p>
+    <h2>App làm ra “chạy được” nhưng không ai dùng — 5 kiểu thất bại quen thuộc</h2>
+    <p class="s-lead">Hầu như không ai thất bại vì AI viết mã kém. Người ta thất bại vì năm kiểu dưới đây, và cả năm đều xảy ra trước khi có dòng mã đầu tiên.</p>
+    <div class="s-body">
+      <ol class="s-list">
+        <li><b>1</b><div>Làm ra thứ khác với thứ mình hình dung<small>Vì điều hình dung nằm trong đầu, chưa bao giờ được viết ra thành chữ.</small></div></li>
+        <li><b>2</b><div>Đủ tính năng nhưng không tính năng nào xong trọn vẹn<small>Vì yêu cầu 12 việc trong một lượt thay vì 1 việc trong 12 lượt.</small></div></li>
+        <li><b>3</b><div>Chạy trên máy người làm, hỏng trên máy người dùng<small>Vì chưa bao giờ có ai khác bấm thử trước khi công bố.</small></div></li>
+        <li><b>4</b><div>Không ai dám dùng thật vì sợ sai quyền, sai dữ liệu<small>Vì phân quyền và nhật ký được nghĩ tới sau cùng, thay vì trước tiên.</small></div></li>
+        <li><b>5</b><div>Dùng được 2 tuần rồi chết<small>Vì không có người sở hữu, không có tài liệu, không ai biết sửa.</small></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="MỞ ĐẦU">
+  <div class="s-inner">
+    <p class="s-kick">NGUYÊN NHÂN GỐC</p>
+    <h2>Ý định của bạn bị rơi rụng qua 4 tầng</h2>
+    <p class="s-lead">Giữa “điều bạn muốn” và “thứ AI làm ra” có bốn lần chuyển đổi. Mỗi lần chuyển đổi làm mất một ít. Bốn lần mất chồng lên nhau là ra một sản phẩm lạ.</p>
+    <div class="s-body">
+      <div class="s-flow">
+        <div><b>Điều bạn muốn</b><small>Nằm trong đầu, đầy đủ</small></div>
+        <i>→</i>
+        <div><b>Điều bạn viết ra</b><small>Mất phần “ai cũng biết”</small></div>
+        <i>→</i>
+        <div><b>Điều AI hiểu</b><small>Mất phần mập mờ, AI tự lấp bằng phỏng đoán</small></div>
+        <i>→</i>
+        <div><b>Điều AI làm</b><small>Cộng thêm phần AI “giúp” mà bạn không xin</small></div>
+      </div>
+      <div class="s-note blue mt"><b>Cả bộ slide này chỉ nhằm bịt bốn chỗ rò rỉ đó.</b> Chặng 1–3 bịt tầng thứ nhất và thứ hai. Chặng 4–5 bịt tầng thứ ba. Chặng 6 phát hiện những gì đã rò ở tầng thứ tư.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="MỞ ĐẦU">
+  <div class="s-inner">
+    <p class="s-kick">LỘ TRÌNH</p>
+    <h2>7 chặng — mỗi chặng kết thúc bằng một thứ cầm được trên tay</h2>
+    <p class="s-lead">Không chặng nào kết thúc bằng “đã hiểu bài”. Chặng nào cũng kết thúc bằng một tệp hoặc một bảng mà bạn đưa được cho người khác đọc.</p>
+    <div class="s-body">
+      <div class="s-cols four">
+        <div><em>CHẶNG 1</em><b>Biết mình muốn gì</b><span>Kết quả: bài toán một dòng.</span></div>
+        <div><em>CHẶNG 2</em><b>Cắt phạm vi</b><span>Kết quả: 5 chức năng + danh sách không làm.</span></div>
+        <div><em>CHẶNG 3</em><b>Vẽ trước khi làm</b><span>Kết quả: màn hình, trạng thái, dữ liệu, quyền.</span></div>
+        <div><em>CHẶNG 4</em><b>Viết đặc tả</b><span>Kết quả: YEU_CAU.md và AGENTS.md.</span></div>
+        <div><em>CHẶNG 5</em><b>Giao việc cho AI</b><span>Kết quả: từng lát cắt chạy được.</span></div>
+        <div><em>CHẶNG 6</em><b>Nghiệm thu</b><span>Kết quả: bảng test có kết quả thật.</span></div>
+        <div><em>CHẶNG 7</em><b>Đưa vào dùng</b><span>Kết quả: link, người sở hữu, đường lui.</span></div>
+        <div><em>ĐÍCH</em><b>App đúng ý</b><span>Đúng vì được kiểm chứng, không phải vì may.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CHẶNG 1 ==================== -->
+
+<section class="slide act-open" data-act="CHẶNG 1 · BIẾT MÌNH MUỐN GÌ">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 1 / 7</p>
+    <h2>Biết chính xác mình muốn gì trước khi mở AI</h2>
+    <p class="s-lead">Chặng bị bỏ qua nhiều nhất, và là chặng quyết định nhất. Không ai làm ra được thứ đúng ý khi chính họ chưa nói rõ được cái ý đó là gì.</p>
+    <div class="s-body">
+      <ul class="act-goals">
+        <li>Mong muốn của bạn đang nằm ở đâu</li>
+        <li>Bắt đầu từ công việc, không từ tính năng</li>
+        <li>Câu hỏi vàng</li>
+        <li>Bài toán một dòng</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 1 · BIẾT MÌNH MUỐN GÌ">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 1 · NHẬN DIỆN</p>
+    <h2>Điều bạn muốn đang nằm ở ba nơi — và chỉ một nơi AI đọc được</h2>
+    <p class="s-lead">Bạn đã biết rất rõ quy trình của mình. Vấn đề là phần lớn hiểu biết đó chưa bao giờ tồn tại dưới dạng chữ.</p>
+    <div class="s-body">
+      <div class="s-cols">
+        <div><em>NƠI 1 · TRONG ĐẦU BẠN</em><b>Kinh nghiệm và ngoại lệ</b><span>“Trường hợp này thì phải hỏi thầy trưởng khoa.” AI không đọc được chỗ này. Đây là phần rò rỉ nhiều nhất.</span></div>
+        <div><em>NƠI 2 · TRONG QUY TRÌNH</em><b>Quy chế, quyết định, thói quen</b><span>Có văn bản nhưng nằm rải rác, và có những bước “ai cũng làm vậy” mà không văn bản nào ghi.</span></div>
+        <div><em>NƠI 3 · TRÊN GIẤY TỜ</em><b>Biểu mẫu, sổ theo dõi, file Excel</b><span>Đây là thứ AI đọc được tốt nhất. Bạn đang có sẵn và đây là lợi thế lớn nhất của người làm hành chính.</span></div>
+      </div>
+    </div>
+    <p class="s-do"><b>LÀM NGAY</b> Mở thư mục của bạn, tìm biểu mẫu giấy và file Excel đang dùng cho quy trình định số hóa. Đó là nguyên liệu tốt nhất bạn có.</p>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 1 · BIẾT MÌNH MUỐN GÌ">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 1 · GÓC NHÌN</p>
+    <h2>Bắt đầu từ CÔNG VIỆC, đừng bắt đầu từ TÍNH NĂNG</h2>
+    <p class="s-lead">Danh sách tính năng nghe rất chuyên nghiệp nhưng không nói cho ai biết app này để làm gì. Mô tả công việc thì ngược lại: nó tự sinh ra danh sách tính năng đúng.</p>
+    <div class="s-body">
+      <div class="s-vs">
+        <div class="bad"><b>❌ BẮT ĐẦU TỪ TÍNH NĂNG</b>
+          <p>“App cần có: đăng nhập, dashboard, thống kê, xuất Excel, gửi email, phân quyền, tìm kiếm nâng cao, biểu đồ.”</p>
+          <p>Không ai trả lời được: bỏ tính năng nào thì app vẫn còn giá trị? Kết quả là làm hết, và không cái nào xong.</p>
+        </div>
+        <div class="good"><b>✅ BẮT ĐẦU TỪ CÔNG VIỆC</b>
+          <p>“Mỗi tuần chị Lan nhận khoảng 40 đơn xin giấy xác nhận qua email, chép tay vào sổ, mất 2 buổi, và không trả lời được cho sinh viên là đơn đang ở đâu.”</p>
+          <p>Từ câu này, tính năng cần làm tự hiện ra — và tính năng không cần cũng tự lộ.</p>
+        </div>
+      </div>
+    </div>
+    <p class="s-do"><b>LÀM NGAY</b> Viết 5 câu mô tả một buổi làm việc thật của người sẽ dùng app: họ nhận gì, làm gì, mất bao lâu, vướng ở đâu.</p>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 1 · BIẾT MÌNH MUỐN GÌ">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 1 · CÂU HỎI VÀNG</p>
+    <h2>“Xong rồi thì tôi sẽ nhìn thấy gì trên màn hình?”</h2>
+    <p class="s-lead">Nếu bạn chưa trả lời được câu này, đừng mở AI. Chưa trả lời được nghĩa là bạn vẫn đang mong muốn chứ chưa yêu cầu.</p>
+    <div class="s-body">
+      <div class="s-quote">Trả lời được câu hỏi vàng nghĩa là bạn đã có tiêu chí nghiệm thu. Mà có tiêu chí nghiệm thu thì AI không còn chỗ để đoán.</div>
+      <div class="s-vs mt">
+        <div class="bad"><b>❌ CHƯA TRẢ LỜI ĐƯỢC</b><p>“Xong thì quản lý hồ sơ sẽ nhẹ nhàng hơn, chuyên nghiệp hơn.”</p></div>
+        <div class="good"><b>✅ ĐÃ TRẢ LỜI ĐƯỢC</b><p>“Xong thì tôi mở link, thấy bảng 40 đơn, mỗi đơn có mã, tên, trạng thái, hạn xử lý; đơn quá hạn có chữ ‘QUÁ HẠN’ màu đỏ; bấm vào một đơn thì đổi được trạng thái.”</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 1 · BIẾT MÌNH MUỐN GÌ">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 1 · CÔNG THỨC</p>
+    <h2>Bài toán một dòng — bốn ô trống, điền là xong</h2>
+    <p class="s-lead">Cả dự án của bạn phải gói được vào một câu. Nếu không gói được, phạm vi vẫn còn quá rộng và phải quay lại cắt tiếp.</p>
+    <div class="s-body">
+      <div class="s-code">
+        <b>MẪU BÀI TOÁN MỘT DÒNG</b>
+        <pre>[AI] hiện đang phải [LÀM VIỆC GÌ THỦ CÔNG]
+vì [THIẾU CÁI GÌ],
+tôi muốn thay bằng [MÀN HÌNH / VIỆC GÌ CỤ THỂ],
+đo được bằng [CON SỐ HOẶC DẤU HIỆU QUAN SÁT ĐƯỢC].
+
+VÍ DỤ ĐÃ ĐIỀN:
+Chuyên viên phòng Công tác sinh viên hiện đang phải chép tay
+40 đơn xin giấy xác nhận mỗi tuần từ email vào sổ Excel,
+vì không có chỗ để sinh viên nộp đơn trực tuyến,
+tôi muốn thay bằng một màn hình sinh viên tự nộp đơn và một
+màn hình chuyên viên xem danh sách rồi đổi trạng thái,
+đo được bằng: không còn phải mở email để chép tay đơn nào.</pre>
+      </div>
+    </div>
+    <p class="s-do"><b>LÀM NGAY</b> Điền bốn ô trống cho quy trình của bạn. Nếu ô cuối cùng không điền được bằng thứ quan sát được, bài toán chưa đủ rõ.</p>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 1 · BIẾT MÌNH MUỐN GÌ">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 1 · CHECKPOINT</p>
+    <h2>Chỉ sang chặng 2 khi có đủ ba thứ này bằng chữ</h2>
+    <p class="s-lead">Checkpoint không phải thủ tục. Nó là chỗ duy nhất bạn còn có thể quay đầu mà chưa tốn công.</p>
+    <div class="s-body">
+      <ol class="s-list">
+        <li><b>1</b><div>Bài toán một dòng đã điền đủ bốn ô<small>Đọc to lên cho một đồng nghiệp nghe, họ hiểu ngay mà không cần hỏi lại.</small></div></li>
+        <li><b>2</b><div>Tên một người thật sẽ dùng app này<small>Không phải “phòng ban”, mà là một con người cụ thể bạn hỏi được khi cần.</small></div></li>
+        <li><b>3</b><div>Câu trả lời cho câu hỏi vàng<small>Bạn tả được màn hình cuối cùng bằng lời, chi tiết đến mức người khác vẽ lại được.</small></div></li>
+      </ol>
+      <div class="s-note red mt"><b>Thiếu một trong ba: dừng lại.</b> Đi tiếp chỉ làm bạn tốn thêm vài buổi rồi mới phát hiện ra mình đang làm nhầm thứ.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CHẶNG 2 ==================== -->
+
+<section class="slide act-open" data-act="CHẶNG 2 · CẮT PHẠM VI">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 2 / 7</p>
+    <h2>Cắt phạm vi cho đến khi làm xong được trong một buổi</h2>
+    <p class="s-lead">Kỹ năng quan trọng nhất khi làm việc với AI không phải là viết prompt hay. Là biết cắt việc cho đủ nhỏ.</p>
+    <div class="s-body">
+      <ul class="act-goals">
+        <li>Chọn quy trình thí điểm</li>
+        <li>Quy tắc 5 chức năng</li>
+        <li>Danh sách KHÔNG làm</li>
+        <li>Ví dụ cắt thật</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 2 · CẮT PHẠM VI">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 2 · CHỌN ĐÚNG CHỖ BẮT ĐẦU</p>
+    <h2>Không phải quy trình nào cũng nên số hóa trước — 5 tiêu chí chọn</h2>
+    <p class="s-lead">Chọn sai quy trình thí điểm thì kỹ thuật tốt đến mấy cũng thất bại. Chấm mỗi tiêu chí 0–2 điểm; dưới 7 điểm thì chọn quy trình khác.</p>
+    <div class="s-body">
+      <div class="s-cols">
+        <div><em>TIÊU CHÍ 1</em><b>Lặp lại đều đặn</b><span>Tuần nào cũng làm, ít nhất 20 lần mỗi tháng. Việc mỗi năm hai lần không đáng số hóa trước.</span></div>
+        <div><em>TIÊU CHÍ 2</em><b>Quy tắc đã ổn định</b><span>Không đang chờ sửa quy chế. Quy tắc còn thay đổi thì app vừa xong đã lỗi thời.</span></div>
+        <div><em>TIÊU CHÍ 3</em><b>Ít hơn 5 bước</b><span>Quy trình 12 bước qua 6 phòng ban không phải chỗ bắt đầu, dù nó khổ nhất.</span></div>
+        <div><em>TIÊU CHÍ 4</em><b>Có người chịu trách nhiệm</b><span>Một người nói được câu cuối cùng khi có tranh cãi về nghiệp vụ.</span></div>
+        <div><em>TIÊU CHÍ 5</em><b>Sai thì không chết ai</b><span>Sai sót còn sửa tay được. Đừng thí điểm ở chỗ liên quan điểm số, tốt nghiệp hay dữ liệu sức khỏe.</span></div>
+        <div><em>ĐIỂM</em><b>Từ 7/10 trở lên mới làm</b><span>Dưới ngưỡng: ghi lại vào danh sách chờ, chọn quy trình khác. Không cố.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 2 · CẮT PHẠM VI">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 2 · QUY TẮC CỨNG</p>
+    <h2>Phiên bản 1 có đúng 5 chức năng — không phải 6</h2>
+    <p class="s-lead">Con số 5 không thiêng liêng, nhưng cái giới hạn thì có. Có giới hạn, bạn buộc phải xếp thứ tự ưu tiên; không giới hạn, mọi thứ đều thành quan trọng.</p>
+    <div class="s-body">
+      <div class="s-table c3">
+        <div><span>CÂU HỎI SÀNG LỌC</span><span>NẾU CÓ</span><span>NẾU KHÔNG</span></div>
+        <div><span>Bỏ chức năng này đi thì app còn dùng được không?</span><span>Bỏ. Đưa vào v2.</span><span>Giữ lại.</span></div>
+        <div><span>Có làm được bằng tay trong 2 phút không?</span><span>Bỏ. Làm tay tiếp.</span><span>Giữ lại.</span></div>
+        <div><span>Tháng đầu có dùng tới không?</span><span>Giữ lại.</span><span>Bỏ. Đưa vào v2.</span></div>
+        <div><span>Không có nó thì có ai bị chặn việc không?</span><span>Giữ lại.</span><span>Bỏ. Đưa vào v2.</span></div>
+      </div>
+      <div class="s-note mt"><b>Bộ 5 chức năng hay gặp nhất ở hành chính:</b> nộp hồ sơ · xem danh sách có lọc · đổi trạng thái · tra cứu một hồ sơ · xuất Excel. Rất nhiều quy trình chỉ cần đúng năm việc này.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 2 · CẮT PHẠM VI">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 2 · DANH SÁCH ÂM</p>
+    <h2>Danh sách “KHÔNG làm ở v1” quan trọng ngang danh sách “làm”</h2>
+    <p class="s-lead">Viết ra thứ mình cố tình không làm là cách duy nhất khiến AI không tự làm chúng, và khiến đồng nghiệp không hiểu nhầm là bạn quên.</p>
+    <div class="s-body">
+      <div class="s-code">
+        <b>DÁN NGUYÊN KHỐI NÀY VÀO CUỐI TỆP ĐẶC TẢ</b>
+        <pre>KHÔNG LÀM Ở PHIÊN BẢN 1 (đã cân nhắc, cố tình gác lại):
+- KHÔNG có đăng nhập. Dùng nội bộ, thử nghiệm với dữ liệu giả.
+- KHÔNG gửi email hay tin nhắn tự động.
+- KHÔNG nối với phần mềm quản lý đào tạo của trường.
+- KHÔNG có biểu đồ thống kê.
+- KHÔNG có tải tệp đính kèm.
+- KHÔNG có tìm kiếm nâng cao nhiều điều kiện.
+
+Mọi ý tưởng phát sinh trong quá trình làm: ghi vào BACKLOG_V2.md,
+KHÔNG thực hiện, kể cả khi thấy rất nhanh và dễ.</pre>
+      </div>
+    </div>
+    <p class="s-do"><b>LÀM NGAY</b> Viết danh sách KHÔNG làm của bạn trước khi viết danh sách làm. Nghe ngược đời nhưng nó khiến bạn chọn 5 chức năng tỉnh táo hơn hẳn.</p>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 2 · CẮT PHẠM VI">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 2 · VÍ DỤ THẬT</p>
+    <h2>Một quy trình “to” bị cắt thành v1 làm xong trong một buổi</h2>
+    <p class="s-lead">Cùng một quy trình cấp giấy xác nhận sinh viên. Bên trái là cách nghĩ ban đầu của hầu hết mọi người; bên phải là sau khi cắt.</p>
+    <div class="s-body">
+      <div class="s-vs">
+        <div class="bad"><b>❌ MONG MUỐN BAN ĐẦU</b>
+          <p>Sinh viên đăng nhập bằng tài khoản trường · nộp đơn kèm ảnh thẻ · hệ thống tự kiểm tra điều kiện học vụ · chuyển tự động cho đúng chuyên viên theo khoa · trưởng phòng ký số · tự gửi email cho sinh viên · tự in giấy theo mẫu · thống kê theo tháng · lưu trữ 5 năm.</p>
+          <p><b>Ước tính: nhiều tháng, cần phối hợp 3 đơn vị, chưa chắc được duyệt.</b></p>
+        </div>
+        <div class="good"><b>✅ SAU KHI CẮT — V1</b>
+          <p>1. Sinh viên điền form gồm 6 trường và nhận mã đơn.<br>2. Chuyên viên xem danh sách đơn, lọc theo trạng thái.<br>3. Chuyên viên đổi trạng thái: Tiếp nhận → Đang xử lý → Đã trả.<br>4. Sinh viên nhập mã đơn để tra trạng thái.<br>5. Xuất danh sách ra Excel.</p>
+          <p><b>Ước tính: một buổi. Và đã bỏ được 90% việc chép tay.</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 2 · CẮT PHẠM VI">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 2 · CHECKPOINT</p>
+    <h2>Qua chặng 2 khi hai danh sách đã nằm trên giấy</h2>
+    <p class="s-lead">Hai danh sách này về sau sẽ được chép thẳng vào tệp đặc tả ở chặng 4, nên viết cẩn thận một lần là đỡ về sau.</p>
+    <div class="s-body">
+      <ol class="s-list">
+        <li><b>1</b><div>Đúng 5 chức năng, mỗi chức năng một câu bắt đầu bằng động từ<small>“Sinh viên nộp đơn và nhận mã.” Không phải “Quản lý đơn.”</small></div></li>
+        <li><b>2</b><div>Danh sách KHÔNG làm, tối thiểu 5 dòng<small>Càng dài càng tốt. Đây là hàng rào chống phình việc.</small></div></li>
+        <li><b>3</b><div>Điểm chọn quy trình từ 7/10 trở lên<small>Nếu chưa đủ, bạn vừa tiết kiệm được vài tuần công sức.</small></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CHẶNG 3 ==================== -->
+
+<section class="slide act-open" data-act="CHẶNG 3 · VẼ TRƯỚC KHI LÀM">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 3 / 7</p>
+    <h2>Vẽ ra bằng chữ trước khi để AI viết một dòng mã nào</h2>
+    <p class="s-lead">Sửa một dòng chữ mất 10 giây. Sửa một màn hình đã code mất một lượt AI. Sửa cấu trúc dữ liệu sau khi đã có 200 bản ghi mất cả buổi.</p>
+    <div class="s-body">
+      <ul class="act-goals">
+        <li>Hành trình người dùng</li>
+        <li>Danh sách màn hình</li>
+        <li>Trạng thái hồ sơ</li>
+        <li>Trường dữ liệu</li>
+        <li>Ma trận quyền</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 3 · VẼ TRƯỚC KHI LÀM">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 3 · HÀNH TRÌNH</p>
+    <h2>Kể lại một lần dùng app từ đầu đến cuối, bằng chữ, không vẽ vời</h2>
+    <p class="s-lead">Bạn không cần biết thiết kế. Chỉ cần kể một câu chuyện có thật theo thứ tự thời gian — đó đã là bản thiết kế tốt nhất mà AI có thể đọc.</p>
+    <div class="s-body">
+      <div class="s-code">
+        <b>MẪU HÀNH TRÌNH — CHÉP LẠI VÀ SỬA THEO QUY TRÌNH CỦA BẠN</b>
+        <pre>1. Sinh viên nhận link từ fanpage khoa, mở bằng điện thoại.
+2. Thấy tiêu đề "Đăng ký cấp giấy xác nhận đang học" và 6 ô nhập.
+3. Điền, bấm Gửi. Nếu thiếu ô nào thì thấy chữ đỏ ngay dưới ô đó.
+4. Gửi xong thấy: "Đã tiếp nhận. Mã đơn của bạn là XN-2026-0142.
+   Hãy chụp lại màn hình này." → sinh viên rời đi.
+5. Sáng hôm sau chuyên viên mở link quản lý, thấy bảng đơn mới.
+6. Chuyên viên bấm vào đơn 0142, đổi trạng thái sang "Đang xử lý".
+7. Hai ngày sau đổi tiếp sang "Đã trả kết quả".
+8. Sinh viên nhập mã 0142 vào ô tra cứu và thấy "Đã trả kết quả".</pre>
+      </div>
+    </div>
+    <p class="s-do"><b>LÀM NGAY</b> Viết hành trình của bạn thành 8–12 câu đánh số. Mỗi câu một hành động. Câu nào bạn viết mơ hồ là chỗ AI sẽ đoán sai.</p>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 3 · VẼ TRƯỚC KHI LÀM">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 3 · MÀN HÌNH</p>
+    <h2>Đếm màn hình: hầu hết app hành chính chỉ cần bốn</h2>
+    <p class="s-lead">Mỗi màn hình thêm vào là thêm chỗ để lạc, thêm chỗ để lỗi, thêm việc phải kiểm thử. Đếm cho kỹ trước khi thêm cái thứ năm.</p>
+    <div class="s-body">
+      <div class="s-cols four">
+        <div><em>MÀN HÌNH 1</em><b>Nộp</b><span>Biểu mẫu nhập. Kết thúc bằng một mã hồ sơ hiện to, chụp màn hình được.</span></div>
+        <div><em>MÀN HÌNH 2</em><b>Danh sách</b><span>Bảng hồ sơ có lọc theo trạng thái. Đây là nơi chuyên viên ở lại lâu nhất.</span></div>
+        <div><em>MÀN HÌNH 3</em><b>Chi tiết</b><span>Một hồ sơ, đầy đủ thông tin, có nút đổi trạng thái và ô ghi lý do.</span></div>
+        <div><em>MÀN HÌNH 4</em><b>Tra cứu</b><span>Nhập mã, xem trạng thái. Màn hình rẻ nhất nhưng cắt được nhiều cuộc gọi hỏi nhất.</span></div>
+      </div>
+      <div class="s-note blue mt"><b>Ba trạng thái mà mọi màn hình đều phải có:</b> lúc chưa có dữ liệu (nói rõ phải bấm gì tiếp), lúc đang tải, lúc có lỗi. Bỏ quên ba cái này là nguồn gốc của phần lớn phản hồi “app bị đứng”.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 3 · VẼ TRƯỚC KHI LÀM">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 3 · TRẠNG THÁI</p>
+    <h2>Thiết kế vòng đời hồ sơ trước, thiết kế màn hình sau</h2>
+    <p class="s-lead">Trạng thái là xương sống của mọi quy trình hành chính. Sai trạng thái thì giao diện đẹp đến mấy cũng phải làm lại.</p>
+    <div class="s-body">
+      <div class="s-table c4">
+        <div><span>TRẠNG THÁI</span><span>AI ĐƯỢC CHUYỂN</span><span>ĐIỀU KIỆN</span><span>THỜI HẠN</span></div>
+        <div><span>Tiếp nhận</span><span>Chuyên viên</span><span>Đủ trường bắt buộc</span><span>1 ngày làm việc</span></div>
+        <div><span>Đang xử lý</span><span>Chuyên viên</span><span>Đã kiểm tra điều kiện</span><span>3 ngày làm việc</span></div>
+        <div><span>Đã trả kết quả</span><span>Chuyên viên</span><span>Đã in và ký</span><span>Kết thúc</span></div>
+        <div><span>Từ chối</span><span>Trưởng phòng</span><span>Bắt buộc nhập lý do</span><span>Kết thúc</span></div>
+      </div>
+      <div class="s-note red mt"><b>Phải ghi rõ cả chiều cấm:</b> “Đã trả kết quả” không quay lại được “Đang xử lý”. Nếu không viết ra, AI sẽ cho phép, và một ngày nào đó sẽ có người bấm nhầm.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 3 · VẼ TRƯỚC KHI LÀM">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 3 · DỮ LIỆU</p>
+    <h2>Mỗi ô nhập phải trả lời được bốn câu, nếu không thì bỏ ô đó đi</h2>
+    <p class="s-lead">Thu thập thừa một trường dữ liệu là tự nhận thêm một trách nhiệm bảo vệ. Ở trường y khoa, đây không phải chuyện nhỏ.</p>
+    <div class="s-body">
+      <div class="s-cols four">
+        <div><em>CÂU 1</em><b>Dùng để làm gì?</b><span>Không nêu được mục đích cụ thể thì bỏ. “Để sau này biết đâu cần” không phải mục đích.</span></div>
+        <div><em>CÂU 2</em><b>Bắt buộc hay không?</b><span>Bắt buộc quá nhiều thì người ta điền bừa. Bắt buộc quá ít thì hồ sơ vô dụng.</span></div>
+        <div><em>CÂU 3</em><b>Thế nào là hợp lệ?</b><span>Ngày không được ở quá khứ; số người từ 1 đến 120; mã sinh viên đúng 8 chữ số.</span></div>
+        <div><em>CÂU 4</em><b>Có nhạy cảm không?</b><span>Căn cước, điện thoại, dữ liệu sức khỏe: cân nhắc bỏ hẳn ở phiên bản thử nghiệm.</span></div>
+      </div>
+    </div>
+    <p class="s-do"><b>LÀM NGAY</b> Lấy biểu mẫu giấy hiện tại, gạch bỏ mọi trường không trả lời được cả bốn câu. Bạn thường bỏ được 30–40% số ô.</p>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 3 · VẼ TRƯỚC KHI LÀM">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 3 · QUYỀN</p>
+    <h2>Ma trận quyền: ai được làm gì, viết ra trước khi có màn hình đăng nhập</h2>
+    <p class="s-lead">Đăng nhập được không có nghĩa là được phép. Đây là lỗ hổng phổ biến nhất của app tự làm, và là thứ khiến lãnh đạo không dám cho dùng thật.</p>
+    <div class="s-body">
+      <div class="s-table c4">
+        <div><span>HÀNH ĐỘNG</span><span>SINH VIÊN</span><span>CHUYÊN VIÊN</span><span>TRƯỞNG PHÒNG</span></div>
+        <div><span>Tạo hồ sơ mới</span><span>Có</span><span>Có</span><span>Có</span></div>
+        <div><span>Xem hồ sơ của mình</span><span>Có</span><span>Có</span><span>Có</span></div>
+        <div><span>Xem hồ sơ người khác</span><span>KHÔNG</span><span>Có</span><span>Có</span></div>
+        <div><span>Đổi trạng thái</span><span>KHÔNG</span><span>Có điều kiện</span><span>Có</span></div>
+        <div><span>Từ chối · Thu hồi</span><span>KHÔNG</span><span>KHÔNG</span><span>Có, kèm lý do</span></div>
+        <div><span>Xóa dữ liệu</span><span>KHÔNG</span><span>KHÔNG</span><span>KHÔNG</span></div>
+      </div>
+    </div>
+    <p class="s-do"><b>LÀM NGAY</b> Vẽ bảng này cho quy trình của bạn. Cột nào toàn chữ “Có” là dấu hiệu bạn chưa nghĩ kỹ về vai trò đó.</p>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 3 · VẼ TRƯỚC KHI LÀM">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 3 · CHECKPOINT</p>
+    <h2>Bốn bảng phải nằm trên giấy trước khi mở AI</h2>
+    <p class="s-lead">Bốn bảng này chiếm khoảng 90 phút để làm. Đổi lại, chúng cắt được phần lớn số lượt qua lại vô ích với AI ở các chặng sau.</p>
+    <div class="s-body">
+      <ol class="s-list">
+        <li><b>1</b><div>Hành trình người dùng 8–12 câu đánh số<small>Kể được một lần dùng app từ đầu đến cuối.</small></div></li>
+        <li><b>2</b><div>Danh sách màn hình, tối đa 4<small>Kèm ba trạng thái: rỗng, đang tải, có lỗi.</small></div></li>
+        <li><b>3</b><div>Bảng trạng thái có cả chiều được phép và chiều bị cấm<small>Tối đa 5 trạng thái.</small></div></li>
+        <li><b>4</b><div>Bảng trường dữ liệu và ma trận quyền<small>Mỗi trường qua được bốn câu hỏi; mỗi vai trò có ít nhất một ô “KHÔNG”.</small></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CHẶNG 4 ==================== -->
+
+<section class="slide act-open" data-act="CHẶNG 4 · VIẾT ĐẶC TẢ">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 4 / 7</p>
+    <h2>Viết đặc tả để AI không còn chỗ nào được phép đoán</h2>
+    <p class="s-lead">Đặc tả là hợp đồng giữa bạn và AI. Có hợp đồng thì mới có cơ sở để nói “cái này chưa đạt”.</p>
+    <div class="s-body">
+      <ul class="act-goals">
+        <li>YEU_CAU.md 10 phần</li>
+        <li>Tiêu chí “Khi… thì…”</li>
+        <li>AGENTS.md — nội quy</li>
+        <li>Dữ liệu giả</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 4 · VIẾT ĐẶC TẢ">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 4 · CẤU TRÚC</p>
+    <h2>Tệp YEU_CAU.md — 10 phần, chép bốn bảng ở chặng 3 vào là gần xong</h2>
+    <p class="s-lead">Bạn không viết tệp này từ đầu. Bạn nhờ AI dựng khung, rồi dán nội dung đã chuẩn bị vào và sửa lại chỗ AI đoán sai.</p>
+    <div class="s-body">
+      <div class="s-cols">
+        <div><em>PHẦN 1–3</em><b>Mục tiêu · Vai trò · 5 chức năng</b><span>Lấy nguyên từ bài toán một dòng và danh sách chức năng ở chặng 2.</span></div>
+        <div><em>PHẦN 4–6</em><b>KHÔNG làm · Dữ liệu · Trạng thái</b><span>Lấy nguyên từ danh sách âm và hai bảng ở chặng 3.</span></div>
+        <div><em>PHẦN 7–8</em><b>Quy tắc nghiệp vụ · Nghiệm thu</b><span>Phần chỉ bạn viết được, AI không thể đoán. Đây là phần đáng dành thời gian nhất.</span></div>
+        <div><em>PHẦN 9</em><b>Ràng buộc kỹ thuật</b><span>Chỉ HTML/CSS/JavaScript thuần, mở bằng trình duyệt là chạy, không cài đặt gì.</span></div>
+        <div><em>PHẦN 10</em><b>Ghi chú an toàn dữ liệu</b><span>Dữ liệu giả, không gửi ra ngoài, không thu thập trường nhạy cảm.</span></div>
+        <div><em>QUY TẮC VÀNG</em><b>Chỗ nào chưa chắc thì ghi “❓ CẦN HỎI”</b><span>Bắt AI bộc lộ chỗ nó đang đoán, thay vì để nó âm thầm đoán.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 4 · VIẾT ĐẶC TẢ">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 4 · TIÊU CHÍ NGHIỆM THU</p>
+    <h2>“Khi… thì…” — cách duy nhất để biết app có đúng ý hay không</h2>
+    <p class="s-lead">Cấu trúc này giống hệt cách bạn viết điều kiện trong quy chế. Bạn đã thành thạo nó từ lâu, chỉ là chưa dùng nó với AI.</p>
+    <div class="s-body">
+      <div class="s-vs">
+        <div class="bad"><b>❌ KHÔNG NGHIỆM THU ĐƯỢC</b>
+          <p>“Form phải kiểm tra dữ liệu chặt chẽ.”<br>“Giao diện phải dễ dùng.”<br>“Hệ thống phải bảo mật.”<br>“Chạy mượt trên điện thoại.”</p>
+          <p>Đọc xong không ai biết phải bấm gì để kiểm tra.</p>
+        </div>
+        <div class="good"><b>✅ NGHIỆM THU ĐƯỢC</b>
+          <p>“<b>Khi</b> tôi để trống ô Mã sinh viên <b>và</b> bấm Gửi, <b>thì</b> hiện chữ đỏ ‘Vui lòng nhập mã sinh viên’ ngay dưới ô đó, <b>và</b> không tạo hồ sơ mới.”</p>
+          <p>“<b>Khi</b> tôi mở màn hình danh sách trên điện thoại di động, <b>thì</b> không có thanh cuộn ngang.”</p>
+        </div>
+      </div>
+    </div>
+    <p class="s-do"><b>LÀM NGAY</b> Viết tối thiểu 8 tiêu chí: 3 cho đường đi thuận lợi, 3 cho dữ liệu sai, 2 cho thao tác bị cấm.</p>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 4 · VIẾT ĐẶC TẢ">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 4 · NỘI QUY CHO AI</p>
+    <h2>Tệp AGENTS.md — viết một lần, đỡ nhắc lại ở mọi prompt</h2>
+    <p class="s-lead">Hầu hết Coding Agent tự đọc tệp này ở đầu mỗi phiên. Nó biến những câu bạn phải lặp đi lặp lại thành luật của dự án.</p>
+    <div class="s-body">
+      <div class="s-code">
+        <b>NỘI DUNG TỆP AGENTS.md — CHÉP VÀ SỬA TÊN PHÒNG BAN</b>
+        <pre>- Trả lời bằng tiếng Việt, dễ hiểu cho người không biết lập trình.
+- Chỉ dùng HTML, CSS, JavaScript thuần. KHÔNG framework, KHÔNG cài
+  thư viện, KHÔNG chạy lệnh cài đặt.
+- Luôn trình bày kế hoạch và chờ tôi duyệt trước khi sửa mã.
+- Không sửa quá 3 tệp trong một lượt. Không xóa tệp mà không hỏi.
+- Mọi dữ liệu mẫu phải là dữ liệu giả, không giống người thật.
+- KHÔNG thêm mã gửi dữ liệu ra ngoài máy tôi.
+- Sau mỗi thay đổi, ghi một dòng vào NHAT_KY.md:
+  ngày | việc đã làm | tệp bị ảnh hưởng.
+- Khi tôi báo lỗi: nêu nguyên nhân gốc trước, rồi mới đề xuất cách sửa.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 4 · VIẾT ĐẶC TẢ">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 4 · AN TOÀN</p>
+    <h2>Dữ liệu thật không bao giờ vào bản thử nghiệm — và không vào ô chat</h2>
+    <p class="s-lead">Trường y khoa nắm hai loại dữ liệu nhạy cảm nhất: hồ sơ sinh viên và thông tin liên quan sức khỏe. Đây là ranh giới nghề nghiệp, không phải khuyến nghị kỹ thuật.</p>
+    <div class="s-body">
+      <div class="s-cols">
+        <div><em>KHÔNG DÁN</em><b>Danh sách thật vào ô chat</b><span>Kể cả một dòng, kể cả “chỉ để AI hiểu cấu trúc”. Muốn AI hiểu cấu trúc thì dán biểu mẫu rỗng.</span></div>
+        <div><em>KHÔNG XIN</em><b>Dữ liệu giả “trông như thật”</b><span>Yêu cầu tên hư cấu, và tuyệt đối không sinh số điện thoại, email hay căn cước dù là giả.</span></div>
+        <div><em>KHÔNG GIAO</em><b>Quyền quyết định cho AI</b><span>AI sắp xếp, nhắc hạn, tổng hợp. AI không duyệt hồ sơ, không kết luận về sinh viên.</span></div>
+      </div>
+      <div class="s-note blue mt"><b>Căn cứ pháp lý:</b> từ 01/01/2026, việc xử lý dữ liệu cá nhân áp dụng theo Luật Bảo vệ dữ liệu cá nhân 2025 (thay Nghị định 13/2023/NĐ-CP). Dữ liệu sức khỏe thuộc nhóm nhạy cảm, yêu cầu chặt hơn. Trước khi ra khỏi phạm vi thử nghiệm nội bộ, trao đổi với bộ phận pháp chế và CNTT của trường.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 4 · VIẾT ĐẶC TẢ">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 4 · CHECKPOINT</p>
+    <h2>Ba tệp trong thư mục dự án là điều kiện để sang chặng 5</h2>
+    <p class="s-lead">Từ chặng này trở đi, mọi prompt của bạn chỉ cần mở đầu bằng “Đọc YEU_CAU.md trước khi làm” — ngắn hơn nhiều mà kết quả ổn định hơn hẳn.</p>
+    <div class="s-body">
+      <ol class="s-list">
+        <li><b>1</b><div>YEU_CAU.md — đủ 10 phần, có tối thiểu 8 tiêu chí “Khi… thì…”<small>Đã trả lời hết các dòng “❓ CẦN HỎI” mà AI nêu ra.</small></div></li>
+        <li><b>2</b><div>AGENTS.md — nội quy vận hành<small>Có đủ dòng cấm gửi dữ liệu ra ngoài và cấm cài thư viện.</small></div></li>
+        <li><b>3</b><div>DU_LIEU_MAU.json — 30–40 bản ghi giả<small>Cố tình có vài bản ghi quá hạn và vài bản ghi thiếu dữ liệu để thử màn hình cảnh báo.</small></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CHẶNG 5 ==================== -->
+
+<section class="slide act-open" data-act="CHẶNG 5 · GIAO VIỆC CHO AI">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 5 / 7</p>
+    <h2>Giao việc cho AI như giao việc cho một người mới rất giỏi nhưng chưa biết gì về trường bạn</h2>
+    <p class="s-lead">Người đó làm rất nhanh, không bao giờ mệt, nhưng không đọc được suy nghĩ và sẽ tự lấp mọi chỗ trống bằng phỏng đoán.</p>
+    <div class="s-body">
+      <ul class="act-goals">
+        <li>Prompt 6 khối</li>
+        <li>Kế hoạch trước, code sau</li>
+        <li>Một lát cắt mỗi lần</li>
+        <li>Ràng buộc phủ định</li>
+        <li>Quy tắc 3 lượt</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 5 · GIAO VIỆC CHO AI">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 5 · CÔNG THỨC</p>
+    <h2>Một prompt tốt có 6 khối — thiếu khối nào, AI đoán khối đó</h2>
+    <p class="s-lead">Sáu khối này chính là cấu trúc của một phiếu trình: ai làm, việc gì, căn cứ nào, giới hạn ra sao, nộp lại gì, thế nào là đạt.</p>
+    <div class="s-body">
+      <div class="s-cols">
+        <div><em>KHỐI 1</em><b>Vai trò</b><span>“Bạn là lập trình viên web. Tôi là chuyên viên phòng Đào tạo, không biết lập trình.”</span></div>
+        <div><em>KHỐI 2</em><b>Bối cảnh</b><span>“Đọc YEU_CAU.md trước khi làm. Người dùng là sinh viên, đa số mở bằng điện thoại.”</span></div>
+        <div><em>KHỐI 3</em><b>Mục tiêu</b><span>Một việc, một câu. Nếu câu có chữ “và” thì nhiều khả năng bạn đang giao hai việc.</span></div>
+        <div><em>KHỐI 4</em><b>Ràng buộc</b><span>Được dùng gì, và quan trọng hơn: cấm làm gì. Khối bị quên nhiều nhất.</span></div>
+        <div><em>KHỐI 5</em><b>Đầu ra</b><span>Tệp nào, tên gì, kèm hướng dẫn tự kiểm tra hay không.</span></div>
+        <div><em>KHỐI 6</em><b>Nghiệm thu</b><span>“HOÀN THÀNH KHI…” — chép thẳng từ tiêu chí “Khi… thì…” đã viết ở chặng 4.</span></div>
+      </div>
+    </div>
+    <p class="s-do"><b>LÀM NGAY</b> Khối 1, 2, 4 gần như không đổi cả dự án — đưa chúng vào AGENTS.md. Từ đó mỗi prompt chỉ còn phải viết khối 3, 5, 6.</p>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 5 · GIAO VIỆC CHO AI">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 5 · KỸ THUẬT SỐ 1</p>
+    <h2>Xin kế hoạch trước, duyệt xong mới cho viết mã</h2>
+    <p class="s-lead">Đọc kế hoạch 8 dòng mất 30 giây. Đọc 300 dòng mã sai hướng rồi làm lại mất cả buổi. Đây là kỹ thuật tiết kiệm nhiều thời gian nhất trong toàn bộ chuyên đề.</p>
+    <div class="s-body">
+      <div class="s-code">
+        <b>CHÉP VÀO CUỐI MỌI PROMPT LỚN</b>
+        <pre>TRƯỚC KHI VIẾT MÃ, hãy trình bày kế hoạch gồm:
+1. Bạn sẽ tạo hoặc sửa những tệp nào.
+2. Các bước thực hiện, tối đa 8 dòng.
+3. Những chỗ bạn chưa chắc chắn và cần tôi quyết định.
+4. Những gì bạn CỐ TÌNH KHÔNG làm trong lượt này.
+
+Sau đó DỪNG LẠI. Chỉ viết mã khi tôi trả lời "OK".</pre>
+      </div>
+      <div class="s-note mt"><b>Đọc kế hoạch thế nào cho nhanh:</b> chỉ cần soi mục 3 và mục 4. Mục 3 cho bạn biết AI đang định đoán gì. Mục 4 cho bạn biết nó có hiểu đúng phạm vi hay không.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 5 · GIAO VIỆC CHO AI">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 5 · KỸ THUẬT SỐ 2</p>
+    <h2>Một lát cắt dọc mỗi lượt — làm xong trọn vẹn một đường đi hẹp</h2>
+    <p class="s-lead">Lát cắt dọc là một đường đi hoàn chỉnh từ đầu đến cuối, dù rất hẹp: nhập được → lưu được → mở lại vẫn thấy. Cắt theo tầng thì đến cuối vẫn chưa có gì bấm thử được.</p>
+    <div class="s-body">
+      <div class="s-vs">
+        <div class="bad"><b>❌ CẮT THEO TẦNG</b>
+          <p>Buổi 1: làm hết giao diện của cả 4 màn hình.<br>Buổi 2: làm hết phần lưu dữ liệu.<br>Buổi 3: làm hết phân quyền.</p>
+          <p>Đến hết buổi 2 vẫn chưa có thứ gì để đưa đồng nghiệp bấm thử.</p>
+        </div>
+        <div class="good"><b>✅ CẮT DỌC</b>
+          <p>Lát 1: sinh viên nộp được đơn và thấy mã hồ sơ.<br>Lát 2: chuyên viên xem được danh sách và đổi được trạng thái.<br>Lát 3: sinh viên tra cứu được bằng mã.<br>Lát 4: xuất được Excel.</p>
+          <p>Xong lát 1 là đã có thứ thật để đưa người khác dùng thử.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 5 · GIAO VIỆC CHO AI">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 5 · KỸ THUẬT SỐ 3</p>
+    <h2>Ràng buộc phủ định — hàng rào quan trọng hơn tấm biển chỉ đường</h2>
+    <p class="s-lead">AI có xu hướng “giúp thêm”: tự cài thư viện, tự đổi tên hàm, tự viết lại tệp cho gọn. Với người biết lập trình đó là tiện; với bạn đó là app đang chạy bỗng hỏng mà không rõ vì sao.</p>
+    <div class="s-body">
+      <div class="s-code">
+        <b>BỘ RÀNG BUỘC DÙNG CHUNG — CHÉP VÀO MỌI PROMPT SỬA ĐỔI</b>
+        <pre>KHÔNG được làm những việc sau nếu tôi chưa yêu cầu:
+- KHÔNG cài thêm thư viện, framework hay công cụ nào.
+- KHÔNG sửa tệp nào ngoài tệp tôi nêu tên.
+- KHÔNG đổi tên hàm, biến hay tệp đang có.
+- KHÔNG xóa đoạn mã nào mà không hỏi tôi trước.
+- KHÔNG thêm tính năng ngoài phạm vi tôi yêu cầu.
+- KHÔNG thêm mã gửi dữ liệu ra ngoài máy tôi.
+
+Nếu bạn cho rằng cần làm một trong các việc trên, hãy DỪNG và
+giải thích lý do, chờ tôi quyết định.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 5 · GIAO VIỆC CHO AI">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 5 · KHI KẾT QUẢ SAI</p>
+    <h2>Đừng gõ “vẫn lỗi” — báo lỗi đủ 5 phần, và dừng sau 3 lượt</h2>
+    <p class="s-lead">“Vẫn lỗi” buộc AI phải đoán, và mỗi lần đoán sai lại tốn thêm một lượt. Năm phần dưới đây biến câu than phiền thành một báo cáo sự cố xử lý được ngay.</p>
+    <div class="s-body">
+      <div class="s-steps">
+        <div><b>PHẦN 1</b><span>Tôi đã làm gì</span><small>Từng bước, kể cả bước hiển nhiên.</small></div>
+        <div><b>PHẦN 2</b><span>Tôi mong thấy gì</span><small>Nói cụ thể, không nói “hoạt động đúng”.</small></div>
+        <div><b>PHẦN 3</b><span>Thực tế thấy gì</span><small>Kể cả chữ đỏ ở tab Console (F12).</small></div>
+        <div><b>PHẦN 4</b><span>Lỗi xảy ra khi nào</span><small>Luôn luôn? Chỉ trên điện thoại? Chỉ khi gõ tiếng Việt có dấu?</small></div>
+        <div><b>PHẦN 5</b><span>Giới hạn cách sửa</span><small>Nêu nguyên nhân gốc trước; sửa nhỏ nhất; không đụng chức năng khác.</small></div>
+      </div>
+      <div class="s-note red mt"><b>Quy tắc 3 lượt:</b> sửa đến lượt thứ ba mà lỗi vẫn còn thì dừng. Đó là dấu hiệu AI đang đoán chứ không hiểu. Yêu cầu nó nêu 3 giả thuyết khác nhau và 3 phép thử nhanh, thay vì vá tiếp.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 5 · GIAO VIỆC CHO AI">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 5 · NHỊP LÀM VIỆC</p>
+    <h2>Vòng lặp bốn nhịp — lặp lại cho từng lát cắt, không bỏ nhịp nào</h2>
+    <p class="s-lead">Người làm ra app đúng ý không phải người viết prompt hay nhất. Là người giữ được nhịp này đều đặn, không sốt ruột nhảy cóc.</p>
+    <div class="s-body">
+      <div class="s-flow">
+        <div><b>1. Giao</b><small>Prompt 6 khối, xin kế hoạch trước</small></div>
+        <i>→</i>
+        <div><b>2. Xem</b><small>Đọc kế hoạch, soi mục “chưa chắc chắn”</small></div>
+        <i>→</i>
+        <div><b>3. Nghiệm thu</b><small>Tự bấm thử theo tiêu chí “Khi… thì…”</small></div>
+        <i>→</i>
+        <div><b>4. Chốt</b><small>Đạt thì lưu lại mốc an toàn rồi mới sang lát sau</small></div>
+      </div>
+      <div class="s-note blue mt"><b>Nhịp 4 hay bị bỏ nhất.</b> Ngay khi một lát cắt chạy đúng, hãy lưu lại bản đó (sao chép cả thư mục ra một chỗ khác cũng được). Đó là điểm quay về khi lát tiếp theo làm hỏng mọi thứ.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 5 · GIAO VIỆC CHO AI">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 5 · CHECKPOINT</p>
+    <h2>Qua chặng 5 khi từng lát cắt đều tự bấm thử được</h2>
+    <p class="s-lead">Chưa cần đẹp, chưa cần đủ. Chỉ cần: mỗi lát cắt bạn tự làm được từ đầu đến cuối mà không phải hỏi ai.</p>
+    <div class="s-body">
+      <ol class="s-list">
+        <li><b>1</b><div>Mỗi lát cắt có một bản lưu lại lúc còn chạy đúng<small>Hỏng lúc nào cũng quay về được, không phải làm lại từ đầu.</small></div></li>
+        <li><b>2</b><div>Bạn tự đối chiếu được với tiêu chí “Khi… thì…”<small>Chứ không phải tin vào câu “Tôi đã hoàn thành” của AI.</small></div></li>
+        <li><b>3</b><div>Tệp BACKLOG_V2.md đã có vài dòng<small>Nghĩa là bạn đã gặp ý tưởng mới và đã kỷ luật gác lại thay vì làm ngay.</small></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CHẶNG 6 ==================== -->
+
+<section class="slide act-open" data-act="CHẶNG 6 · NGHIỆM THU">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 6 / 7</p>
+    <h2>Nghiệm thu — chỗ duy nhất trả lời được câu “có đúng ý không”</h2>
+    <p class="s-lead">Mọi chặng trước chỉ là chuẩn bị. Đây là chỗ bạn biết chắc, chứ không còn phải hy vọng.</p>
+    <div class="s-body">
+      <ul class="act-goals">
+        <li>“Chạy được” ≠ “đúng ý”</li>
+        <li>6 nhóm ca kiểm thử</li>
+        <li>Cho người thật dùng thử</li>
+        <li>Sửa mà không phá phạm vi</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 6 · NGHIỆM THU">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 6 · PHÂN BIỆT</p>
+    <h2>“Chạy được” và “đúng ý” là hai chuyện khác nhau</h2>
+    <p class="s-lead">Ba mức dưới đây rất hay bị gộp làm một. Gộp lại là lý do nhiều app được công bố quá sớm rồi bị bỏ.</p>
+    <div class="s-body">
+      <div class="s-cols">
+        <div><em>MỨC 1</em><b>Chạy được</b><span>Mở lên không báo lỗi. Đây là mức AI tự tuyên bố đã hoàn thành. Nó chưa nói lên điều gì.</span></div>
+        <div><em>MỨC 2</em><b>Đúng đặc tả</b><span>Qua hết tiêu chí “Khi… thì…” bạn đã viết. Đây là mức bạn tự kiểm tra được một mình.</span></div>
+        <div><em>MỨC 3</em><b>Đúng ý</b><span>Người dùng thật làm được việc thật của họ mà không cần bạn đứng bên cạnh hướng dẫn.</span></div>
+      </div>
+      <div class="s-quote mt">Chỉ mức 3 mới là đích. Và chỉ có một cách duy nhất để biết đã tới mức 3: đưa cho người thật dùng và ngồi im quan sát.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 6 · NGHIỆM THU">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 6 · KIỂM THỬ</p>
+    <h2>Sáu nhóm ca kiểm thử — nhóm giá trị nhất là nhóm “làm sai”</h2>
+    <p class="s-lead">Ai cũng thử đường đi thuận lợi. Lỗi thật thì luôn nằm ở năm nhóm còn lại. Yêu cầu AI tự lập bảng, tự chạy, rồi tự điền kết quả.</p>
+    <div class="s-body">
+      <ol class="s-list">
+        <li><b>1</b><div>Đường đi thuận lợi<small>Người dùng làm đúng từ đầu đến cuối. Nhóm dễ nhất, ít giá trị nhất.</small></div></li>
+        <li><b>2</b><div>Dữ liệu thiếu hoặc sai định dạng<small>Bỏ trống ô bắt buộc, gõ chữ vào ô số, chọn ngày trong quá khứ.</small></div></li>
+        <li><b>3</b><div>Giá trị biên<small>Số 0, số âm, ngày hôm nay, chuỗi 300 ký tự, tiếng Việt có dấu, tên có dấu nháy.</small></div></li>
+        <li><b>4</b><div>Thao tác bị cấm<small>Đổi trạng thái sai thứ tự, sửa hồ sơ đã kết thúc, quay ngược trạng thái.</small></div></li>
+        <li><b>5</b><div>Sai quyền<small>Vai trò không đủ thẩm quyền cố thực hiện. Nhóm nguy hiểm nhất ở môi trường trường học.</small></div></li>
+        <li><b>6</b><div>Bền vững<small>Tải lại trang, mở hai tab, bấm nút Gửi hai lần liên tiếp thật nhanh.</small></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 6 · NGHIỆM THU">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 6 · NGƯỜI THẬT</p>
+    <h2>Buổi thử 15 phút với người thật — và bạn không được nói gì</h2>
+    <p class="s-lead">Đây là 15 phút có giá trị nhất trong cả dự án. Quy tắc quan trọng nhất: ngồi im. Mỗi lần bạn giải thích là một lỗi bị che mất.</p>
+    <div class="s-body">
+      <div class="s-steps">
+        <div><b>PHÚT 0–2</b><span>Giao nhiệm vụ, không hướng dẫn</span><small>“Anh/chị hãy nộp một đơn xin cấp giấy xác nhận.” Hết. Không nói thêm câu nào.</small></div>
+        <div><b>PHÚT 2–10</b><span>Ngồi im và ghi chép</span><small>Ghi chỗ họ dừng lại, chỗ họ bấm nhầm, chỗ họ hỏi “cái này là gì”.</small></div>
+        <div><b>PHÚT 10–13</b><span>Hỏi ba câu</span><small>Chỗ nào khó hiểu nhất? Bạn mong thấy gì mà không thấy? Có dùng thật được không?</small></div>
+        <div><b>PHÚT 13–15</b><span>Phân loại phản hồi</span><small>Lỗi sai đặc tả → sửa ngay. Yêu cầu mới → vào backlog. Nhầm lẫn cách dùng → sửa chữ trên màn hình.</small></div>
+      </div>
+    </div>
+    <p class="s-do"><b>LÀM NGAY</b> Chọn hai người: một người rành máy tính, một người ngại máy tính. Người thứ hai luôn tìm ra nhiều vấn đề hơn.</p>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 6 · NGHIỆM THU">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 6 · XỬ LÝ PHẢN HỒI</p>
+    <h2>Phân loại phản hồi trước khi sửa, nếu không phạm vi sẽ vỡ</h2>
+    <p class="s-lead">Sau buổi thử bạn sẽ có 10–20 ý kiến. Sửa hết là quay lại vạch xuất phát. Phân loại trước, rồi chỉ sửa đúng loại thứ nhất.</p>
+    <div class="s-body">
+      <div class="s-table c3">
+        <div><span>LOẠI PHẢN HỒI</span><span>DẤU HIỆU NHẬN BIẾT</span><span>XỬ LÝ</span></div>
+        <div><span>Lỗi sai đặc tả</span><span>Đặc tả ghi thế này, app làm thế khác</span><span>Sửa ngay trong hôm nay</span></div>
+        <div><span>Sai từ ngữ trên màn hình</span><span>Người dùng hiểu nhầm ý nghĩa của nút hoặc nhãn</span><span>Sửa ngay — rẻ nhất, hiệu quả cao nhất</span></div>
+        <div><span>Yêu cầu mới</span><span>Đặc tả chưa từng có mục này</span><span>Vào BACKLOG_V2.md, không làm ngay</span></div>
+        <div><span>Khác thói quen cũ</span><span>“Trên giấy tôi vẫn làm kiểu kia cơ”</span><span>Bàn với người sở hữu quy trình, đừng tự quyết</span></div>
+      </div>
+    </div>
+    <p class="s-do"><b>LÀM NGAY</b> Đọc lại phản hồi và đánh dấu loại cho từng ý. Thường chỉ 3–4 ý thuộc loại phải sửa ngay.</p>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 6 · NGHIỆM THU">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 6 · CHECKPOINT</p>
+    <h2>Qua chặng 6 khi có bằng chứng, không phải khi có cảm giác</h2>
+    <p class="s-lead">Bằng chứng nghĩa là thứ đưa cho lãnh đạo đọc được. “Em thấy chạy ổn rồi” không phải bằng chứng.</p>
+    <div class="s-body">
+      <ol class="s-list">
+        <li><b>1</b><div>Bảng ca kiểm thử đã điền cột kết quả thực tế<small>Có ca không đạt cũng được — miễn là được ghi ra, không giấu.</small></div></li>
+        <li><b>2</b><div>Ít nhất 2 người thật đã dùng thử, có biên bản ngắn<small>Ai thử, làm việc gì, vướng ở đâu, kết luận dùng được hay chưa.</small></div></li>
+        <li><b>3</b><div>Đã thử nhóm sai quyền và không có lỗ hổng nào<small>Bắt buộc trước khi cho bất kỳ ai ngoài nhóm làm dùng.</small></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CHẶNG 7 ==================== -->
+
+<section class="slide act-open" data-act="CHẶNG 7 · ĐƯA VÀO DÙNG">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 7 / 7</p>
+    <h2>Đưa vào dùng và giữ cho nó sống được quá ba tháng</h2>
+    <p class="s-lead">Rất nhiều app hành chính tự làm chết không phải vì kém, mà vì không ai sở hữu nó sau khi người làm ra bận việc khác.</p>
+    <div class="s-body">
+      <ul class="act-goals">
+        <li>5 việc trước khi gửi link</li>
+        <li>Thí điểm hẹp có đường lui</li>
+        <li>Bàn giao và người sở hữu</li>
+        <li>Backlog v2</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 7 · ĐƯA VÀO DÙNG">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 7 · TRƯỚC KHI CÔNG BỐ</p>
+    <h2>Năm việc bắt buộc trước khi gửi đường dẫn cho người khác</h2>
+    <p class="s-lead">Làm hết năm việc này mất khoảng 20 phút. Bỏ qua chúng thì bạn sẽ mất nhiều hơn thế để xử lý hậu quả.</p>
+    <div class="s-body">
+      <ol class="s-list">
+        <li><b>1</b><div>Rà lại không còn dữ liệu thật nào sót trong mã hoặc tệp mẫu<small>Yêu cầu AI liệt kê mọi chỗ có tên người, mã số, số điện thoại.</small></div></li>
+        <li><b>2</b><div>Kiểm tra không có đoạn mã nào gửi dữ liệu ra ngoài<small>Và không có khóa bí mật nào bị viết thẳng trong mã.</small></div></li>
+        <li><b>3</b><div>Tự mở bằng điện thoại, dùng mạng 4G, không dùng wifi cơ quan<small>Rất nhiều lỗi chỉ lộ ra ở bước này.</small></div></li>
+        <li><b>4</b><div>Viết một trang hướng dẫn sử dụng, tối đa hai trang A4<small>App không có hướng dẫn thì sau hai tuần không ai dùng nữa.</small></div></li>
+        <li><b>5</b><div>Ghi rõ trên màn hình: đây là bản thí điểm, dữ liệu giả<small>Để không ai nhầm đây là hệ thống chính thức của trường.</small></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 7 · ĐƯA VÀO DÙNG">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 7 · THÍ ĐIỂM</p>
+    <h2>Thí điểm hẹp, có thời hạn, và luôn có đường lui</h2>
+    <p class="s-lead">Thí điểm không phải là “cho mọi người dùng thử xem sao”. Nó là một thí nghiệm có phạm vi, có thời hạn và có tiêu chí kết luận định trước.</p>
+    <div class="s-body">
+      <div class="s-cols four">
+        <div><em>PHẠM VI</em><b>Một bộ môn, một khóa</b><span>Không mở toàn trường. Hẹp để còn xử lý tay được khi có sự cố.</span></div>
+        <div><em>THỜI HẠN</em><b>2–4 tuần, chốt ngày kết thúc</b><span>Không có ngày kết thúc thì thí điểm kéo dài vô hạn và thành chính thức lúc nào không hay.</span></div>
+        <div><em>ĐƯỜNG LUI</em><b>Quy trình giấy vẫn chạy song song</b><span>Trả lời được: nếu app hỏng thì trong bao lâu quay về cách cũ, và ai làm việc đó.</span></div>
+        <div><em>KẾT LUẬN</em><b>Tiêu chí định trước</b><span>Ví dụ: xử lý xong 30 hồ sơ, không mất dữ liệu, tiết kiệm được ít nhất 1 buổi mỗi tuần.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 7 · ĐƯA VÀO DÙNG">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 7 · BÀN GIAO</p>
+    <h2>App không có người sở hữu sẽ chết cùng người làm ra nó</h2>
+    <p class="s-lead">Đây là chặng bị bỏ qua nhiều nhất vì lúc đó ai cũng đang vui vì app chạy được. Sáu tháng sau không ai biết dữ liệu nằm ở đâu.</p>
+    <div class="s-body">
+      <div class="s-code">
+        <b>NỘI DUNG TỆP BAN_GIAO.md</b>
+        <pre>1. App làm gì, phục vụ quy trình nào, ai là người dùng.
+2. Danh sách tệp và vai trò từng tệp, viết bằng ngôn ngữ thường.
+3. Dữ liệu nằm ở đâu; cách sao lưu và cách khôi phục, theo từng bước bấm.
+4. Cách chạy app trên một máy hoàn toàn mới.
+5. Những thay đổi hay được yêu cầu nhất và cách thực hiện
+   (ví dụ: thêm một bộ môn vào danh sách chọn).
+6. Những chỗ dễ hỏng nhất, đã biết trước.
+7. Những gì cố tình KHÔNG làm và lý do.
+8. AI CHỊU TRÁCH NHIỆM về app này, và ai duyệt thay đổi.</pre>
+      </div>
+    </div>
+    <p class="s-do"><b>LÀM NGAY</b> Mục 8 là mục quan trọng nhất. Nếu chưa điền được tên một người vào đó thì app chưa sẵn sàng để thí điểm.</p>
+  </div>
+</section>
+
+<section class="slide" data-act="CHẶNG 7 · ĐƯA VÀO DÙNG">
+  <div class="s-inner">
+    <p class="s-kick">CHẶNG 7 · VÒNG SAU</p>
+    <h2>Phiên bản 2 chọn đúng ba việc — dựa trên số liệu, không dựa trên cảm giác</h2>
+    <p class="s-lead">Sau thí điểm bạn sẽ có backlog dài. Đừng chọn theo cái nào nghe hay nhất; chọn theo cái nào chặn việc nhiều người nhất.</p>
+    <div class="s-body">
+      <div class="s-table c4">
+        <div><span>Ý TƯỞNG TRONG BACKLOG</span><span>HỮU ÍCH (1–5)</span><span>RỦI RO NẾU SAI (1–5)</span><span>CÔNG SỨC (1–5)</span></div>
+        <div><span>Gửi email nhắc hạn tự động</span><span>4</span><span>3</span><span>4</span></div>
+        <div><span>Tải tệp đính kèm</span><span>5</span><span>4</span><span>3</span></div>
+        <div><span>Thống kê theo tháng</span><span>3</span><span>1</span><span>2</span></div>
+        <div><span>Nối với phần mềm đào tạo</span><span>5</span><span>5</span><span>5</span></div>
+      </div>
+      <div class="s-note mt"><b>Cách chọn:</b> lấy hữu ích cao, công sức thấp trước. Việc nào rủi ro 5 điểm thì phải bàn với bộ phận CNTT trước, không tự làm bằng AI.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== KẾT ==================== -->
+
+<section class="slide" data-act="KẾT">
+  <div class="s-inner">
+    <p class="s-kick">BẢNG TỰ KIỂM</p>
+    <h2>10 câu hỏi trả lời được trước khi bắt đầu bất kỳ app nào</h2>
+    <p class="s-lead">Nếu bạn chỉ nhớ được một slide trong cả buổi, hãy nhớ slide này. Trả lời được 10 câu, khả năng ra app đúng ý cao hơn hẳn.</p>
+    <div class="s-body">
+      <div class="s-cols two">
+        <div><em>1</em><b>Ai là người dùng thật, tên gì?</b><span>Một con người cụ thể, không phải “phòng ban”.</span></div>
+        <div><em>2</em><b>Họ đang mất bao lâu cho việc này?</b><span>Không đo được thì không chứng minh được lợi ích.</span></div>
+        <div><em>3</em><b>Xong rồi tôi sẽ nhìn thấy gì?</b><span>Tả được màn hình cuối bằng lời.</span></div>
+        <div><em>4</em><b>Năm chức năng của v1 là gì?</b><span>Mỗi cái một câu bắt đầu bằng động từ.</span></div>
+        <div><em>5</em><b>Tôi cố tình KHÔNG làm gì?</b><span>Tối thiểu năm dòng.</span></div>
+        <div><em>6</em><b>Hồ sơ có mấy trạng thái, ai được chuyển?</b><span>Kèm cả chiều bị cấm.</span></div>
+        <div><em>7</em><b>Mỗi vai trò KHÔNG được làm gì?</b><span>Vai trò nào cũng phải có ít nhất một ô “KHÔNG”.</span></div>
+        <div><em>8</em><b>Dữ liệu thử là dữ liệu giả, đúng không?</b><span>Không có ngoại lệ nào cho câu này.</span></div>
+        <div><em>9</em><b>Thế nào là đạt? Viết được 8 câu “Khi… thì…” chưa?</b><span>Chưa viết được nghĩa là chưa sẵn sàng mở AI.</span></div>
+        <div><em>10</em><b>Nếu tôi bận việc khác, ai tiếp quản?</b><span>Điền được tên thì app mới có tương lai.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide cover" data-act="KẾT">
+  <div class="s-inner">
+    <p class="s-kick">KẾT · MANG GÌ VỀ SAU BUỔI HỌC</p>
+    <h2>App đúng ý không phải may mắn. <em>Nó là kết quả của việc viết ra trước.</em></h2>
+    <p class="s-lead">AI không làm bạn giỏi hơn trong việc biết mình muốn gì. Nó chỉ thực hiện rất nhanh những gì bạn đã nói rõ — và đoán rất nhanh những gì bạn để trống.</p>
+    <div class="s-body">
+      <div class="cover-meta">
+        <span><b>Trường Prompt</b><small>27 prompt mẫu · 10 kỹ thuật viết câu lệnh</small></span>
+        <span><b>Từ điển thuật ngữ</b><small>93 từ khóa app &amp; website, tra không dấu</small></span>
+        <span><b>📘 Ebook 12 Chương</b><small>Làm một app thật từ đầu đến khi lên mạng</small></span>
+      </div>
+      <p class="s-hint">Bấm <b>⎙ PDF</b> ở thanh trên để lưu toàn bộ 51 slide thành tệp PDF phát cho học viên.</p>
+    </div>
+  </div>
+</section>
+
+    </div>
+
+    <p class="deck-help">
+      <span>Chọn slide ở mục lục (trên điện thoại bấm nút <b>Mục lục slide</b>), hoặc bấm <kbd>&larr;</kbd> <kbd>&rarr;</kbd> — trên điện thoại thì vuốt trái/phải.</span>
+      <span>Bấm <b>PDF</b> để in hoặc lưu toàn bộ 51 slide thành tệp phát cho học viên.</span>
+    </p>
+  </main>
+</div>
+
+<script src="js/slides.js?v=2"></script>
+</body>
+</html>

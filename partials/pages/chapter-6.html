@@ -1,0 +1,265 @@
+    <article class="ebook-page" id="chapter-6" data-chapter="6">
+      <header class="chapter-head">
+        <div class="chapter-badge-num">06</div>
+        <div class="chapter-head-info">
+          <p class="chapter-eyebrow">CHƯƠNG 06 · PHẦN II <span>· 30 PHÚT ĐỌC</span></p>
+          <h2>Làm Chủ Claude Desktop &amp; Claude Code: Hệ Sinh Thái MCP</h2>
+          <p class="chapter-subtitle">Kết nối Claude với toàn bộ dữ liệu nội bộ qua Model Context Protocol (MCP) và công cụ dòng lệnh Claude Code.</p>
+        </div>
+      </header>
+
+      <div class="chapter-goal-box">
+        <b>Mục tiêu chương:</b>
+        <span>Hiểu sâu giao thức chuẩn mở MCP (Model Context Protocol); cấu hình claude_desktop_config.json kết nối CSDL SQLite, GitHub và File System; làm chủ Claude Code CLI và kỹ năng tận dụng Extended Thinking để tái cấu trúc hệ thống lớn.</span>
+      </div>
+
+      <div class="body">
+        <section class="wide">
+          <div class="figure-showcase">
+            <div class="figure-header">
+              <span class="figure-title">⚡ Hình 6.1: Giao diện Claude Desktop và Kiến trúc MCP Client-Server</span>
+              <div class="figure-actions">
+                <a class="figure-btn" href="assets/official_ui/mcp_architecture.png" target="_blank">🔗 Mở ảnh gốc</a>
+                <button class="figure-btn zoom-btn">🔍 Phóng to</button>
+              </div>
+            </div>
+            <div class="figure-img-wrap">
+              <img src="assets/official_ui/mcp_architecture.png" alt="Giao diện Claude Desktop và sơ đồ giao thức MCP kết nối PostgreSQL, GitHub, Local Files" loading="lazy">
+            </div>
+            <div class="figure-caption">
+              <em>Hình 6.1:</em> Chuẩn mở <strong>Model Context Protocol (MCP)</strong>: Claude đóng vai trò Host/Client, kết nối bảo mật với các MCP Server (CSDL, Google Drive, Hệ thống file nội bộ).
+            </div>
+          </div>
+
+          <!-- YOUTUBE GUIDELINE: CLAUDE DESKTOP & MCP -->
+          <div class="video-guideline-box">
+            <div class="video-guideline-header">
+              <span class="video-guideline-title">
+                <span class="video-guideline-badge">Kênh Huy Dao</span>
+                📺 Video Hướng Dẫn: Làm Chủ Claude Desktop &amp; Hệ Sinh Thái Tác Nhân AI
+              </span>
+              <a class="video-guideline-link" href="https://www.youtube.com/watch?v=XSpYx8IEk6c" target="_blank" rel="noopener">Mở trên YouTube ↗</a>
+            </div>
+            <div class="video-card-banner">
+              <div class="video-topic">🎬 "Hướng Dẫn Sử Dụng Claude AI: Từ Cơ Bản Đến Nâng Cao (Desktop App, Cowork, Code &amp; Computer Use)"</div>
+              <div class="video-channel-tag"><span>Kênh: Huy Dao</span> • Video Thực Hành Toàn Diện</div>
+              <a class="video-play-btn" href="https://www.youtube.com/watch?v=XSpYx8IEk6c" target="_blank" rel="noopener">
+                ▶ Xem Video Trên YouTube
+              </a>
+            </div>
+            <div class="video-guideline-body">
+              <strong>Điểm nhấn kỹ thuật:</strong> Hướng dẫn toàn diện cách sử dụng Claude Desktop, kích hoạt chế độ Code/Cowork, điều khiển máy tính an toàn và khai thác chuẩn kết nối MCP vạn năng.
+              <div class="video-guideline-timestamps">
+                <span class="video-stamp-pill">⏱️ 02:15 — Ứng dụng Claude Desktop &amp; Giao diện</span>
+                <span class="video-stamp-pill">⏱️ 08:30 — Chế độ Code, Cowork &amp; Project</span>
+                <span class="video-stamp-pill">⏱️ 15:40 — Điều khiển máy tính &amp; Kỹ năng mở rộng</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>1. Sức mạnh vượt trội của Claude 3.7 Sonnet &amp; Extended Thinking</h3>
+          <p>Mô hình Claude 3.7 Sonnet từ Anthropic mang đến khả năng <em>Lập luận mở rộng (Extended Thinking)</em>. Trước khi trả lời, mô hình tự động dành ra hàng nghìn token suy luận nội tâm (Internal Reasoning Tokens) — một quá trình tương đương với việc một kỹ sư cấp cao ngồi "vẽ nháp" trên tờ giấy trước khi đưa ra kết luận chính thức.</p>
+          <p>Điều này biến Claude thành chuyên gia số một cho 3 nhóm tác vụ đặc thù:</p>
+          <ul>
+            <li><strong>Thiết kế kiến trúc ban đầu:</strong> Claude có thể xem xét toàn bộ yêu cầu, đánh giá nhiều phương án kiến trúc (Monolith vs Microservices, SQL vs NoSQL), phân tích ưu nhược điểm và đề xuất lựa chọn tối ưu với lý giải chi tiết.</li>
+            <li><strong>Phát hiện lỗi logic bảo mật:</strong> Extended Thinking cho phép Claude "suy nghĩ" qua từng nhánh thực thi của mã nguồn, phát hiện các trường hợp IDOR, race condition và SQL Injection tinh vi mà phân tích tĩnh thông thường bỏ sót.</li>
+            <li><strong>Tái cấu trúc (Refactoring) module phức tạp:</strong> Claude có thể đọc toàn bộ 2,000 dòng mã legacy, hiểu đầy đủ ý nghĩa kinh doanh và tái cấu trúc mà không phá vỡ bất kỳ behavior nào đang hoạt động.</li>
+          </ul>
+          <p>Cách kích hoạt Extended Thinking khi làm việc với Claude:</p>
+          <div class="prompt">
+            <b>PROMPT MẪU KÍCH HOẠT EXTENDED THINKING:</b>
+            <p>Hãy suy nghĩ thật sâu và toàn diện (Extended Thinking) trước khi trả lời. Chúng tôi cần thiết kế kiến trúc xác thực người dùng cho hệ thống SaaS với 50,000 người dùng đồng thời. Hãy phân tích ít nhất 3 phương án (JWT + Refresh Token, Session-based, OAuth2 PKCE), so sánh độ phức tạp triển khai, độ bảo mật, khả năng mở rộng và chi phí vận hành. Sau đó đưa ra đề xuất cuối cùng có kèm lý do kỹ thuật.</p>
+          </div>
+        </section>
+
+        <section>
+          <h3>2. Toàn tập về Model Context Protocol (MCP): Kiến trúc và Nguyên lý</h3>
+          <p>MCP là chuẩn giao thức mở do Anthropic phát triển vào cuối 2024, nhanh chóng trở thành tiêu chuẩn ngành được tất cả các nhà cung cấp AI lớn (OpenAI, Google) chấp thuận. Nó giải quyết bài toán lớn nhất của AI trong doanh nghiệp: <em>làm sao để AI truy cập an toàn vào dữ liệu riêng tư mà không phải tải toàn bộ lên máy chủ bên thứ ba</em>.</p>
+          <p>Kiến trúc 3 tầng của MCP:</p>
+          <div class="mini-table">
+            <div><b>Thành phần</b><b>Vai trò</b><b>Ví dụ thực tế</b></div>
+            <div><span><b>MCP Host</b></span><span>Ứng dụng điều phối giao diện và session người dùng</span><span>Claude Desktop, Antigravity IDE, VS Code Extension</span></div>
+            <div><span><b>MCP Client</b></span><span>Thành phần embed trong Host, quản lý kết nối JSON-RPC 2.0</span><span>Thư viện @anthropic-ai/mcp-client</span></div>
+            <div><span><b>MCP Server</b></span><span>Tiến trình chạy cục bộ, cung cấp Tools/Resources/Prompts</span><span>mcp-server-sqlite, mcp-server-filesystem, mcp-server-github</span></div>
+          </div>
+          <p>MCP Server cung cấp 3 loại khả năng cho AI:</p>
+          <ul>
+            <li><strong>Tools (Công cụ thực thi):</strong> Các hàm mà AI có thể gọi để thực hiện hành động, ví dụ: <code>query_database(sql)</code>, <code>create_github_issue(title, body)</code>.</li>
+            <li><strong>Resources (Tài nguyên dữ liệu):</strong> Dữ liệu có địa chỉ URI mà AI có thể đọc, ví dụ: <code>sqlite:///app.db/users</code>, <code>file:///workspace/SPEC.md</code>.</li>
+            <li><strong>Prompts (Mẫu lệnh):</strong> Các mẫu prompt có tham số tái sử dụng được, ví dụ: mẫu prompt review code theo chuẩn OWASP.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>3. Hướng dẫn cấu hình claude_desktop_config.json toàn diện</h3>
+          <p>Mở file cấu hình tại <code>~/Library/Application Support/Claude/claude_desktop_config.json</code> (macOS) hoặc <code>%APPDATA%\Claude\claude_desktop_config.json</code> (Windows). Đây là bản cấu hình đầy đủ cho môi trường phát triển web app:</p>
+          <div class="code">
+            <div><span>claude_desktop_config.json - CẤU HÌNH MCP TOÀN DIỆN CHO WEB DEV</span></div>
+            <pre>{
+  "mcpServers": {
+    "sqlite": {
+      "command": "uvx",
+      "args": ["mcp-server-sqlite", "--db-path", "/duong_dan_du_an/my_app.db"],
+      "description": "Đọc và query CSDL SQLite cục bộ an toàn"
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/duong_dan_du_an/workspace/"],
+      "description": "Đọc, ghi file trong workspace được chỉ định"
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_your_token_here"
+      },
+      "description": "Đọc issues, PR, commit history từ GitHub"
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres",
+               "postgresql://user:password@localhost:5432/mydb"],
+      "description": "Kết nối PostgreSQL production (chỉ đọc)"
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": "BSA_your_brave_api_key"
+      },
+      "description": "Tìm kiếm web qua Brave Search API"
+    }
+  }
+}</pre>
+          </div>
+          <p>Sau khi cập nhật file, khởi động lại Claude Desktop. Truy cập menu Settings → MCP để kiểm tra trạng thái kết nối của từng server (xanh = kết nối thành công, đỏ = lỗi).</p>
+        </section>
+
+        <section>
+          <h3>4. Xây dựng MCP Server tùy chỉnh cho hệ thống nội bộ</h3>
+          <p>Khi không có MCP Server sẵn có phù hợp với hệ thống nội bộ (ERP, CRM, legacy API), bạn có thể tự xây dựng MCP Server chỉ với ~50 dòng Python:</p>
+          <div class="code">
+            <div><span>CUSTOM MCP SERVER - KẾT NỐI API NỘI BỘ</span></div>
+            <pre">from mcp.server import Server
+from mcp.server.stdio import stdio_server
+from mcp import Tool
+import httpx
+import json
+
+app = Server("internal-erp-server")
+
+@app.list_tools()
+async def list_tools():
+    return [
+        Tool(
+            name="get_employee_info",
+            description="Lấy thông tin nhân viên từ hệ thống HR nội bộ theo mã nhân viên",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "employee_id": {
+                        "type": "string",
+                        "description": "Mã nhân viên (ví dụ: EMP-001)"
+                    }
+                },
+                "required": ["employee_id"]
+            }
+        ),
+        Tool(
+            name="list_pending_approvals",
+            description="Lấy danh sách đơn từ đang chờ phê duyệt của người quản lý",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "manager_id": {"type": "string"},
+                    "limit": {"type": "integer", "default": 20}
+                },
+                "required": ["manager_id"]
+            }
+        )
+    ]
+
+@app.call_tool()
+async def call_tool(name: str, arguments: dict):
+    async with httpx.AsyncClient() as client:
+        if name == "get_employee_info":
+            resp = await client.get(
+                f"https://erp.internal/api/employees/{arguments['employee_id']}",
+                headers={"Authorization": f"Bearer {INTERNAL_API_TOKEN}"}
+            )
+            return [{"type": "text", "text": json.dumps(resp.json(), ensure_ascii=False)}]
+
+# Chạy server qua stdio
+async def main():
+    async with stdio_server() as (read_stream, write_stream):
+        await app.run(read_stream, write_stream, app.create_initialization_options())
+
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())</pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>5. Claude Code CLI: Lập trình trong Terminal như một cao thủ</h3>
+          <p>Claude Code là công cụ dòng lệnh chạy trực tiếp trong terminal, cho phép Claude truy cập toàn bộ codebase và thực hiện thay đổi trực tiếp lên file mà không cần giao diện đồ họa. Đây là công cụ được các kỹ sư backend ưa chuộng nhất:</p>
+          <div class="code">
+            <div><span>CLAUDE CODE CLI - CÁC LỆNH THIẾT YẾU</span></div>
+            <pre># Cài đặt
+npm install -g @anthropic-ai/claude-code
+
+# Khởi động trong thư mục dự án
+cd /path/to/your/project
+claude
+
+# Yêu cầu không tương tác (1 lần chạy tự động)
+claude --print "Phân tích tất cả API endpoint trong /routes và liệt kê những endpoint thiếu middleware xác thực"
+
+# Đọc file cụ thể trước khi tư vấn
+claude --input-file SPEC.md "Dựa trên spec này, hãy đề xuất schema database tối ưu"
+
+# Chế độ chỉ đọc (không sửa file)
+claude --no-edit "Giải thích toàn bộ luồng xử lý đơn hàng trong codebase này"</pre>
+          </div>
+          <p>Các tác vụ Claude Code thực hiện xuất sắc trong môi trường terminal:</p>
+          <ul>
+            <li><strong>Tìm kiếm toàn repo:</strong> <code>claude "Tìm tất cả nơi trong codebase đang dùng console.log() để debug và đề xuất cách thay bằng proper logging"</code></li>
+            <li><strong>Commit Git thông minh:</strong> Claude tự động phân tích diff, viết commit message mô tả đầy đủ theo Conventional Commits.</li>
+            <li><strong>Tạo migration CSDL:</strong> Claude đọc schema hiện tại và tạo file migration SQL/Prisma an toàn.</li>
+            <li><strong>Sinh tài liệu API:</strong> Claude đọc toàn bộ route handlers và tạo file OpenAPI 3.0 spec đầy đủ.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>6. Chiến lược khai thác MCP tối đa: Mô hình 4 lớp dữ liệu</h3>
+          <div class="hint">
+            <strong>MÔ HÌNH PHÂN CẤP DỮ LIỆU CHO CLAUDE + MCP:</strong><br>
+            <strong>Lớp 1 - Thời gian thực (Real-time):</strong> Kết nối MCP Server CSDL production (chỉ đọc) → Claude truy vấn số liệu mới nhất trực tiếp.<br>
+            <strong>Lớp 2 - Tài liệu dự án (Project Docs):</strong> MCP Filesystem đọc SPEC.md, AGENTS.md, README → Claude hiểu ngữ cảnh dự án đầy đủ.<br>
+            <strong>Lớp 3 - Mã nguồn (Source Code):</strong> MCP Filesystem đọc toàn bộ /src → Claude hiểu kiến trúc hiện tại trước khi đề xuất thay đổi.<br>
+            <strong>Lớp 4 - Lịch sử thay đổi (Git History):</strong> MCP GitHub đọc commit history → Claude hiểu lý do tại sao code được viết theo cách đó, tránh lặp lại lỗi cũ.
+          </div>
+          <p>Với 4 lớp này, một câu hỏi đơn giản như "Tại sao tính năng X lại chậm?" sẽ cho ra câu trả lời cực kỳ chính xác vì Claude có đủ bối cảnh: dữ liệu thực, kiến trúc code, và lịch sử thay đổi liên quan.</p>
+        </section>
+      </div>
+
+
+      <footer class="chapter-footer-seamless">
+        <div class="chapter-status-line">
+          <span>Chương 6 / 12</span>
+          <button class="chapter-btn-read" data-complete-chapter="6">✓ Đánh dấu đã đọc chương 6</button>
+        </div>
+        <nav class="seamless-bottom-nav">
+          <a href="#chapter-5" class="nav-link-prev">
+            <small>← QUAY LẠI</small>
+            <span>Chương 05: OpenAI Codex</span>
+          </a>
+          <a href="#chapter-7" class="nav-link-next">
+            <small>CHƯƠNG TIẾP THEO →</small>
+            <span>Chương 07: So sánh &amp; Phối hợp</span>
+          </a>
+        </nav>
+      </footer>
+    </article>

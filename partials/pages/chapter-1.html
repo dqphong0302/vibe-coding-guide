@@ -1,0 +1,155 @@
+    <article class="ebook-page" id="chapter-1" data-chapter="1">
+      <div class="part-lead-header">
+        <span class="part-tag">PHẦN I · NỀN TẢNG &amp; TƯ DUY</span>
+        <h2>Nền Tảng &amp; Tư Duy Vibe Coding Hiện Đại</h2>
+        <p>Nắm vững bản chất kỹ thuật của việc chỉ huy AI, hiểu cấu trúc của một ứng dụng phần mềm và thiết lập kho mã nguồn an toàn trước khi viết dòng lệnh đầu tiên.</p>
+      </div>
+
+      <header class="chapter-head">
+        <div class="chapter-badge-num">01</div>
+        <div class="chapter-head-info">
+          <p class="chapter-eyebrow">CHƯƠNG 01 · PHẦN I <span>· 20 PHÚT ĐỌC</span></p>
+          <h2>Bản Chất Vibe Coding &amp; Tư Duy Làm Chủ AI Coding Agent</h2>
+          <p class="chapter-subtitle">Tốc độ nằm ở vòng phản hồi ngắn và kỷ luật giao việc, không nằm ở việc bấm nút vô thức hay phó mặc cho AI đoán mò.</p>
+        </div>
+      </header>
+
+      <div class="chapter-goal-box">
+        <b>Mục tiêu chương:</b>
+        <span>Làm rõ sự chuyển dịch từ gợi ý mã nguồn (Autocomplete) sang AI Agent tự chủ; nắm vững vòng lặp 4 bước Vibe Coding chuẩn mực; hiểu rõ 5 khái niệm cốt lõi (Workspace, Session, Model, Context Window, Quota) và loại bỏ tư duy code mò.</span>
+      </div>
+
+      <div class="body">
+        <section>
+          <h3>1. Sự tiến hóa từ AI gợi ý code đến AI Agent tự chủ</h3>
+          <p>Lịch sử ứng dụng trí tuệ nhân tạo vào lập trình đã trải qua 3 thế hệ phát triển then chốt:</p>
+          <ul>
+            <li><strong>Thế hệ 1 - Auto-complete (Gợi ý dòng lệnh):</strong> Đại diện là GitHub Copilot đời đầu (2021-2023). AI chỉ đóng vai trò là "Tab Completion", đoán dòng lệnh tiếp theo dựa trên vài dòng code trước đó. Lập trình viên vẫn phải tự tạo file, tự sửa lỗi và tự kiểm thử.</li>
+            <li><strong>Thế hệ 2 - Chat Sidebar (Hỏi đáp bên lề):</strong> Xuất hiện qua ChatGPT, Claude web và plugin sidebar (2023-2024). Lập trình viên copy-paste code qua lại giữa trình duyệt và IDE. Quá trình này tiêu tốn nhiều thời gian và thường xuyên làm mất ngữ cảnh.</li>
+            <li><strong>Thế hệ 3 - Autonomous AI Coding Agent (Trợ lý tự chủ):</strong> Đại diện bởi <em>Google Antigravity</em>, <em>OpenAI Codex</em>, <em>Claude Desktop / Claude Code</em> (2025-2026). AI có khả năng đọc toàn bộ cây thư mục dự án, tự đề xuất kế hoạch sửa đổi nhiều file đồng thời, tự thực thi lệnh trong terminal, mở trình duyệt để kiểm thử và báo cáo kết quả qua diff trực quan.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>2. Bản chất thực sự của Vibe Coding</h3>
+          <p>Thuật ngữ <em>Vibe Coding</em> được khởi xướng bởi Andrej Karpathy (cựu Giám đốc AI Tesla, đồng sáng lập OpenAI). Nó mô tả trạng thái lập trình viên diễn đạt mong muốn bằng ngôn ngữ tự nhiên, để AI đảm nhiệm việc hiện thực hóa mã nguồn.</p>
+          <p>Tuy nhiên, <strong>Vibe Coding không phải là code mò vô định</strong>. Nếu không có đặc tả, AI sẽ tự bịa logic (hallucination), tạo ra mã nguồn rác, vi phạm bảo mật và làm tràn bộ nhớ ngữ cảnh (Context Window). Vibe Coding chuyên nghiệp là kỹ năng của một <em>Tổng chỉ huy kỹ thuật</em>: đưa ra yêu cầu chính xác, xét duyệt kế hoạch trước khi chạy và nghiệm thu sản phẩm qua từng bài test.</p>
+        </section>
+
+        <section class="wide">
+          <div class="figure-showcase">
+            <div class="figure-header">
+              <span class="figure-title">📊 Hình 1.1: 5 Khái niệm nền tảng cần biết trước khi dùng AI Agent</span>
+              <div class="figure-actions">
+                <a class="figure-btn" href="assets/diagrams/beginner_five_concepts.png" target="_blank">🔗 Mở ảnh gốc</a>
+                <button class="figure-btn zoom-btn">🔍 Phóng to</button>
+              </div>
+            </div>
+            <div class="figure-img-wrap">
+              <img src="assets/diagrams/beginner_five_concepts.png" alt="5 Khái niệm nền tảng AI Coding Agent: Project, Session, Model, History, Quota" loading="lazy">
+            </div>
+            <div class="figure-caption">
+              <em>Hình 1.1:</em> Năm trụ cột vận hành của bất kỳ AI Coding Agent nào: <strong>Project</strong> (Không gian làm việc), <strong>Session</strong> (Phiên hội thoại), <strong>Model</strong> (Bộ não suy luận), <strong>History</strong> (Lịch sử phiên) và <strong>Quota</strong> (Hạn ngạch token/lượt gọi).
+            </div>
+          </div>
+
+          <!-- YOUTUBE GUIDELINE: VIBE CODING & TƯ DUY DEV -->
+          <div class="video-guideline-box">
+            <div class="video-guideline-header">
+              <span class="video-guideline-title">
+                <span class="video-guideline-badge">Kênh Tôi Đi Code Dạo</span>
+                📺 Video Thực Chiến: AI Viết Code Ngày Càng Xịn — Bản Chất Vibe Coding &amp; Tương Lai Ngành Lập Trình
+              </span>
+              <a class="video-guideline-link" href="https://www.youtube.com/watch?v=z4aoLLaV4-4" target="_blank" rel="noopener">Mở trên YouTube ↗</a>
+            </div>
+            <div class="video-card-banner">
+              <div class="video-topic">🎬 "AI viết code ngày càng xịn, tương lai ngành Lập Trình sẽ ra sao?"</div>
+              <div class="video-channel-tag"><span>Kênh: Tôi Đi Code Dạo (Phạm Huy Hoàng)</span> • 400.000+ Lượt xem</div>
+              <a class="video-play-btn" href="https://www.youtube.com/watch?v=z4aoLLaV4-4" target="_blank" rel="noopener">
+                ▶ Xem Video Trên YouTube
+              </a>
+            </div>
+            <div class="video-guideline-body">
+              <strong>Góc nhìn thực tế từ chuyên gia:</strong> Lập trình viên không lo bị AI thay thế nếu biết cách chuyển đổi vai trò từ "thợ gõ code" sang "chỉ huy kỹ thuật" — nắm rõ bài toán nghiệp vụ, duyệt giải pháp và kiểm thử nghiệm thu nghiêm ngặt.
+              <div class="video-guideline-timestamps">
+                <span class="video-stamp-pill">⏱️ 01:20 — Auto-complete vs AI Agent</span>
+                <span class="video-stamp-pill">⏱️ 05:40 — Vì sao lười suy nghĩ sẽ bị đào thải</span>
+                <span class="video-stamp-pill">⏱️ 11:15 — 3 Kỹ năng cốt lõi thời đại AI</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>3. Năm khái niệm cốt lõi của mọi AI Coding Agent</h3>
+          <p>Dù sử dụng Antigravity, Codex hay Claude Desktop, bạn bắt buộc phải hiểu 5 thực thể sau:</p>
+          <ol>
+            <li><strong>Project / Workspace:</strong> Thư mục gốc chứa toàn bộ mã nguồn, tài liệu và cấu hình của dự án. Agent chỉ có thể thao tác an toàn bên trong phạm vi thư mục này.</li>
+            <li><strong>Session (Phiên làm việc):</strong> Cuộc hội thoại độc lập giữa bạn và AI. Khi đổi nhiệm vụ lớn, nên tạo session mới để làm sạch Context Window.</li>
+            <li><strong>Model (Mô hình suy luận):</strong> Bộ não xử lý (ví dụ: Claude 3.7 Sonnet, GPT-4o, Gemini 2.5 Pro). Mỗi mô hình có thế mạnh riêng về logic, tốc độ hoặc phân tích hình ảnh.</li>
+            <li><strong>Context Window &amp; Token Budget:</strong> Dung lượng bộ nhớ của phiên làm việc. Càng nhiều tin nhắn cũ, bộ nhớ càng đầy, AI càng dễ bị "lú lẫn" và phản hồi chậm hơn.</li>
+            <li><strong>Quota &amp; Rate Limit:</strong> Hạn mức sử dụng của tài khoản (tính theo số lượt gọi mỗi phút/giờ hoặc số token tiêu thụ trong ngày).</li>
+          </ol>
+        </section>
+
+        <section>
+          <h3>4. Vòng lặp 4 bước Vibe Coding chuẩn mực</h3>
+          <p>Để đạt hiệu quả cao nhất và tránh lỗi phá hỏng mã nguồn cũ, hãy luôn tuân thủ vòng lặp 4 bước khép kín:</p>
+          <ul>
+            <li><strong>Bước 1 - Explore (Khám phá):</strong> Yêu cầu AI đọc repo, quét các file liên quan để hiểu hiện trạng mà không sửa mã.</li>
+            <li><strong>Bước 2 - Plan (Lập kế hoạch):</strong> AI tạo tài liệu kế hoạch liệt kê danh sách file cần sửa, kiến trúc và rủi ro kỹ thuật; bạn duyệt trước khi chạy.</li>
+            <li><strong>Bước 3 - Code (Viết mã từng phần):</strong> AI chỉ sửa đúng phạm vi đã duyệt, ưu tiên các lát cắt nhỏ độc lập (incremental slice).</li>
+            <li><strong>Bước 4 - Verify (Kiểm chứng &amp; Commit):</strong> Chạy unit test, mở trình duyệt kiểm tra giao diện, đối chiếu tiêu chí hoàn thành rồi commit git.</li>
+          </ul>
+        </section>
+
+        <section class="wide">
+          <div class="figure-showcase">
+            <div class="figure-header">
+              <span class="figure-title">🔄 Hình 1.2: Vòng lặp Vibe Coding có kiểm soát</span>
+              <div class="figure-actions">
+                <a class="figure-btn" href="assets/diagrams/01_vibe_loop.png" target="_blank">🔗 Mở ảnh gốc</a>
+                <button class="figure-btn zoom-btn">🔍 Phóng to</button>
+              </div>
+            </div>
+            <div class="figure-img-wrap">
+              <img src="assets/diagrams/01_vibe_loop.png" alt="Vòng lặp Vibe Coding" loading="lazy">
+            </div>
+            <div class="figure-caption">
+              <em>Hình 1.2:</em> Quy trình lặp liên tục: Đưa đặc tả → Xem Plan → Duyệt Diff → Kiểm thử → Commit.
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>5. Năm cạm bẫy "Code mò" (Vibe Blindness) thường gặp</h3>
+          <div class="warn">
+            <strong>NHỮNG SAI LẦM PHỔ BIẾN CẦN TRÁNH:</strong>
+            <ol style="margin-top: 8px; padding-left: 20px;">
+              <li><strong>Prompt quá chung chung:</strong> <em>"Làm cho tôi một web bán hàng giống Shopee."</em> → AI sẽ tự bịa hàng trăm dòng code thừa thãi không chạy được.</li>
+              <li><strong>Không đọc Diff trước khi Apply:</strong> Chấp nhận toàn bộ thay đổi mà không kiểm tra xem AI có xóa nhầm code cũ hay không.</li>
+              <li><strong>Dồn toàn bộ tính năng vào một Prompt:</strong> Yêu cầu vừa làm giao diện, vừa làm backend, vừa làm thanh toán trong một lần bấm nút.</li>
+              <li><strong>Giữ một Session quá dài:</strong> Chat hàng trăm tin nhắn trong một session khiến context bị loãng, chi phí token tăng vọt.</li>
+              <li><strong>Bỏ qua bước Test trên trình duyệt:</strong> Tin rằng "AI báo xong nghĩa là code chạy được" mà không tự mình bấm thử các nút trên màn hình.</li>
+            </ol>
+          </div>
+        </section>
+      </div>
+
+      <footer class="chapter-footer-seamless">
+        <div class="chapter-status-line">
+          <span>Chương 1 / 12</span>
+          <button class="chapter-btn-read" data-complete-chapter="1">✓ Đánh dấu đã đọc chương 1</button>
+        </div>
+        <nav class="seamless-bottom-nav">
+          <a href="#home" class="nav-link-prev">
+            <small>← QUAY LẠI</small>
+            <span>Trang bìa &amp; Mục lục</span>
+          </a>
+          <a href="#chapter-2" class="nav-link-next">
+            <small>CHƯƠNG TIẾP THEO →</small>
+            <span>Chương 02: Mô hình hoạt động Web App</span>
+          </a>
+        </nav>
+      </footer>
+    </article>
